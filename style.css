@@ -122,7 +122,83 @@ line-height:1.8;
 
 }
 
+.timeline{
 
+max-width:900px;
+
+margin:60px auto;
+
+}
+
+.step{
+
+display:flex;
+
+gap:25px;
+
+margin-bottom:40px;
+
+align-items:flex-start;
+
+}
+
+.number{
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:24px;
+
+font-weight:bold;
+
+color:white;
+
+flex-shrink:0;
+
+}
+
+.content{
+
+background:#1b2438;
+
+padding:30px;
+
+border-radius:16px;
+
+width:100%;
+
+box-shadow:0 10px 25px rgba(0,0,0,.20);
+
+}
+
+.content h3{
+
+color:#38bdf8;
+
+margin-bottom:15px;
+
+}
+
+.content p{
+
+color:#d4d4d4;
+
+line-height:1.8;
+
+font-size:17px;
+
+}
 
 .hero{
 display:grid;
