@@ -60,6 +60,70 @@ nav a:hover{
 color:#38bdf8;
 }
 
+.policy{
+
+max-width:950px;
+
+margin:auto;
+
+}
+
+.policy .card{
+
+background:#1b2438;
+
+padding:35px;
+
+margin-bottom:30px;
+
+border-radius:16px;
+
+box-shadow:0 15px 30px rgba(0,0,0,.20);
+
+}
+
+.policy h2{
+
+color:#38bdf8;
+
+margin-bottom:18px;
+
+font-size:28px;
+
+}
+
+.policy p{
+
+color:#d4d4d4;
+
+font-size:17px;
+
+line-height:1.9;
+
+}
+
+.policy ul{
+
+margin-left:25px;
+
+margin-top:15px;
+
+}
+
+.policy li{
+
+margin-bottom:12px;
+
+font-size:17px;
+
+color:#d4d4d4;
+
+line-height:1.8;
+
+}
+
+
+
 .hero{
 display:grid;
 grid-template-columns:1fr 1fr;
