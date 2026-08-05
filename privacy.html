@@ -5,7 +5,574 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =====================================================
+   AI MARKETING BRAIN
+   PROFESSIONAL STYLE
+===================================================== */
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Inter,Segoe UI,Arial,sans-serif;
+
+background:#0f172a;
+
+color:#e2e8f0;
+
+line-height:1.8;
+
+font-size:18px;
+
+}
+
+/* ===========================
+CONTAINER
+=========================== */
+
+.container{
+
+width:min(1400px,92%);
+
+margin:auto;
+
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+background:#111827;
+
+border-bottom:1px solid #26364d;
+
+backdrop-filter:blur(10px);
+
+}
+
+.header-container{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:22px 0;
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.logo img{
+
+width:58px;
+
+height:58px;
+
+border-radius:12px;
+
+}
+
+.logo h1{
+
+font-size:34px;
+
+color:white;
+
+font-weight:700;
+
+}
+
+nav{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:#dbeafe;
+
+font-size:17px;
+
+font-weight:600;
+
+transition:.25s;
+
+padding:8px 12px;
+
+border-radius:8px;
+
+}
+
+nav a:hover{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+nav a.active{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+margin:60px 0;
+
+padding:90px;
+
+border-radius:25px;
+
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+text-align:center;
+
+}
+
+.hero h2{
+
+font-size:56px;
+
+color:white;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+max-width:900px;
+
+margin:auto;
+
+font-size:21px;
+
+color:#f8fafc;
+
+}
+
+/* ===========================
+TABLE OF CONTENTS
+=========================== */
+
+.card{
+
+background:#1e293b;
+
+padding:45px;
+
+border-radius:22px;
+
+margin-bottom:35px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+transition:.25s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.card h2{
+
+font-size:34px;
+
+margin-bottom:25px;
+
+color:#38bdf8;
+
+}
+
+.card h3{
+
+margin-top:25px;
+
+margin-bottom:15px;
+
+font-size:24px;
+
+color:#60a5fa;
+
+}
+
+.card p{
+
+font-size:18px;
+
+margin-bottom:18px;
+
+line-height:1.9;
+
+color:#dbeafe;
+
+}
+
+.card ul{
+
+padding-left:28px;
+
+}
+
+.card li{
+
+font-size:18px;
+
+margin-bottom:12px;
+
+line-height:1.8;
+
+color:#dbeafe;
+
+}
+
+.card ol{
+
+padding-left:28px;
+
+}
+
+.card a{
+
+color:#60a5fa;
+
+text-decoration:none;
+
+}
+
+.card a:hover{
+
+text-decoration:underline;
+
+}
+
+/* ===========================
+BACK TO TOP BUTTON
+=========================== */
+
+.back-top{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:12px 24px;
+
+background:#2563eb;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:10px;
+
+font-weight:600;
+
+transition:.25s;
+
+}
+
+.back-top:hover{
+
+background:#1d4ed8;
+
+}
+
+/* ===========================
+TABLES
+=========================== */
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin:25px 0;
+
+}
+
+th{
+
+background:#2563eb;
+
+color:white;
+
+padding:15px;
+
+text-align:left;
+
+}
+
+td{
+
+padding:15px;
+
+border:1px solid #334155;
+
+}
+
+/* ===========================
+BLOCKQUOTE
+=========================== */
+
+blockquote{
+
+border-left:5px solid #38bdf8;
+
+padding:18px 25px;
+
+margin:25px 0;
+
+background:#16213a;
+
+font-style:italic;
+
+}
+
+/* ===========================
+CODE
+=========================== */
+
+code{
+
+background:#111827;
+
+padding:3px 8px;
+
+border-radius:6px;
+
+color:#60a5fa;
+
+}
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+
+margin-top:80px;
+
+padding:60px 0;
+
+border-top:1px solid #334155;
+
+background:#111827;
+
+text-align:center;
+
+}
+
+footer p{
+
+margin-bottom:18px;
+
+font-size:17px;
+
+}
+
+footer a{
+
+color:#60a5fa;
+
+text-decoration:none;
+
+margin:0 8px;
+
+}
+
+footer a:hover{
+
+text-decoration:underline;
+
+}
+
+/* ===========================
+SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111827;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563eb;
+
+border-radius:20px;
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.hero{
+
+padding:60px 35px;
+
+}
+
+.hero h2{
+
+font-size:42px;
+
+}
+
+.logo h1{
+
+font-size:28px;
+
+}
+
+.card{
+
+padding:35px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.header-container{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+nav{
+
+justify-content:center;
+
+}
+
+.hero{
+
+padding:45px 25px;
+
+}
+
+.hero h2{
+
+font-size:36px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.card h2{
+
+font-size:28px;
+
+}
+
+.card h3{
+
+font-size:22px;
+
+}
+
+body{
+
+font-size:17px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero h2{
+
+font-size:30px;
+
+}
+
+.logo{
+
+flex-direction:column;
+
+}
+
+.logo h1{
+
+font-size:24px;
+
+text-align:center;
+
+}
+
+nav{
+
+gap:10px;
+
+}
+
+}
 <title>Privacy Policy | AI Marketing Brain</title>
 
 <meta name="description"
