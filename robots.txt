@@ -2,5 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap:
-https://anojmk.github.io/ai-marketing-brain/sitemap.xml
+Sitemap: https://brainafricalabs.com/sitemap.xml
