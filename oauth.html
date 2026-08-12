@@ -1,19 +1,1091 @@
-<!doctype html><html><head><meta charset='utf-8'><title>OAuth 2.0 Flow</title><link rel='stylesheet' href='style.css'></head><body>
-<div class='sidebar'>
-<h2>Developer Portal</h2>
-<a href='index.html'>Overview</a>
-<a href='oauth.html'>OAuth 2.0</a>
-<a href='api-reference.html'>API Reference</a>
-<a href='scopes.html'>Scopes</a>
-<a href='security.html'>Security</a>
-<a href='api-status.html'>API Status</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OAuth 2.0 | Brain Africa Labs</title>
+
+<meta name="description"
+content="Learn how Brain Africa Labs and AI Marketing Brain use OAuth 2.0 authentication to securely connect user accounts without collecting passwords.">
+
+<meta name="keywords"
+content="OAuth 2.0, Authentication, TikTok API, Facebook API, Instagram API, AI Marketing Brain, Brain Africa Labs">
+
+<meta name="author" content="Brain Africa Labs">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0B1220">
+
+<link rel="canonical"
+href="https://brainafricalabs.com/oauth.html">
+
+<!-- Open Graph -->
+
+<meta property="og:title"
+content="OAuth 2.0 | Brain Africa Labs">
+
+<meta property="og:description"
+content="Secure authentication through official OAuth 2.0 authorization.">
+
+<meta property="og:type"
+content="website">
+
+<meta property="og:url"
+content="https://brainafricalabs.com/oauth.html">
+
+<meta property="og:image"
+content="https://brainafricalabs.com/assets/logo.png">
+
+<meta property="og:site_name"
+content="Brain Africa Labs">
+
+<meta property="og:locale"
+content="en_US">
+
+<!-- Twitter -->
+
+<meta name="twitter:card"
+content="summary_large_image">
+
+<meta name="twitter:title"
+content="OAuth 2.0 | Brain Africa Labs">
+
+<meta name="twitter:description"
+content="Official OAuth authentication for AI Marketing Brain.">
+
+<meta name="twitter:image"
+content="https://brainafricalabs.com/assets/logo.png">
+
+<!-- Icons -->
+
+<link rel="icon"
+href="assets/favicon.ico">
+
+<link rel="icon"
+type="image/png"
+sizes="32x32"
+href="assets/favicon-32.png">
+
+<link rel="icon"
+type="image/png"
+sizes="16x16"
+href="assets/favicon-16.png">
+
+<link rel="apple-touch-icon"
+href="assets/apple-touch-icon.png">
+
+<link rel="stylesheet"
+href="style.css">
+
+<!-- JSON-LD -->
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebPage",
+ "name":"OAuth 2.0",
+ "url":"https://brainafricalabs.com/oauth.html",
+ "description":"Official OAuth authentication documentation.",
+ "publisher":{
+   "@type":"Organization",
+   "name":"Brain Africa Labs",
+   "logo":{
+      "@type":"ImageObject",
+      "url":"https://brainafricalabs.com/assets/logo.png"
+   }
+ }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+
+<img
+src="assets/logo.png"
+alt="Brain Africa Labs Logo">
+
+<div>
+
+<h1>Brain Africa Labs</h1>
+
+<div class="tagline">
+
+<p>AI Marketing Brain</p>
+
+<p>Building AI Solutions for Africa</p>
+
+<p>Official OAuth Documentation</p>
+
+<p class="official">
+
+Official AI Platform
+
+</p>
+
 </div>
-<div class='main'><h1>OAuth 2.0 Flow</h1>
-<div class='card'>
-<h2>Authorization Flow</h2>
-<p>User → Connect → Authorization Code → Access Token → Refresh Token → Publish</p>
-<pre><code>GET /oauth/authorize
-POST /oauth/token
-POST /publish</code></pre>
+
 </div>
-</div></body></html>
+
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="ai-marketing-brain.html">
+
+AI Marketing Brain
+
+</a>
+
+<a href="how-it-works.html">
+
+How It Works
+
+</a>
+
+<a href="security.html">
+
+Security
+
+</a>
+
+<a href="oauth.html">
+
+OAuth 2.0
+
+</a>
+
+<a href="api-reference.html">
+
+API Reference
+
+</a>
+
+<a href="privacy.html">
+
+Privacy
+
+</a>
+
+<a href="terms.html">
+
+Terms</a>
+
+<a href="contact.html">
+
+Contact
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero container">
+
+<span class="badge">
+
+Official Documentation
+
+</span>
+
+<h1>
+
+OAuth 2.0 Authentication
+
+</h1>
+
+<p>
+
+AI Marketing Brain connects user accounts using the
+official OAuth 2.0 authorization framework provided
+by supported social media platforms.
+
+</p>
+
+<p>
+
+We never request, collect or store user passwords.
+Users authenticate directly with the platform they
+choose to connect.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="security.html"
+class="btn btn-primary">
+
+Security
+
+</a>
+
+<a
+href="privacy.html"
+class="btn btn-outline">
+
+Privacy Policy
+
+</a>
+
+</div>
+
+<div class="trust-badges">
+
+<span>✔ OAuth 2.0</span>
+
+<span>✔ Official APIs</span>
+
+<span>✔ HTTPS</span>
+
+<span>✔ User Consent</span>
+
+<span>✔ Secure Tokens</span>
+
+</div>
+
+</section>
+
+  <!-- ========================================= -->
+<!-- OAUTH FLOW -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        OAuth 2.0 Authorization Flow
+
+    </h2>
+
+    <p style="text-align:center;max-width:900px;margin:0 auto 50px;color:#cbd5e1;">
+
+        AI Marketing Brain uses the official OAuth 2.0 authorization
+        framework provided by supported social media platforms.
+        Authentication is completed directly on the provider's website.
+
+    </p>
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <div class="content">
+
+                <h3>User Starts Connection</h3>
+
+                <p>
+
+                    The user selects a supported platform and clicks
+                    "Connect Account".
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <div class="content">
+
+                <h3>Redirect to Provider</h3>
+
+                <p>
+
+                    The user is redirected to the official
+                    authentication page of the selected platform.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <div class="content">
+
+                <h3>User Authentication</h3>
+
+                <p>
+
+                    Login credentials are entered only on the official
+                    platform. Brain Africa Labs never has access to the
+                    user's password.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <div class="content">
+
+                <h3>User Consent</h3>
+
+                <p>
+
+                    The platform displays the requested permissions.
+                    Users can approve or deny access.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <div class="content">
+
+                <h3>Authorization Granted</h3>
+
+                <p>
+
+                    After approval, the platform returns an authorization
+                    code that is exchanged securely for access tokens.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">6</div>
+
+            <div class="content">
+
+                <h3>Secure Connection</h3>
+
+                <p>
+
+                    The connected account is now available for the
+                    features authorized by the user.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- PERMISSIONS -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Requested Permissions
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Basic Profile</h3>
+
+            <p>
+
+                Access to basic public profile information required
+                to identify the connected account.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Content Publishing</h3>
+
+            <p>
+
+                Permission to publish content only after
+                explicit user authorization.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Media Upload</h3>
+
+            <p>
+
+                Upload images or videos before publication
+                through official APIs.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Analytics</h3>
+
+            <p>
+
+                Retrieve campaign statistics when supported
+                by the connected platform.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- TOKEN MANAGEMENT -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Secure Token Management
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Access Tokens</h3>
+
+            <p>
+
+                OAuth access tokens are securely managed and used
+                only for authorized API requests.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Refresh Tokens</h3>
+
+            <p>
+
+                When supported by the platform,
+                refresh tokens are used to renew sessions
+                without requiring repeated logins.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Encryption</h3>
+
+            <p>
+
+                Tokens are transmitted over encrypted HTTPS
+                connections.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Revocation</h3>
+
+            <p>
+
+                Users may disconnect their accounts and revoke
+                authorization at any time through the platform.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- SUPPORTED PLATFORMS -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Supported OAuth Providers
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>TikTok</h3>
+            <p>Official OAuth authentication.</p>
+        </div>
+
+        <div class="card">
+            <h3>Facebook</h3>
+            <p>Meta Graph API authorization.</p>
+        </div>
+
+        <div class="card">
+            <h3>Instagram</h3>
+            <p>Instagram Graph API integration.</p>
+        </div>
+
+        <div class="card">
+            <h3>YouTube</h3>
+            <p>Google OAuth authentication.</p>
+        </div>
+
+        <div class="card">
+            <h3>LinkedIn</h3>
+            <p>Official LinkedIn OAuth support.</p>
+        </div>
+
+    </div>
+
+</section>
+
+  <!-- ========================================= -->
+<!-- BENEFITS -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Benefits of OAuth 2.0
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>No Password Sharing</h3>
+
+            <p>
+
+                Users authenticate directly with the social media
+                platform. Brain Africa Labs never requests or stores
+                passwords.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Granular Permissions</h3>
+
+            <p>
+
+                Users approve only the permissions required for
+                AI Marketing Brain to perform authorized actions.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Easy Revocation</h3>
+
+            <p>
+
+                Connected accounts can be disconnected at any time
+                from the provider's security settings.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Industry Standard</h3>
+
+            <p>
+
+                OAuth 2.0 is the standard authentication framework
+                used by major online platforms worldwide.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- PRIVACY -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Privacy Protection
+
+    </h2>
+
+    <div class="notice">
+
+        <h3>
+
+            Your Privacy Comes First
+
+        </h3>
+
+        <p>
+
+            AI Marketing Brain follows a privacy-first approach.
+            We only access information necessary to provide the
+            features authorized by the user.
+
+        </p>
+
+        <ul class="features">
+
+            <li>Official OAuth authentication only.</li>
+
+            <li>No collection of social media passwords.</li>
+
+            <li>User authorization required before every connection.</li>
+
+            <li>HTTPS encrypted communication.</li>
+
+            <li>Users may revoke access at any time.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- SECURITY BEST PRACTICES -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Security Best Practices
+
+    </h2>
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <div class="content">
+
+                <h3>Official Login</h3>
+
+                <p>
+
+                    Always authenticate through the official login page
+                    of the selected platform.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <div class="content">
+
+                <h3>Review Permissions</h3>
+
+                <p>
+
+                    Carefully review requested permissions before
+                    approving access.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <div class="content">
+
+                <h3>Disconnect Unused Apps</h3>
+
+                <p>
+
+                    Remove applications you no longer use from your
+                    connected accounts.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <div class="content">
+
+                <h3>Keep Your Account Secure</h3>
+
+                <p>
+
+                    Enable multi-factor authentication (MFA) whenever
+                    supported by your platform.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FAQ -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Frequently Asked Questions
+
+    </h2>
+
+    <div class="faq">
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+
+                Does Brain Africa Labs know my password?
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+
+                    No. Authentication is handled entirely by the
+                    official OAuth provider.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+
+                Can I revoke access?
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+
+                    Yes. You can revoke authorization at any time
+                    through your account settings on the connected
+                    platform.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+
+                Why are permissions requested?
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+
+                    Permissions allow AI Marketing Brain to perform
+                    only the actions you authorize, such as publishing
+                    content or retrieving analytics.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CALL TO ACTION -->
+<!-- ========================================= -->
+
+<section class="container">
+
+    <div class="notice" style="text-align:center;">
+
+        <h2>
+
+            Secure Authentication
+
+        </h2>
+
+        <p>
+
+            Learn more about how Brain Africa Labs protects your
+            information and complies with official platform
+            authentication requirements.
+
+        </p>
+
+        <br>
+
+        <a href="security.html" class="btn btn-primary">
+
+            Security
+
+        </a>
+
+        <a href="privacy.html" class="btn btn-outline">
+
+            Privacy Policy
+
+        </a>
+
+        <a href="contact.html" class="btn btn-outline">
+
+            Contact Us
+
+        </a>
+
+    </div>
+
+</section>
+
+  <!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+
+            <h4>Brain Africa Labs</h4>
+
+            <p>
+                Building AI Solutions for Africa.
+            </p>
+
+            <p>
+                AI Marketing Brain is the flagship product developed by
+                Brain Africa Labs.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h4>Products</h4>
+
+            <a href="ai-marketing-brain.html">
+                AI Marketing Brain
+            </a>
+
+            <a href="how-it-works.html">
+                How It Works
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+        <div>
+
+            <h4>Documentation</h4>
+
+            <a href="security.html">
+                Security
+            </a>
+
+            <a href="oauth.html">
+                OAuth 2.0
+            </a>
+
+            <a href="api-reference.html">
+                API Reference
+            </a>
+
+        </div>
+
+        <div>
+
+            <h4>Legal</h4>
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+            <a href="data-deletion.html">
+                Data Deletion
+            </a>
+
+        </div>
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <p>
+
+                Abidjan, Côte d'Ivoire
+
+            </p>
+
+            <p>
+
+                <a href="mailto:contact@brainafricalabs.com">
+
+                    contact@brainafricalabs.com
+
+                </a>
+
+            </p>
+
+            <p>
+
+                Monday – Friday
+
+                <br>
+
+                09:00 – 18:00 GMT
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr style="margin:40px 0;border:1px solid rgba(255,255,255,.08);">
+
+    <div class="container">
+
+        <div class="trust-badges">
+
+            <span>✔ Official OAuth 2.0</span>
+
+            <span>✔ HTTPS Encryption</span>
+
+            <span>✔ Official APIs</span>
+
+            <span>✔ Privacy First</span>
+
+            <span>✔ Secure Authentication</span>
+
+        </div>
+
+    </div>
+
+    <div class="container copyright">
+
+        <p>
+
+            © 2026 Brain Africa Labs. All Rights Reserved.
+
+        </p>
+
+        <p>
+
+            AI Marketing Brain is a product developed by
+            Brain Africa Labs.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
