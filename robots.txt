@@ -1,5 +1,36 @@
+# ============================================================
+# robots.txt
+# Brain Africa Labs
+# https://brainafricalabs.com
+# ============================================================
+
 User-agent: *
 
+# Allow all public pages
 Allow: /
 
+# Block system or private folders (if they exist)
+Disallow: /assets/private/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /logs/
+Disallow: /config/
+Disallow: /vendor/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+
+# Block sensitive file types
+Disallow: /*.log$
+Disallow: /*.sql$
+Disallow: /*.env$
+Disallow: /*.bak$
+
+# Crawl delay (optional)
+# Crawl-delay: 5
+
+# Sitemap
 Sitemap: https://brainafricalabs.com/sitemap.xml
+
+# Host
+Host: https://brainafricalabs.com
