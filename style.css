@@ -2190,12 +2190,32 @@ border:1px solid #ccc;
     margin:10px;
 }
 
-.notification-list i{
+.notification-list{
+    list-style:none;
+    padding:0;
+    margin:25px 0;
+}
 
-color:#22c55e;
+.notification-list li{
 
-margin-right:12px;
+    display:flex;
+    align-items:center;
+    gap:14px;
 
-font-size:18px;
+    padding:12px 0;
+
+    color:var(--muted);
+
+    font-size:17px;
+
+}
+
+.notification-list .icon{
+
+    font-size:18px;
+
+    color:#22c55e;
+
+    flex-shrink:0;
 
 }
