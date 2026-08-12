@@ -1,21 +1,1364 @@
-<!doctype html><html><head><meta charset='utf-8'><title>API Reference</title><link rel='stylesheet' href='style.css'></head><body>
-<div class='sidebar'>
-<h2>Developer Portal</h2>
-<a href='index.html'>Overview</a>
-<a href='oauth.html'>OAuth 2.0</a>
-<a href='api-reference.html'>API Reference</a>
-<a href='scopes.html'>Scopes</a>
-<a href='security.html'>Security</a>
-<a href='api-status.html'>API Status</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>API Reference | Brain Africa Labs</title>
+
+<meta name="description"
+content="Official API Reference for AI Marketing Brain. Learn how our platform securely integrates with supported social media APIs using OAuth 2.0.">
+
+<meta name="keywords"
+content="API Reference, OAuth 2.0, TikTok API, Facebook Graph API, Instagram API, YouTube API, Brain Africa Labs">
+
+<meta name="author"
+content="Brain Africa Labs">
+
+<meta name="robots"
+content="index,follow">
+
+<meta name="theme-color"
+content="#0B1220">
+
+<link rel="canonical"
+href="https://brainafricalabs.com/api-reference.html">
+
+<!-- Open Graph -->
+
+<meta property="og:title"
+content="API Reference | Brain Africa Labs">
+
+<meta property="og:description"
+content="Official API documentation for AI Marketing Brain.">
+
+<meta property="og:type"
+content="website">
+
+<meta property="og:url"
+content="https://brainafricalabs.com/api-reference.html">
+
+<meta property="og:image"
+content="https://brainafricalabs.com/assets/logo.png">
+
+<meta property="og:site_name"
+content="Brain Africa Labs">
+
+<meta property="og:locale"
+content="en_US">
+
+<!-- Twitter -->
+
+<meta name="twitter:card"
+content="summary_large_image">
+
+<meta name="twitter:title"
+content="API Reference">
+
+<meta name="twitter:description"
+content="Official API documentation for AI Marketing Brain.">
+
+<meta name="twitter:image"
+content="https://brainafricalabs.com/assets/logo.png">
+
+<!-- Icons -->
+
+<link rel="icon"
+href="assets/favicon.ico">
+
+<link rel="icon"
+type="image/png"
+sizes="32x32"
+href="assets/favicon-32.png">
+
+<link rel="icon"
+type="image/png"
+sizes="16x16"
+href="assets/favicon-16.png">
+
+<link rel="apple-touch-icon"
+href="assets/apple-touch-icon.png">
+
+<link rel="stylesheet"
+href="style.css">
+
+<!-- JSON-LD -->
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"TechArticle",
+ "headline":"API Reference",
+ "publisher":{
+   "@type":"Organization",
+   "name":"Brain Africa Labs",
+   "logo":{
+      "@type":"ImageObject",
+      "url":"https://brainafricalabs.com/assets/logo.png"
+   }
+ }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+
+<img
+src="assets/logo.png"
+alt="Brain Africa Labs Logo">
+
+<div>
+
+<h1>Brain Africa Labs</h1>
+
+<div class="tagline">
+
+<p>AI Marketing Brain</p>
+
+<p>Official API Documentation</p>
+
+<p>Secure AI Marketing Platform</p>
+
+<p class="official">
+
+Developer Resources
+
+</p>
+
 </div>
-<div class='main'><h1>API Reference</h1>
-<div class='card'>
-<table>
-<tr><th>Endpoint</th><th>Method</th><th>Description</th></tr>
-<tr><td>/oauth/connect</td><td>POST</td><td>Start OAuth flow</td></tr>
-<tr><td>/publish</td><td>POST</td><td>Publish content</td></tr>
-<tr><td>/campaigns</td><td>GET</td><td>List campaigns</td></tr>
-<tr><td>/analytics</td><td>GET</td><td>Analytics</td></tr>
-</table>
+
 </div>
-</div></body></html>
+
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="ai-marketing-brain.html">
+AI Marketing Brain
+</a>
+
+<a href="how-it-works.html">
+How It Works
+</a>
+
+<a href="security.html">
+Security
+</a>
+
+<a href="oauth.html">
+OAuth 2.0
+</a>
+
+<a href="api-reference.html">
+API Reference
+</a>
+
+<a href="privacy.html">
+Privacy
+</a>
+
+<a href="terms.html">
+Terms
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero container">
+
+<span class="badge">
+
+Developer Documentation
+
+</span>
+
+<h1>
+
+API Reference
+
+</h1>
+
+<p>
+
+AI Marketing Brain integrates with supported social media
+platforms using official APIs and OAuth 2.0 authentication.
+
+</p>
+
+<p>
+
+This documentation provides an overview of supported
+integrations, authentication methods and available
+platform capabilities.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="oauth.html"
+class="btn btn-primary">
+
+OAuth 2.0
+
+</a>
+
+<a
+href="security.html"
+class="btn btn-outline">
+
+Security
+
+</a>
+
+</div>
+
+<div class="trust-badges">
+
+<span>✔ Official APIs</span>
+
+<span>✔ HTTPS</span>
+
+<span>✔ OAuth 2.0</span>
+
+<span>✔ Secure Tokens</span>
+
+<span>✔ Privacy First</span>
+
+</div>
+<!-- ====================================================== -->
+<!-- SUPPORTED APIS -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Supported APIs
+    </h2>
+
+    <p class="section-description">
+
+        AI Marketing Brain integrates only with official APIs
+        provided by supported social media platforms.
+        We do not use unofficial APIs, browser automation,
+        credential scraping or password collection.
+
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>TikTok API</h3>
+            <p>
+                OAuth authentication, profile access and
+                content publishing through the official
+                TikTok Developer Platform.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Facebook Graph API</h3>
+            <p>
+                Secure publishing, page management and
+                analytics using Meta Graph API.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Instagram Graph API</h3>
+            <p>
+                Business account publishing using the
+                official Instagram Graph API.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>YouTube Data API</h3>
+            <p>
+                Video publishing and channel management
+                using Google's official APIs.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>LinkedIn API</h3>
+            <p>
+                Company page publishing and professional
+                content distribution.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Future Integrations</h3>
+            <p>
+                Additional official APIs may be added
+                as they become available.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- AUTHENTICATION -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Authentication
+    </h2>
+
+    <div class="card">
+
+        <h3>OAuth 2.0 Authorization</h3>
+
+        <p>
+
+            Every user must explicitly authorize
+            AI Marketing Brain before any action
+            can be performed on their behalf.
+
+        </p>
+
+        <ul class="features">
+
+            <li>User consent is always required.</li>
+
+            <li>Passwords are never requested.</li>
+
+            <li>Authorization is handled by the platform.</li>
+
+            <li>Access tokens are securely stored.</li>
+
+            <li>Permissions are limited to approved scopes.</li>
+
+            <li>Users can revoke access at any time.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- BASE URL -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Base URL
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+            AI Marketing Brain communicates securely
+            with official platform APIs.
+
+        </p>
+
+<pre class="code-block">
+https://brainafricalabs.com/api/v1/
+</pre>
+
+        <p>
+
+            All requests are transmitted through HTTPS.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- API ENDPOINTS -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Main Endpoints
+    </h2>
+
+    <table class="api-table">
+
+        <thead>
+
+        <tr>
+
+            <th>Endpoint</th>
+
+            <th>Description</th>
+
+            <th>Authentication</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr>
+
+            <td>/oauth/connect</td>
+
+            <td>Connect a social account</td>
+
+            <td>OAuth 2.0</td>
+
+        </tr>
+
+        <tr>
+
+            <td>/posts/create</td>
+
+            <td>Create a publication draft</td>
+
+            <td>Required</td>
+
+        </tr>
+
+        <tr>
+
+            <td>/posts/publish</td>
+
+            <td>Publish approved content</td>
+
+            <td>Required</td>
+
+        </tr>
+
+        <tr>
+
+            <td>/media/upload</td>
+
+            <td>Upload images or videos</td>
+
+            <td>Required</td>
+
+        </tr>
+
+        <tr>
+
+            <td>/analytics</td>
+
+            <td>Retrieve campaign statistics</td>
+
+            <td>Required</td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- HTTP METHODS -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        HTTP Methods
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>GET</h3>
+
+            <p>
+
+                Retrieve information without modifying
+                any resource.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>POST</h3>
+
+            <p>
+
+                Create content or submit
+                publication requests.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>DELETE</h3>
+
+            <p>
+
+                Remove authorized resources
+                when supported by the platform.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- REQUEST / RESPONSE -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Request Example
+    </h2>
+
+<pre class="code-block">
+POST /posts/create
+
+{
+  "platform":"facebook",
+  "caption":"Hello Africa!",
+  "media":"image.jpg"
+}
+</pre>
+
+</section>
+
+<section class="container">
+
+    <h2 class="section-title">
+        Response Example
+    </h2>
+
+<pre class="code-block">
+HTTP/1.1 200 OK
+
+{
+  "status":"success",
+  "post_id":"987654321",
+  "message":"Draft created successfully."
+}
+</pre>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- API WORKFLOW -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        API Workflow
+    </h2>
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <div class="content">
+
+                <h3>User Authentication</h3>
+
+                <p>
+
+                    The user signs in and authorizes
+                    AI Marketing Brain through OAuth 2.0.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <div class="content">
+
+                <h3>Create Content</h3>
+
+                <p>
+
+                    AI generates captions, images
+                    or campaign drafts.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <div class="content">
+
+                <h3>User Review</h3>
+
+                <p>
+
+                    Every publication is reviewed
+                    and approved by the user.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <div class="content">
+
+                <h3>Publish</h3>
+
+                <p>
+
+                    Content is published using
+                    the official platform API.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- RATE LIMITS -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Rate Limits
+    </h2>
+
+    <div class="notice">
+
+        <h3>Platform Limits</h3>
+
+        <p>
+
+            AI Marketing Brain respects the rate limits
+            imposed by each official API provider.
+
+        </p>
+
+        <ul class="features">
+
+            <li>No request flooding.</li>
+
+            <li>No automated bypass mechanisms.</li>
+
+            <li>Automatic retry with exponential backoff.</li>
+
+            <li>Compliance with platform quotas.</li>
+
+            <li>Continuous monitoring of API usage.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+  <!-- ====================================================== -->
+<!-- ERROR HANDLING -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Error Handling
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>400 Bad Request</h3>
+
+            <p>
+
+                The request could not be processed because one or more
+                required parameters are missing or invalid.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>401 Unauthorized</h3>
+
+            <p>
+
+                Authentication is required or the OAuth access token has
+                expired or is invalid.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>403 Forbidden</h3>
+
+            <p>
+
+                The authenticated account does not have permission to
+                perform the requested action.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>404 Not Found</h3>
+
+            <p>
+
+                The requested resource or endpoint does not exist.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>429 Too Many Requests</h3>
+
+            <p>
+
+                API rate limits have been exceeded. Retry after the
+                recommended waiting period.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>500 Internal Server Error</h3>
+
+            <p>
+
+                An unexpected server error occurred. Please try again
+                later or contact support.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- HTTP STATUS CODES -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        HTTP Response Codes
+    </h2>
+
+    <table class="api-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Status</th>
+
+                <th>Description</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>200 OK</td>
+
+                <td>Request completed successfully.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>201 Created</td>
+
+                <td>A new resource has been created.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>204 No Content</td>
+
+                <td>Request completed successfully without a response body.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>400 Bad Request</td>
+
+                <td>Invalid request parameters.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>401 Unauthorized</td>
+
+                <td>Authentication required.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>403 Forbidden</td>
+
+                <td>Permission denied.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>404 Not Found</td>
+
+                <td>Requested resource not found.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>429 Too Many Requests</td>
+
+                <td>Rate limit exceeded.</td>
+
+            </tr>
+
+            <tr>
+
+                <td>500 Internal Server Error</td>
+
+                <td>Unexpected server error.</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- BEST PRACTICES -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Integration Best Practices
+    </h2>
+
+    <div class="notice">
+
+        <h3>Recommended Practices</h3>
+
+        <ul class="features">
+
+            <li>Always use HTTPS for API communication.</li>
+
+            <li>Use official OAuth 2.0 authentication only.</li>
+
+            <li>Never request or store user passwords.</li>
+
+            <li>Store OAuth access tokens securely.</li>
+
+            <li>Refresh expired tokens using official refresh mechanisms.</li>
+
+            <li>Respect API quotas and rate limits.</li>
+
+            <li>Validate all user input before sending requests.</li>
+
+            <li>Log API errors for troubleshooting.</li>
+
+            <li>Review platform developer policies regularly.</li>
+
+            <li>Keep API integrations up to date.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- DEVELOPER FAQ -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Developer FAQ
+    </h2>
+
+    <div class="faq">
+
+        <div class="faq-item">
+
+            <h3>
+                Does AI Marketing Brain use official APIs?
+            </h3>
+
+            <p>
+
+                Yes. We integrate exclusively with official APIs provided
+                by supported platforms.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                Do you collect user passwords?
+            </h3>
+
+            <p>
+
+                No. Authentication is handled exclusively through OAuth
+                2.0 authorization.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                Can users revoke access?
+            </h3>
+
+            <p>
+
+                Yes. Users can revoke authorization directly from the
+                connected platform or from AI Marketing Brain.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                Are API requests encrypted?
+            </h3>
+
+            <p>
+
+                Yes. All API communication uses HTTPS with TLS encryption.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+                Does the platform respect API limits?
+            </h3>
+
+            <p>
+
+                Yes. AI Marketing Brain automatically respects platform
+                quotas and rate limits.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- ROADMAP -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+        Coming Soon
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>API Version 2</h3>
+
+            <p>
+
+                Enhanced publishing capabilities and expanded analytics.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Webhooks</h3>
+
+            <p>
+
+                Receive real-time notifications for publication events
+                and account changes.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Developer Dashboard</h3>
+
+            <p>
+
+                Manage API credentials, monitor usage and review activity
+                logs.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>SDKs</h3>
+
+            <p>
+
+                Official SDKs for JavaScript, Python and PHP to simplify
+                API integration.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Sandbox Environment</h3>
+
+            <p>
+
+                Dedicated testing environment for developers before
+                production deployment.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Additional Platforms</h3>
+
+            <p>
+
+                Future support for new official social media APIs as they
+                become available.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ====================================================== -->
+<!-- CALL TO ACTION -->
+<!-- ====================================================== -->
+
+<section class="container">
+
+    <div class="notice" style="text-align:center;">
+
+        <h2>
+            Start Building with AI Marketing Brain
+        </h2>
+
+        <p>
+
+            Explore our security documentation, OAuth implementation and
+            platform features to understand how Brain Africa Labs builds
+            secure AI-powered marketing solutions using official APIs.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="security.html" class="btn btn-primary">
+                Security
+            </a>
+
+            <a href="oauth.html" class="btn btn-outline">
+                OAuth 2.0
+            </a>
+
+            <a href="contact.html" class="btn btn-primary">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+  
+<!-- ====================================================== -->
+<!-- FOOTER -->
+<!-- ====================================================== -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <!-- Company -->
+
+        <div>
+
+            <h4>Brain Africa Labs</h4>
+
+            <p>
+
+                Building AI Solutions for Africa.
+
+            </p>
+
+            <p>
+
+                AI Marketing Brain is the flagship product of
+                Brain Africa Labs.
+
+            </p>
+
+        </div>
+
+        <!-- Products -->
+
+        <div>
+
+            <h4>Products</h4>
+
+            <a href="ai-marketing-brain.html">
+                AI Marketing Brain
+            </a>
+
+            <a href="how-it-works.html">
+                How It Works
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+        <!-- Documentation -->
+
+        <div>
+
+            <h4>Documentation</h4>
+
+            <a href="security.html">
+                Security
+            </a>
+
+            <a href="oauth.html">
+                OAuth 2.0
+            </a>
+
+            <a href="api-reference.html">
+                API Reference
+            </a>
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+        </div>
+
+        <!-- Resources -->
+
+        <div>
+
+            <h4>Resources</h4>
+
+            <a href="data-deletion.html">
+                Data Deletion
+            </a>
+
+            <a href="contact.html">
+                Support
+            </a>
+
+            <a href="mailto:contact@brainafricalabs.com">
+                Developer Support
+            </a>
+
+        </div>
+
+        <!-- Contact -->
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <p>
+
+                Brain Africa Labs
+
+            </p>
+
+            <p>
+
+                Abidjan, Côte d'Ivoire
+
+            </p>
+
+            <p>
+
+                <a href="mailto:contact@brainafricalabs.com">
+
+                    contact@brainafricalabs.com
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr style="margin:50px 0;border:1px solid rgba(255,255,255,.08);">
+
+    <!-- Trust Badges -->
+
+    <div class="container">
+
+        <div class="trust-badges">
+
+            <span>✔ Official APIs</span>
+
+            <span>✔ OAuth 2.0</span>
+
+            <span>✔ HTTPS</span>
+
+            <span>✔ Privacy First</span>
+
+            <span>✔ Secure Authentication</span>
+
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+
+    <div class="container copyright">
+
+        <p>
+
+            © 2026 Brain Africa Labs. All rights reserved.
+
+        </p>
+
+        <p>
+
+            AI Marketing Brain is a secure AI-powered marketing platform
+            developed by Brain Africa Labs.
+
+        </p>
+
+        <p>
+
+            This documentation is provided for informational purposes
+            and may evolve as new official API integrations become
+            available.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- ====================================================== -->
+<!-- JAVASCRIPT -->
+<!-- ====================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+  
+
+</section>
