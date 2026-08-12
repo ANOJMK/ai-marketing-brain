@@ -3,305 +3,1325 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ==========================================
+         BASIC META
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> About | AI Marketing Brain</title>
+    <title>About | Brain Africa Labs | AI Marketing Brain</title>
 
+    <meta name="description"
+        content="Learn more about Brain Africa Labs, the company behind AI Marketing Brain. Discover our mission, vision, technology, security standards and commitment to responsible AI-powered marketing automation.">
 
+    <meta name="keywords"
+        content="Brain Africa Labs, AI Marketing Brain, Artificial Intelligence, Marketing Automation, OAuth 2.0, Official APIs, Africa, AI Platform">
 
-<style>
+    <meta name="author" content="Brain Africa Labs">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- ==========================================
+         CANONICAL
+    =========================================== -->
+
+    <link rel="canonical"
+        href="https://brainafricalabs.com/about.html">
+
+    <!-- ==========================================
+         FAVICONS
+    =========================================== -->
+
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="icon" href="assets/favicon.ico">
+
+    <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="assets/favicon-32.png">
+
+    <link rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/favicon-16.png">
+
+    <link rel="apple-touch-icon"
+        href="assets/apple-touch-icon.png">
+
+    <!-- ==========================================
+         OPEN GRAPH
+    =========================================== -->
+
+    <meta property="og:title"
+        content="About | Brain Africa Labs">
+
+    <meta property="og:description"
+        content="Discover Brain Africa Labs and AI Marketing Brain, an AI-powered marketing automation platform designed for modern businesses.">
+
+    <meta property="og:type"
+        content="website">
+
+    <meta property="og:url"
+        content="https://brainafricalabs.com/about.html">
+
+    <meta property="og:image"
+        content="https://brainafricalabs.com/assets/logo.png">
+
+    <meta property="og:site_name"
+        content="Brain Africa Labs">
+
+    <meta property="og:locale"
+        content="en_US">
+
+    <!-- ==========================================
+         TWITTER
+    =========================================== -->
+
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <meta name="twitter:title"
+        content="About | Brain Africa Labs">
+
+    <meta name="twitter:description"
+        content="AI Marketing Brain is the flagship AI marketing automation platform developed by Brain Africa Labs.">
+
+    <meta name="twitter:image"
+        content="https://brainafricalabs.com/assets/logo.png">
+
+    <!-- ==========================================
+         CSS
+    =========================================== -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <!-- ==========================================
+         JSON-LD
+    =========================================== -->
+
+    <script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Organization",
+ "name":"Brain Africa Labs",
+ "url":"https://brainafricalabs.com",
+ "logo":"https://brainafricalabs.com/assets/logo.png",
+ "email":"contact@brainafricalabs.com",
+ "description":"Brain Africa Labs develops AI-powered software solutions for African businesses.",
+ "foundingLocation":{
+   "@type":"Place",
+   "name":"Abidjan, Côte d'Ivoire"
+ },
+ "address":{
+   "@type":"PostalAddress",
+   "addressLocality":"Abidjan",
+   "addressCountry":"CI"
+ },
+ "sameAs":[
+   "https://github.com/anojmk"
+ ]
 }
-
-body{
-    background:#0f172a;
-    color:#ffffff;
-    font-family:Arial,Helvetica,sans-serif;
-    line-height:1.6;
-}
-
-header{
-    background:#111827;
-    border-bottom:1px solid #243247;
-    padding:18px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-}
-
-header h1{
-    font-size:32px;
-    color:white;
-}
-
-nav{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
-}
-
-.hero{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    padding:70px 40px;
-    border-radius:18px;
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.hero h1{
-    font-size:52px;
-    color:white;
-    margin-bottom:20px;
-}
-
-.hero p{
-    font-size:20px;
-    max-width:850px;
-    margin:auto;
-    color:white;
-    line-height:1.8;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:#1b2438;
-    border-radius:16px;
-    padding:35px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.card h2{
-    color:#38bdf8;
-    margin-bottom:20px;
-}
-
-.card p,
-.card li{
-    color:#d1d5db;
-    line-height:1.8;
-}
-
-.card ul{
-    padding-left:20px;
-}
-
-footer{
-    border-top:1px solid #243247;
-    margin-top:60px;
-    padding:30px;
-    text-align:center;
-    color:#9ca3af;
-}
-
-</style>
+</script>
 
 </head>
 
 <body>
 
+<!-- ==========================================
+     HEADER
+=========================================== -->
+
 <header>
 
-<h1>AI Marketing Brain</h1>
+    <div class="container navbar">
 
-<nav>
+        <div class="logo">
 
-<a href="index.html">Home</a>
+            <img
+                src="assets/logo.png"
+                alt="Brain Africa Labs Logo">
 
-<a href="how-it-works.html">How It Works</a>
+            <div>
 
-<a href="about.html">About</a>
+                <h1>Brain Africa Labs</h1>
 
-<a href="contact.html">Contact</a>
+                <small>
+                    AI Marketing Brain • Official AI Platform
+                </small>
 
-<a href="privacy.html">Privacy</a>
+            </div>
 
-<a href="terms.html">Terms</a>
+        </div>
 
-<a href="data-deletion.html">Data Deletion</a>
+        <nav>
 
-</nav>
+            <a href="index.html">Home</a>
+
+            <a href="ai-marketing-brain.html">
+                AI Marketing Brain
+            </a>
+
+            <a href="how-it-works.html">
+                How It Works
+            </a>
+
+            <a href="developers.html">
+                Developers
+            </a>
+
+            <a href="security.html">
+                Security
+            </a>
+
+            <a href="oauth.html">
+                OAuth
+            </a>
+
+            <a href="compliance.html">
+                Compliance
+            </a>
+
+            <a href="about.html" class="active">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
 
 </header>
 
-<div class="container">
+<!-- ==========================================
+     HERO
+=========================================== -->
 
-<div class="hero">
+<section class="hero">
 
-<h1> About AI Marketing Brain</h1>
+    <div class="container hero-grid">
 
-<p>
+        <div class="hero-content">
 
-AI Marketing Brain is an AI-powered marketing automation platform designed to help businesses,
-creators and marketing teams create, review, schedule and publish content across multiple social media platforms using official APIs..
+            <span class="badge">
 
-</p>
+                ABOUT US
 
-</div>
+            </span>
 
-<div class="grid">
+            <h1>
 
-<div class="card">
+                Building AI Solutions
+                for Africa
 
-<h2>Our Mission</h2>
+            </h1>
 
-<p>
+            <p>
 
-Our mission is to simplify digital marketing by combining Artificial Intelligence with secure official platform integrations, allowing users to produce high-quality content faster while maintaining full control over publication.
+                Brain Africa Labs develops secure, scalable and
+                AI-powered software that helps businesses automate
+                marketing workflows using official APIs,
+                OAuth 2.0 authentication and privacy-first principles.
 
-</p>
+            </p>
 
-</div>
+            <p>
 
-<div class="card">
+                Our flagship product,
+                <strong>AI Marketing Brain</strong>,
+                enables organizations to create,
+                review, schedule and publish content
+                across multiple social media platforms
+                while remaining compliant with official platform policies.
 
-<h2>Key Features</h2>
+            </p>
 
-<ul>
+            <div class="hero-buttons">
 
-<li>AI Content Generation</li>
+                <a href="ai-marketing-brain.html"
+                    class="btn btn-primary">
 
-<li>Marketing Copy Assistant</li>
+                    Explore the Platform
 
-<li>Campaign Planning</li>
+                </a>
 
-<li>Content Review Workflow</li>
+                <a href="contact.html"
+                    class="btn btn-outline">
 
-<li>Official API Publishing</li>
+                    Contact Us
 
-<li>Performance Analytics</li>
+                </a>
 
-<li>Secure OAuth 2.0 Authentication</li>
+            </div>
 
-</ul>
+        </div>
 
-</div>
+        <div class="hero-image">
 
-<div class="card">
+            <img
+                src="assets/logo.png"
+                alt="AI Marketing Brain Logo">
 
-<h2>Supported Platforms</h2>
+        </div>
 
-<ul>
+    </div>
 
-<li>TikTok</li>
+</section>
 
-<li>Facebook</li>
+<!-- ==========================================
+     NEXT:
+     Mission
+     Vision
+     Company Values
+     Team
+=========================================== -->
+    <!-- ==========================================
+     COMPANY OVERVIEW
+========================================== -->
 
-<li>Instagram</li>
+<section class="container">
 
-<li>LinkedIn</li>
+    <div class="section-heading">
 
-<li>YouTube</li>
+        <span class="badge">
+            WHO WE ARE
+        </span>
 
-<li>X (formerly Twitter)</li>
+        <h2>
 
-</ul>
+            Brain Africa Labs
 
-</div>
+        </h2>
 
-<div class="card">
+        <p>
 
-<h2>Security & Privacy</h2>
+            Brain Africa Labs is an Artificial Intelligence software company
+            focused on building secure, scalable and innovative digital
+            solutions for businesses across Africa.
 
-<p>
+            Our products combine AI, automation and official platform
+            integrations to simplify complex business processes while
+            respecting user privacy and platform policies.
 
-AI Marketing Brain uses OAuth 2.0 authentication for supported platforms.
+        </p>
 
-Passwords are never collected
+    </div>
 
-User authorization is always required before any connected social media account can be accessed.
+</section>
 
-</p>
+<!-- ==========================================
+     MISSION & VISION
+========================================== -->
 
-</div>
+<section class="container">
 
-<div class="card">
+    <div class="grid">
 
-<h2>Technology</h2>
+        <div class="card">
 
-<ul>
+            <div class="icon">🎯</div>
 
-<li>Artificial Intelligence</li>
+            <h2>
 
-<li>Official Social Media APIs</li>
+                Our Mission
 
-<li>OAuth 2.0 Authentication</li>
+            </h2>
 
-<li>HTTPS Secure Communication</li>
+            <p>
 
-<li>Cloud Automation Workflows</li>
+                Our mission is to empower businesses, creators and marketing
+                teams with intelligent automation that improves productivity,
+                accelerates content creation and enables responsible use of AI.
 
-</ul>
+            </p>
 
-</div>
+        </div>
 
-<div class="card">
+        <div class="card">
 
-<h2>Our Vision</h2>
+            <div class="icon">🚀</div>
 
-<p>
+            <h2>
 
-We aim to build a secure and intelligent marketing platform that helps businesses automate repetitive tasks while respecting user privacy, platform policies and official API requirements.
+                Our Vision
 
-</p>
+            </h2>
 
-</div>
+            <p>
 
-</div>
+                To become Africa's leading Artificial Intelligence software
+                company by building trusted platforms that transform how
+                organizations create, publish and manage digital content.
 
-</div>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     CORE VALUES
+========================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Our Core Values
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Innovation</h3>
+
+            <p>
+
+                We continuously explore new AI technologies that help our
+                customers work smarter.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Security</h3>
+
+            <p>
+
+                Every product is designed around secure authentication,
+                encrypted communication and responsible data handling.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Privacy</h3>
+
+            <p>
+
+                User privacy comes first.
+                We never request or store social media passwords.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Transparency</h3>
+
+            <p>
+
+                We clearly explain how our platform works,
+                how data is processed and how users remain
+                in control of their connected accounts.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     WHY BRAIN AFRICA LABS
+========================================== -->
+
+<section class="container">
+
+    <div class="notice">
+
+        <h2>
+
+            Why Brain Africa Labs?
+
+        </h2>
+
+        <p>
+
+            Unlike traditional marketing software,
+            AI Marketing Brain combines intelligent content generation,
+            workflow automation and official publishing tools inside a
+            single secure platform.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>AI Powered</h3>
+
+                <p>
+
+                    Generate captions, campaigns and marketing ideas using AI.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Official APIs</h3>
+
+                <p>
+
+                    Connect social media platforms using official OAuth 2.0
+                    authorization.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Workflow Automation</h3>
+
+                <p>
+
+                    Automate repetitive marketing activities while keeping
+                    full human control over publication.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Privacy First</h3>
+
+                <p>
+
+                    No passwords collected.
+                    User authorization is always required.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     TECHNOLOGY STACK
+========================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Technology Stack
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Artificial Intelligence</h3>
+
+            <p>
+
+                AI-assisted content generation, campaign planning,
+                review workflows and marketing optimization.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Official Platform APIs</h3>
+
+            <p>
+
+                Secure integrations with supported social media
+                platforms through official APIs.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>OAuth 2.0</h3>
+
+            <p>
+
+                Industry-standard authorization that protects user
+                credentials and permissions.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Cloud Infrastructure</h3>
+
+            <p>
+
+                Reliable cloud architecture designed for scalability,
+                availability and security.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     OUR TEAM
+========================================== -->
+
+<section class="container">
+
+    <div class="notice">
+
+        <h2>
+
+            Our Team
+
+        </h2>
+
+        <p>
+
+            Brain Africa Labs brings together expertise in Artificial
+            Intelligence, software engineering, cybersecurity,
+            marketing automation and cloud technologies to develop
+            reliable solutions for businesses across Africa.
+
+        </p>
+
+        <p>
+
+            We believe that AI should enhance human creativity,
+            simplify business operations and remain transparent,
+            secure and ethical.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     NEXT PART
+     Timeline
+     Company Milestones
+     CTA
+     Footer
+========================================== -->
+    <!-- ==========================================
+     COMPANY JOURNEY
+========================================== -->
+
+<section class="container">
+
+    <div class="section-heading">
+
+        <span class="badge">
+            OUR JOURNEY
+        </span>
+
+        <h2>
+
+            Building the Future of AI Marketing
+
+        </h2>
+
+        <p>
+
+            Brain Africa Labs was created with one clear objective:
+            build world-class Artificial Intelligence software
+            designed for African businesses while respecting
+            international security and privacy standards.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     TIMELINE
+========================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Company Timeline
+
+    </h2>
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <div class="content">
+
+                <h3>Research & Vision</h3>
+
+                <p>
+
+                    Extensive research on Artificial Intelligence,
+                    digital marketing automation and official social
+                    media APIs to identify the needs of African
+                    businesses.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <div class="content">
+
+                <h3>Platform Design</h3>
+
+                <p>
+
+                    Design of AI Marketing Brain with a strong focus
+                    on security, scalability, automation and
+                    user experience.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <div class="content">
+
+                <h3>Official API Integration</h3>
+
+                <p>
+
+                    Implementation of OAuth 2.0 authentication
+                    and official social media APIs to ensure
+                    secure and policy-compliant publishing.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <div class="content">
+
+                <h3>Future Expansion</h3>
+
+                <p>
+
+                    Continuous development of new AI services,
+                    automation tools and enterprise solutions
+                    for businesses across Africa.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     COMPANY MILESTONES
+========================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Company Milestones
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>AI Platform</h3>
+
+            <p>
+
+                Development of AI Marketing Brain,
+                our flagship marketing automation platform.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Security First</h3>
+
+            <p>
+
+                OAuth 2.0 authentication,
+                HTTPS encryption
+                and official API integrations.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Developer Platform</h3>
+
+            <p>
+
+                API documentation,
+                developer resources
+                and future SDKs.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Africa Focus</h3>
+
+            <p>
+
+                Building AI software tailored
+                for African companies,
+                startups and creators.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     WHY CHOOSE US
+========================================== -->
+
+<section class="container">
+
+    <div class="notice">
+
+        <h2>
+
+            Why Choose Brain Africa Labs?
+
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Official Integrations</h3>
+
+                <p>
+
+                    We rely on official APIs rather than unofficial
+                    automation methods.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Responsible AI</h3>
+
+                <p>
+
+                    Human review remains central to our publishing
+                    workflow.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Privacy First</h3>
+
+                <p>
+
+                    No passwords are collected.
+                    User authorization is mandatory.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Enterprise Security</h3>
+
+                <p>
+
+                    Secure authentication,
+                    encrypted communications
+                    and token protection.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     GLOBAL VISION
+========================================== -->
+
+<section class="container">
+
+    <div class="card">
+
+        <h2>
+
+            Looking Ahead
+
+        </h2>
+
+        <p>
+
+            Brain Africa Labs aims to become one of Africa's leading
+            Artificial Intelligence software companies by delivering
+            trusted solutions for marketing automation,
+            business productivity and digital transformation.
+
+        </p>
+
+        <p>
+
+            Our long-term vision includes enterprise AI,
+            workflow automation,
+            intelligent assistants,
+            predictive analytics
+            and cloud-based business solutions.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     COMPANY STATS
+========================================== -->
+
+<section class="container">
+
+    <h2 class="section-title">
+
+        Platform Highlights
+
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h2>AI</h2>
+
+            <p>
+
+                Artificial Intelligence Powered
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>OAuth 2.0</h2>
+
+            <p>
+
+                Secure Authorization
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Official APIs</h2>
+
+            <p>
+
+                Policy-Compliant Integrations
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Privacy First</h2>
+
+            <p>
+
+                User-Controlled Access
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     FINAL CTA
+========================================== -->
+
+<section class="container">
+
+    <div class="hero" style="padding:60px;">
+
+        <h2>
+
+            Join the Future of AI Marketing
+
+        </h2>
+
+        <p>
+
+            Discover how AI Marketing Brain helps businesses
+            create smarter content, automate marketing workflows
+            and publish securely using official APIs.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="ai-marketing-brain.html"
+               class="btn btn-primary">
+
+                Explore AI Marketing Brain
+
+            </a>
+
+            <a href="contact.html"
+               class="btn btn-outline">
+
+                Contact Our Team
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     NEXT PART
+     Footer
+     Documentation
+     Copyright
+     script.js
+========================================== -->
+    <!-- ==========================================
+     FOOTER
+========================================== -->
 
 <footer>
 
-<p>
-© 2026 AI Marketing Brain
+    <div class="container footer-grid">
 
-Abidjan, Côte d'Ivoire
+        <!-- Company -->
 
-Email:
-anojmko620@gmail.com
+        <div>
 
-Website:
-https://anojmk.github.io/ai-marketing-brain/
+            <img
+                src="assets/logo.png"
+                alt="Brain Africa Labs Logo"
+                style="width:70px;margin-bottom:20px;">
 
-</p>
+            <h3>Brain Africa Labs</h3>
 
-<p>
+            <p>
 
-AI-powered marketing automation platform.
+                Building secure Artificial Intelligence software
+                for businesses across Africa.
 
-</p>
+            </p>
+
+            <p style="margin-top:15px;">
+
+                Our flagship product,
+                <strong>AI Marketing Brain</strong>,
+                helps organizations automate marketing
+                using official APIs and secure OAuth 2.0
+                authentication.
+
+            </p>
+
+        </div>
+
+        <!-- Products -->
+
+        <div>
+
+            <h4>Products</h4>
+
+            <ul>
+
+                <li>
+                    <a href="ai-marketing-brain.html">
+                        AI Marketing Brain
+                    </a>
+                </li>
+
+                <li>
+                    <a href="developers.html">
+                        Developer Portal
+                    </a>
+                </li>
+
+                <li>
+                    <a href="api-reference.html">
+                        API Reference
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Documentation -->
+
+        <div>
+
+            <h4>Documentation</h4>
+
+            <ul>
+
+                <li>
+                    <a href="how-it-works.html">
+                        How It Works
+                    </a>
+                </li>
+
+                <li>
+                    <a href="security.html">
+                        Security
+                    </a>
+                </li>
+
+                <li>
+                    <a href="oauth.html">
+                        OAuth 2.0
+                    </a>
+                </li>
+
+                <li>
+                    <a href="compliance.html">
+                        Compliance
+                    </a>
+                </li>
+
+                <li>
+                    <a href="developers.html">
+                        Developers
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Legal -->
+
+        <div>
+
+            <h4>Legal</h4>
+
+            <ul>
+
+                <li>
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+                </li>
+
+                <li>
+                    <a href="terms.html">
+                        Terms of Service
+                    </a>
+                </li>
+
+                <li>
+                    <a href="data-deletion.html">
+                        Data Deletion
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Contact -->
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <p>
+
+                📍 Abidjan, Côte d'Ivoire
+
+            </p>
+
+            <p>
+
+                ✉️
+                <a href="mailto:contact@brainafricalabs.com">
+                    contact@brainafricalabs.com
+                </a>
+
+            </p>
+
+            <p>
+
+                🌐
+
+                <a href="https://brainafricalabs.com">
+
+                    brainafricalabs.com
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr style="margin:50px 0;border-color:#233247;">
+
+    <div class="container">
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Official APIs</h3>
+
+                <p>
+
+                    AI Marketing Brain publishes content
+                    using official platform APIs and secure
+                    OAuth 2.0 authorization.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Privacy First</h3>
+
+                <p>
+
+                    User passwords are never collected.
+
+                    Users remain in full control of
+                    their connected social media accounts.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Built for Africa</h3>
+
+                <p>
+
+                    Developing trusted AI software
+                    for startups, creators,
+                    enterprises and organizations
+                    throughout Africa.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container copyright">
+
+        <p>
+
+            © 2026
+            <strong>Brain Africa Labs</strong>.
+
+            All Rights Reserved.
+
+        </p>
+
+        <p>
+
+            AI Marketing Brain™ is a flagship product of
+            Brain Africa Labs.
+
+        </p>
+
+    </div>
 
 </footer>
 
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
 
+<script src="script.js"></script>
 
 </body>
 
