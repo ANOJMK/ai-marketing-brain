@@ -2146,3 +2146,46 @@ border:1px solid #ccc;
 ========================================================== */
 
 
+/* PRODUCT PAGE */
+
+.hero-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-image img{
+    max-width:420px;
+}
+
+.icon{
+    width:64px;
+    height:64px;
+    margin-bottom:20px;
+}
+
+.card ul{
+    list-style:none;
+    margin-top:20px;
+}
+
+.card ul li{
+    padding:10px 0;
+    color:var(--muted);
+}
+
+.card ul li::before{
+    content:"✓";
+    color:#22c55e;
+    font-weight:bold;
+    margin-right:12px;
+}
+
+.cta{
+    text-align:center;
+    margin-top:70px;
+}
+
+.cta .btn{
+    margin:10px;
+}
