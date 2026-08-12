@@ -2165,20 +2165,26 @@ border:1px solid #ccc;
 }
 
 .card ul{
-    list-style:none;
-    margin-top:20px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
 }
 
 .card ul li{
-    padding:10px 0;
-    color:var(--muted);
+    position: relative;
+    padding: 10px 0 10px 32px;
+    color: var(--muted);
+    line-height: 1.7;
 }
 
 .card ul li::before{
-    content:"✓";
-    color:#22c55e;
-    font-weight:bold;
-    margin-right:12px;
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #22c55e;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .cta{
@@ -2190,32 +2196,4 @@ border:1px solid #ccc;
     margin:10px;
 }
 
-.notification-list{
-    list-style:none;
-    padding:0;
-    margin:25px 0;
-}
 
-.notification-list li{
-
-    display:flex;
-    align-items:center;
-    gap:14px;
-
-    padding:12px 0;
-
-    color:var(--muted);
-
-    font-size:17px;
-
-}
-
-.notification-list .icon{
-
-    font-size:18px;
-
-    color:#22c55e;
-
-    flex-shrink:0;
-
-}
