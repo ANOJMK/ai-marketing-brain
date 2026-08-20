@@ -599,9 +599,9 @@ Publication Status
 
 <p>
 
-The application checks the returned publication status
-to determine whether processing has completed or
-requires further processing.
+The application checks the publication status returned by
+TikTok to determine whether processing is still in progress,
+has completed, or requires further action.
 
 </p>
 
@@ -634,9 +634,9 @@ Testing the TikTok Publishing Workflow
 
 <p>
 
-To test the TikTok integration, an authorized TikTok account
-is connected to AI Marketing Brain through the official TikTok
-OAuth authorization flow.
+To test the TikTok integration, a reviewer or authorized user
+connects a TikTok account to AI Marketing Brain through the
+official TikTok OAuth authorization flow.
 
 </p>
 
@@ -682,9 +682,96 @@ does not request or collect the user's TikTok password.
 
 </p>
 
+<p>
+
+<strong>Publication availability and visibility are subject to
+TikTok's applicable production review, account permissions,
+and platform restrictions.</strong> Brain Africa Labs does not
+attempt to bypass or modify these restrictions.
+
+</p>
+
+<ul class="features">
+
+<li>
+The TikTok authorization experience is handled by TikTok.
+</li>
+
+<li>
+The user explicitly grants or denies the requested permissions.
+</li>
+
+<li>
+The application submits video content only after authorization.
+</li>
+
+<li>
+The application checks the publication status returned by TikTok.
+</li>
+
+</ul>
+
 </div>
 
 </section>
+
+<!-- ========================================= -->
+<!-- TIKTOK REVIEWER NOTES -->
+<!-- ========================================= -->
+
+<section class="container">
+
+<h2 class="section-title">
+
+TikTok Review Notes
+
+</h2>
+
+<div class="notice">
+
+<h3>
+Official API and User-Authorized Workflow
+</h3>
+
+<p>
+
+The TikTok integration is designed for users who explicitly
+connect and authorize their TikTok account through TikTok's
+official authorization experience.
+
+</p>
+
+<p>
+
+The application uses the permissions granted by the user to
+perform the supported publishing operations through TikTok's
+official Content Posting API. The application does not request
+TikTok login credentials directly.
+
+</p>
+
+<p>
+
+The publishing workflow is asynchronous. After a video is
+submitted, AI Marketing Brain uses the API response and
+publication-status information returned by TikTok to determine
+whether the submission is processing, completed, or requires
+further action.
+
+</p>
+
+<p>
+
+Production publication capabilities and visibility remain
+controlled by TikTok and may depend on the application's
+production review status and the connected account.
+
+</p>
+
+</div>
+
+</section>
+
 <!-- ========================================= -->
 <!-- TIKTOK PERMISSIONS -->
 <!-- ========================================= -->
