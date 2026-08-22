@@ -1,0 +1,2199 @@
+/* ==========================================================
+   Brain Africa Labs
+   AI Marketing Brain
+   style.css
+   Part 1
+   Variables • Reset • Body • Header • Navigation • Hero
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root{
+
+--primary:#2563eb;
+--primary-dark:#1d4ed8;
+--secondary:#7c3aed;
+--success:#22c55e;
+--warning:#f59e0b;
+--danger:#ef4444;
+
+--dark:#0B1220;
+--dark-light:#111827;
+--card:#1e293b;
+--card-hover:#263548;
+
+--text:#ffffff;
+--muted:#cbd5e1;
+
+--border:#334155;
+
+--radius:18px;
+
+--shadow:
+0 12px 30px rgba(0,0,0,.25);
+
+--transition:.30s ease;
+
+}
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'Inter',sans-serif;
+
+background:linear-gradient(
+180deg,
+#08111f 0%,
+#0B1220 40%,
+#111827 100%
+);
+
+color:var(--text);
+
+line-height:1.7;
+
+overflow-x:hidden;
+
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+h1,h2,h3,h4,h5,h6{
+
+font-weight:700;
+
+line-height:1.25;
+
+}
+
+p{
+
+color:var(--muted);
+
+font-size:17px;
+
+line-height:1.8;
+
+}
+
+a{
+
+text-decoration:none;
+
+transition:var(--transition);
+
+}
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.container{
+
+width:90%;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+section{
+
+padding:90px 0;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+background:rgba(11,18,32,.92);
+
+backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.navbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 0;
+
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.logo img{
+
+width:62px;
+
+height:62px;
+
+object-fit:contain;
+
+}
+
+.logo h1{
+
+font-size:28px;
+
+font-weight:800;
+
+color:white;
+
+}
+
+.tagline{
+
+margin-top:5px;
+
+}
+
+.tagline p{
+
+font-size:13px;
+
+line-height:1.5;
+
+color:#94a3b8;
+
+}
+
+.official{
+
+display:inline-block;
+
+margin-top:8px;
+
+padding:5px 12px;
+
+font-size:12px;
+
+font-weight:700;
+
+background:rgba(37,99,235,.15);
+
+border:1px solid rgba(37,99,235,.35);
+
+color:#60a5fa;
+
+border-radius:999px;
+
+}
+
+/* ==========================================================
+   NAVIGATION
+========================================================== */
+
+nav{
+
+display:flex;
+
+align-items:center;
+
+gap:26px;
+
+flex-wrap:wrap;
+
+}
+
+nav a{
+
+color:white;
+
+font-weight:600;
+
+font-size:15px;
+
+position:relative;
+
+}
+
+nav a:hover{
+
+color:#60a5fa;
+
+}
+
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-8px;
+
+width:0;
+
+height:2px;
+
+background:#2563eb;
+
+transition:.30s;
+
+}
+
+nav a:hover::after{
+
+width:100%;
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+align-items:center;
+
+padding:110px 0;
+
+}
+
+.hero h1{
+
+font-size:62px;
+
+font-weight:800;
+
+line-height:1.1;
+
+margin-bottom:25px;
+
+}
+
+.hero h2{
+
+font-size:54px;
+
+font-weight:800;
+
+line-height:1.15;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+max-width:650px;
+
+margin-bottom:30px;
+
+color:var(--muted);
+
+}
+
+.hero img{
+
+width:100%;
+
+max-width:430px;
+
+margin:auto;
+
+filter:drop-shadow(0 25px 45px rgba(37,99,235,.30));
+
+}
+
+/* ==========================================================
+   BADGE
+========================================================== */
+
+.badge{
+
+display:inline-block;
+
+padding:9px 18px;
+
+border-radius:999px;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:22px;
+
+background:rgba(37,99,235,.15);
+
+color:#60a5fa;
+
+border:1px solid rgba(96,165,250,.35);
+
+}
+
+/* ==========================================================
+   HERO BUTTONS
+========================================================== */
+
+.hero-buttons{
+
+display:flex;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+margin-top:25px;
+
+}
+
+/* ==========================================================
+   TRUST BADGES
+========================================================== */
+
+.trust-badges{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+margin-top:35px;
+
+}
+
+.trust-badges span{
+
+padding:10px 18px;
+
+border-radius:999px;
+
+background:#162235;
+
+border:1px solid rgba(255,255,255,.05);
+
+font-size:14px;
+
+font-weight:600;
+
+color:#dbeafe;
+
+}
+
+/* ==========================================================
+   PART 2
+   Buttons • Cards • Grid • Sections • Platforms • Timeline
+   ========================================================== */
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:16px 34px;
+
+border-radius:14px;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:all .30s ease;
+
+text-decoration:none;
+
+border:none;
+
+}
+
+.btn-primary{
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+color:white;
+
+box-shadow:
+0 12px 28px rgba(37,99,235,.30);
+
+}
+
+.btn-primary:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 22px 40px rgba(37,99,235,.45);
+
+}
+
+.btn-outline{
+
+background:transparent;
+
+color:white;
+
+border:2px solid var(--primary);
+
+}
+
+.btn-outline:hover{
+
+background:var(--primary);
+
+color:white;
+
+transform:translateY(-3px);
+
+}
+
+.btn-success{
+
+background:var(--success);
+
+color:white;
+
+}
+
+.btn-success:hover{
+
+filter:brightness(110%);
+
+transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.section-title{
+
+font-size:42px;
+
+font-weight:800;
+
+text-align:center;
+
+margin-bottom:20px;
+
+color:white;
+
+}
+
+.section-subtitle{
+
+text-align:center;
+
+font-size:18px;
+
+color:var(--muted);
+
+max-width:760px;
+
+margin:0 auto 60px;
+
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+.card{
+
+background:rgba(30,41,59,.88);
+
+border:1px solid rgba(255,255,255,.06);
+
+border-radius:var(--radius);
+
+padding:35px;
+
+transition:all .30s ease;
+
+box-shadow:var(--shadow);
+
+height:100%;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+border-color:rgba(37,99,235,.60);
+
+box-shadow:
+0 28px 45px rgba(0,0,0,.40);
+
+}
+
+.card h3{
+
+font-size:24px;
+
+margin-bottom:18px;
+
+color:#60a5fa;
+
+}
+
+.card p{
+
+font-size:16px;
+
+line-height:1.8;
+
+}
+
+/* ==========================================================
+   FEATURE LIST
+========================================================== */
+
+.features{
+
+list-style:none;
+
+margin-top:25px;
+
+}
+
+.features li{
+
+padding:12px 0;
+
+padding-left:30px;
+
+position:relative;
+
+color:var(--muted);
+
+}
+
+.features li::before{
+
+content:"✓";
+
+position:absolute;
+
+left:0;
+
+top:12px;
+
+color:var(--success);
+
+font-weight:800;
+
+}
+
+/* ==========================================================
+   NOTICE
+========================================================== */
+
+.notice{
+
+background:
+
+linear-gradient(
+135deg,
+rgba(37,99,235,.10),
+rgba(124,58,237,.10)
+);
+
+padding:50px;
+
+border-radius:24px;
+
+border:1px solid rgba(255,255,255,.05);
+
+text-align:center;
+
+box-shadow:var(--shadow);
+
+}
+
+.notice h3{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+}
+
+.notice p{
+
+max-width:850px;
+
+margin:auto;
+
+}
+
+/* ==========================================================
+   PLATFORM GRID
+========================================================== */
+
+.platform-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:25px;
+
+margin-top:45px;
+
+}
+
+.platform{
+
+background:#172132;
+
+padding:35px 20px;
+
+border-radius:18px;
+
+text-align:center;
+
+transition:.30s;
+
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+.platform:hover{
+
+transform:translateY(-8px);
+
+background:#22314b;
+
+}
+
+.platform h3{
+
+font-size:20px;
+
+color:white;
+
+}
+
+/* ==========================================================
+   TRUST GRID
+========================================================== */
+
+.trust-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:25px;
+
+margin-top:35px;
+
+}
+
+.trust-card{
+
+background:#172132;
+
+padding:30px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.05);
+
+transition:.30s;
+
+}
+
+.trust-card:hover{
+
+transform:translateY(-6px);
+
+border-color:#2563eb;
+
+}
+
+.trust-card h3{
+
+margin-bottom:15px;
+
+color:#60a5fa;
+
+}
+
+/* ==========================================================
+   TIMELINE
+========================================================== */
+
+.timeline{
+
+max-width:900px;
+
+margin:70px auto;
+
+position:relative;
+
+}
+
+.timeline::before{
+
+content:"";
+
+position:absolute;
+
+left:28px;
+
+top:0;
+
+bottom:0;
+
+width:4px;
+
+background:#2563eb;
+
+}
+
+.step{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:30px;
+
+margin-bottom:45px;
+
+position:relative;
+
+}
+
+.number{
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+background:
+
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+font-weight:800;
+
+color:white;
+
+flex-shrink:0;
+
+box-shadow:
+0 12px 28px rgba(37,99,235,.35);
+
+}
+
+.content{
+
+background:#1b2438;
+
+padding:30px;
+
+border-radius:18px;
+
+flex:1;
+
+box-shadow:var(--shadow);
+
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+.content h3{
+
+margin-bottom:15px;
+
+font-size:24px;
+
+color:#60a5fa;
+
+}
+
+.content p{
+
+color:var(--muted);
+
+line-height:1.8;
+
+}
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:30px;
+
+margin-top:60px;
+
+}
+
+.stat{
+
+text-align:center;
+
+}
+
+.stat h2{
+
+font-size:48px;
+
+font-weight:800;
+
+color:#60a5fa;
+
+margin-bottom:10px;
+
+}
+
+.stat p{
+
+font-size:15px;
+
+color:var(--muted);
+
+}
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.divider{
+
+width:120px;
+
+height:4px;
+
+background:
+
+linear-gradient(
+90deg,
+var(--primary),
+var(--secondary)
+);
+
+margin:25px auto 50px;
+
+border-radius:999px;
+
+}
+/* ==========================================================
+   PART 3
+   Forms • Tables • FAQ • Policy • Contact • Footer
+   ========================================================== */
+
+/* ==========================================================
+   FORMULAIRES
+========================================================== */
+
+form{
+
+max-width:760px;
+
+margin:40px auto;
+
+}
+
+.form-group{
+
+margin-bottom:25px;
+
+}
+
+label{
+
+display:block;
+
+margin-bottom:10px;
+
+font-weight:600;
+
+color:white;
+
+}
+
+input,
+textarea,
+select{
+
+width:100%;
+
+padding:16px 18px;
+
+background:#162235;
+
+border:1px solid var(--border);
+
+border-radius:14px;
+
+color:white;
+
+font-size:16px;
+
+font-family:inherit;
+
+transition:all .30s ease;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+outline:none;
+
+border-color:var(--primary);
+
+box-shadow:0 0 0 4px rgba(37,99,235,.20);
+
+}
+
+textarea{
+
+resize:vertical;
+
+min-height:180px;
+
+}
+
+::placeholder{
+
+color:#94a3b8;
+
+}
+
+/* ==========================================================
+   CONTACT
+========================================================== */
+
+.contact-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:40px;
+
+align-items:start;
+
+}
+
+.contact-card{
+
+background:var(--card);
+
+padding:35px;
+
+border-radius:var(--radius);
+
+border:1px solid rgba(255,255,255,.05);
+
+box-shadow:var(--shadow);
+
+}
+
+.contact-card h3{
+
+margin-bottom:18px;
+
+color:#60a5fa;
+
+}
+
+.contact-card p{
+
+margin-bottom:15px;
+
+}
+
+.contact-card a{
+
+color:#60a5fa;
+
+word-break:break-word;
+
+}
+
+.email{
+
+margin-top:15px;
+
+font-weight:700;
+
+font-size:18px;
+
+}
+
+/* ==========================================================
+   POLICY
+========================================================== */
+
+.policy{
+
+max-width:950px;
+
+margin:auto;
+
+}
+
+.policy .card{
+
+margin-bottom:30px;
+
+}
+
+.policy h2{
+
+font-size:30px;
+
+margin-bottom:20px;
+
+color:#60a5fa;
+
+}
+
+.policy h3{
+
+margin-bottom:15px;
+
+color:#60a5fa;
+
+}
+
+.policy ul{
+
+margin-left:25px;
+
+margin-top:15px;
+
+}
+
+.policy li{
+
+margin-bottom:12px;
+
+color:var(--muted);
+
+line-height:1.8;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.table-responsive{
+
+overflow-x:auto;
+
+margin-top:30px;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:var(--card);
+
+border-radius:18px;
+
+overflow:hidden;
+
+}
+
+thead{
+
+background:#172132;
+
+}
+
+th{
+
+padding:18px;
+
+text-align:left;
+
+font-weight:700;
+
+color:white;
+
+}
+
+td{
+
+padding:18px;
+
+border-top:1px solid rgba(255,255,255,.05);
+
+color:var(--muted);
+
+}
+
+tbody tr:hover{
+
+background:#22314b;
+
+}
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+.faq{
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+.faq-item{
+
+background:var(--card);
+
+border-radius:16px;
+
+margin-bottom:20px;
+
+border:1px solid rgba(255,255,255,.05);
+
+overflow:hidden;
+
+}
+
+.faq-question{
+
+padding:22px 28px;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+color:white;
+
+background:#172132;
+
+}
+
+.faq-answer{
+
+padding:25px 28px;
+
+border-top:1px solid rgba(255,255,255,.05);
+
+color:var(--muted);
+
+line-height:1.8;
+
+}
+
+/* ==========================================================
+   ALERTS
+========================================================== */
+
+.alert{
+
+padding:18px 22px;
+
+border-radius:14px;
+
+margin:20px 0;
+
+font-weight:600;
+
+}
+
+.alert-info{
+
+background:rgba(37,99,235,.12);
+
+border-left:5px solid var(--primary);
+
+}
+
+.alert-success{
+
+background:rgba(34,197,94,.12);
+
+border-left:5px solid var(--success);
+
+}
+
+.alert-warning{
+
+background:rgba(245,158,11,.12);
+
+border-left:5px solid var(--warning);
+
+}
+
+.alert-danger{
+
+background:rgba(239,68,68,.12);
+
+border-left:5px solid var(--danger);
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+margin-top:100px;
+
+background:#07101d;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+padding:70px 0 30px;
+
+}
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:45px;
+
+}
+
+.footer-grid h4{
+
+font-size:20px;
+
+margin-bottom:18px;
+
+color:white;
+
+}
+
+.footer-grid p{
+
+color:#94a3b8;
+
+line-height:1.8;
+
+}
+
+.footer-grid a{
+
+display:block;
+
+margin-bottom:12px;
+
+color:#94a3b8;
+
+transition:all .30s ease;
+
+}
+
+.footer-grid a:hover{
+
+color:white;
+
+padding-left:6px;
+
+}
+
+.footer-social{
+
+display:flex;
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.footer-social a{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+width:42px;
+
+height:42px;
+
+border-radius:50%;
+
+background:#172132;
+
+color:white;
+
+transition:.30s;
+
+}
+
+.footer-social a:hover{
+
+background:var(--primary);
+
+transform:translateY(-3px);
+
+}
+
+.copyright{
+
+margin-top:45px;
+
+padding-top:25px;
+
+text-align:center;
+
+border-top:1px solid rgba(255,255,255,.06);
+
+color:#94a3b8;
+
+font-size:15px;
+
+}
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+a{
+
+transition:all .30s ease;
+
+}
+
+a:hover{
+
+opacity:.95;
+
+}
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+::selection{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+/* ==========================================================
+   PART 4
+   Responsive • Animations • Utilities
+   Brain Africa Labs
+   ========================================================== */
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:1200px){
+
+.container{
+
+width:92%;
+
+}
+
+.hero{
+
+gap:50px;
+
+}
+
+.hero h1{
+
+font-size:52px;
+
+}
+
+.section-title{
+
+font-size:38px;
+
+}
+
+}
+
+
+@media (max-width:992px){
+
+.navbar{
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+nav{
+
+justify-content:center;
+
+}
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+padding:80px 0;
+
+}
+
+.hero img{
+
+max-width:340px;
+
+}
+
+.hero p{
+
+margin:auto;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.trust-badges{
+
+justify-content:center;
+
+}
+
+.section-title{
+
+font-size:34px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+
+@media (max-width:768px){
+
+header{
+
+padding:15px 0;
+
+}
+
+.logo{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.logo img{
+
+width:70px;
+
+height:70px;
+
+}
+
+.logo h1{
+
+font-size:26px;
+
+}
+
+nav{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.hero{
+
+padding:70px 0;
+
+}
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+.hero h2{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.section{
+
+padding:70px 0;
+
+}
+
+.section-title{
+
+font-size:30px;
+
+}
+
+.card{
+
+padding:28px;
+
+}
+
+.notice{
+
+padding:35px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.footer-social{
+
+justify-content:center;
+
+}
+
+.contact-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.timeline::before{
+
+display:none;
+
+}
+
+.step{
+
+flex-direction:column;
+
+}
+
+.number{
+
+margin:auto;
+
+}
+
+.content{
+
+text-align:center;
+
+}
+
+}
+
+
+@media (max-width:480px){
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero h2{
+
+font-size:28px;
+
+}
+
+.section-title{
+
+font-size:28px;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.platform-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+@keyframes slideUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+@keyframes zoomIn{
+
+from{
+
+opacity:0;
+
+transform:scale(.90);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+.fade-in{
+
+animation:fadeIn .8s ease forwards;
+
+}
+
+.slide-up{
+
+animation:slideUp .8s ease forwards;
+
+}
+
+.zoom-in{
+
+animation:zoomIn .6s ease forwards;
+
+}
+
+
+/* ==========================================================
+   HOVER EFFECTS
+========================================================== */
+
+.card:hover,
+.platform:hover,
+.trust-card:hover{
+
+transition:.30s;
+
+}
+
+.btn:hover{
+
+transition:.30s;
+
+}
+
+img{
+
+transition:.30s;
+
+}
+
+img:hover{
+
+transform:scale(1.02);
+
+}
+
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.text-center{
+
+text-align:center;
+
+}
+
+.text-left{
+
+text-align:left;
+
+}
+
+.text-right{
+
+text-align:right;
+
+}
+
+.mt-1{
+
+margin-top:10px;
+
+}
+
+.mt-2{
+
+margin-top:20px;
+
+}
+
+.mt-3{
+
+margin-top:30px;
+
+}
+
+.mt-4{
+
+margin-top:40px;
+
+}
+
+.mt-5{
+
+margin-top:60px;
+
+}
+
+.mb-1{
+
+margin-bottom:10px;
+
+}
+
+.mb-2{
+
+margin-bottom:20px;
+
+}
+
+.mb-3{
+
+margin-bottom:30px;
+
+}
+
+.mb-4{
+
+margin-bottom:40px;
+
+}
+
+.mb-5{
+
+margin-bottom:60px;
+
+}
+
+.pt-5{
+
+padding-top:60px;
+
+}
+
+.pb-5{
+
+padding-bottom:60px;
+
+}
+
+.rounded{
+
+border-radius:18px;
+
+}
+
+.shadow{
+
+box-shadow:var(--shadow);
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+.w-100{
+
+width:100%;
+
+}
+
+.flex{
+
+display:flex;
+
+}
+
+.flex-center{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.justify-between{
+
+justify-content:space-between;
+
+}
+
+.align-center{
+
+align-items:center;
+
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#0B1220;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563eb;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#1d4ed8;
+
+}
+
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+:focus-visible{
+
+outline:3px solid #60a5fa;
+
+outline-offset:3px;
+
+}
+
+button,
+.btn{
+
+cursor:pointer;
+
+}
+
+
+/* ==========================================================
+   PRINT
+========================================================== */
+
+@media print{
+
+header,
+footer,
+.hero-buttons,
+.trust-badges{
+
+display:none;
+
+}
+
+body{
+
+background:white;
+
+color:black;
+
+}
+
+.card{
+
+box-shadow:none;
+
+border:1px solid #ccc;
+
+}
+
+}
+
+
+/* ==========================================================
+   END OF FILE
+   Brain Africa Labs
+   AI Marketing Brain
+   Version 1.0
+========================================================== */
+
+
+/* PRODUCT PAGE */
+
+.hero-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-image img{
+    max-width:420px;
+}
+
+.icon{
+    width:64px;
+    height:64px;
+    margin-bottom:20px;
+}
+
+.card ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.card ul li{
+    position: relative;
+    padding: 10px 0 10px 32px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.card ul li::before{
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #22c55e;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cta{
+    text-align:center;
+    margin-top:70px;
+}
+
+.cta .btn{
+    margin:10px;
+}
+
+
