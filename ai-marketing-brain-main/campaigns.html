@@ -386,6 +386,15 @@ View Details
 
 </h2>
 
+<div style="margin:0 0 28px;display:flex;gap:12px;flex-wrap:wrap">
+<a href="app/dashboard.html" class="btn btn-primary">
+Open TikTok Audit Flow →
+</a>
+<a href="app/create-campaign.html" class="btn btn-outline">
+Create TikTok Campaign
+</a>
+</div>
+
 <p class="section-subtitle">
 
 Generate complete marketing campaigns powered by Artificial Intelligence.
@@ -398,7 +407,7 @@ Generate complete marketing campaigns powered by Artificial Intelligence.
 
 <h3>Create Campaign</h3>
 
-<form>
+<form id="campaignForm">
 
 <div class="form-group">
 <label>Campaign Name</label>
@@ -1483,6 +1492,27 @@ answer.style.display==="block"
 });
 
 /* ==========================================
+   Campaign Form
+========================================== */
+
+const campaignForm = document.getElementById("campaignForm");
+
+if (campaignForm) {
+  campaignForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = campaignForm.querySelector('input[type="text"]')?.value.trim();
+
+    if (!name) {
+      showToast("Please enter a campaign name.");
+      return;
+    }
+
+    showToast("Campaign draft created successfully 🚀");
+  });
+}
+
+/* ==========================================
    Toast Notification
 ========================================== */
 
@@ -1509,27 +1539,14 @@ showToast("Welcome to Campaign Manager 🚀");
 },1200);
 
 /* ==========================================
-   Placeholder for Chart.js
+   Chart.js placeholder
 ========================================== */
 
 /*
-
 Future implementation:
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-const ctx=document.getElementById("campaignChart");
-
-new Chart(ctx,{
-
-type:"line",
-
-data:{},
-
-options:{}
-
-});
-
+Load Chart.js before this script and initialize
+the campaign chart here. This placeholder intentionally
+contains no nested <script> tag.
 */
 
 /* ==========================================
@@ -1537,15 +1554,13 @@ options:{}
 ========================================== */
 
 /*
-
 const toggle=document.getElementById("darkMode");
 
-toggle.addEventListener("click",()=>{
-
-document.body.classList.toggle("dark");
-
-});
-
+if (toggle) {
+  toggle.addEventListener("click",()=>{
+    document.body.classList.toggle("dark");
+  });
+}
 */
 
 </script>
