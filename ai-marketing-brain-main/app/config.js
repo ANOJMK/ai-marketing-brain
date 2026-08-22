@@ -6,7 +6,7 @@ window.BAL_CONFIG = {
   appName: 'Brain Africa Labs',
   apiBaseUrl: 'https://n8n.brainafricalabs.com',
   endpoints: {
-    oauthStart: '/webhook/tiktok/oauth/start',
+    oauthStart: '/webhook/tiktok-oauth-start',
     account: '/webhook/tiktok/account',
     publish: '/webhook/tiktok/publish'
   },
