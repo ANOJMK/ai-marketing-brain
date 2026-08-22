@@ -1,4 +1,175 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Authorize TikTok | Brain Africa Labs</title><link rel="stylesheet" href="css/audit.css"></head><body>
-<header class="nav"><div class="nav-inner"><a class="brand" href="dashboard.html"><img src="../assets/logo.png" onerror="this.style.display='none'" alt="Brain Africa Labs"><div><strong>Brain Africa Labs</strong><span>AI Marketing Brain • TikTok Audit</span></div></a><div class="links"><a href="dashboard.html">Audit Dashboard</a><a href="../campaigns.html">Campaigns</a></div></div></header>
-<main class="wrap"><div class="hero"><div class="eyebrow">Step 5</div><h1>Authorize TikTok</h1><p>Authorization screen for the TikTok integration.</p></div>
-<div class="card"><h2>Brain Africa Labs wants to connect to TikTok</h2><p class="muted">The authorization request is handled by the backend OAuth flow.</p><div class="pill">Scope: user.info.basic</div><div class="pill">Scope: video.publish</div><br><a class="btn primary" href="tiktok-connected.html">Approve & Continue →</a></div></main><footer class="footer">© 2026 Brain Africa Labs — AI Marketing Brain</footer><script src="js/audit.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Authorize TikTok | Brain Africa Labs</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <div class="shell">
+
+    <header class="topbar">
+      <a class="brand" href="dashboard.html" aria-label="Brain Africa Labs dashboard">
+        <img src="../assets/logo.png" alt="Brain Africa Labs">
+        <div>
+          <strong>Brain Africa Labs</strong>
+          <small>AI Marketing Brain • TikTok Audit</small>
+        </div>
+      </a>
+
+      <div class="top-actions">
+        <a class="btn btn-ghost" href="dashboard.html">
+          Audit Dashboard
+        </a>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <aside class="side">
+        <a href="dashboard.html">⌂ Dashboard</a>
+        <a href="create-campaign.html">＋ Create campaign</a>
+        <a href="select-video.html">▣ Content</a>
+        <a href="select-platform.html">◉ Platforms</a>
+        <a href="tiktok-connected.html" class="active">✓ Connected accounts</a>
+        <a href="publishing.html">↗ Publishing center</a>
+        <a href="../security.html">◈ Security</a>
+      </aside>
+
+      <main class="main">
+
+        <div class="eyebrow">TikTok Authorization</div>
+
+        <h1 class="title">Authorize TikTok</h1>
+
+        <p class="subtitle">
+          Review the permissions requested by Brain Africa Labs
+          before connecting your TikTok account.
+        </p>
+
+        <div class="steps" aria-label="TikTok publishing steps">
+          <div class="step done">
+            1. Campaign
+          </div>
+
+          <div class="step done">
+            2. Video
+          </div>
+
+          <div class="step done">
+            3. TikTok
+          </div>
+
+          <div class="step active">
+            4. Publish
+          </div>
+        </div>
+
+        <section class="card">
+
+          <div class="grid grid-2">
+
+            <div>
+
+              <div class="eyebrow">
+                Authorization request
+              </div>
+
+              <h2 style="font-size:28px;margin:12px 0;">
+                🎵 Brain Africa Labs wants to connect to TikTok
+              </h2>
+
+              <p class="muted">
+                The authorization request is handled through
+                the TikTok OAuth flow.
+              </p>
+
+              <div class="status" style="margin-top:18px;">
+                ● Secure authorization
+              </div>
+
+            </div>
+
+            <div>
+
+              <div class="notice">
+
+                <strong style="color:#fff;font-size:15px;">
+                  Requested permissions
+                </strong>
+
+                <div style="margin-top:16px;display:grid;gap:10px;">
+
+                  <div class="platform selected">
+                    <div>
+                      <strong>👤 Basic profile</strong>
+                      <div class="muted">
+                        user.info.basic
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="platform selected">
+                    <div>
+                      <strong>🎬 Video publishing</strong>
+                      <div class="muted">
+                        video.publish
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="notice" style="margin-top:24px;">
+            <strong style="color:#fff;">
+              🔐 Security
+            </strong>
+
+            <p style="margin:8px 0 0;">
+              TikTok credentials and OAuth client secrets are not
+              stored in this frontend interface. Authorization
+              should be processed by the backend.
+            </p>
+          </div>
+
+          <div class="actions" style="margin-top:26px;">
+
+            <a
+              class="btn btn-primary"
+              href="tiktok-connected.html">
+              Approve & Continue →
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="connect-tiktok.html">
+              ← Back
+            </a>
+
+          </div>
+
+        </section>
+
+        <div class="footer-note">
+          TikTok Audit • Authorization permissions are displayed
+          for review before account connection.
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>
