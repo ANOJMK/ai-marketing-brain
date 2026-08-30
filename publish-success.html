@@ -1,0 +1,1593 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1"
+    >
+
+    <title>
+        Publish Success — Brain Africa Labs
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/audit.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav">
+
+    <div class="nav-inner">
+
+        <a
+            class="brand"
+            href="dashboard.html"
+        >
+
+            <img
+                src="assets/logo.png"
+                onerror="this.style.display='none'"
+                alt="Brain Africa Labs"
+            >
+
+            <div>
+
+                <strong>
+                    Brain Africa Labs
+                </strong>
+
+                <span>
+                    AI Marketing Brain • TikTok Audit
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="links">
+
+            <a href="dashboard.html">
+                Audit Dashboard
+            </a>
+
+            <a href="campaigns.html">
+                Campaigns
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="wrap">
+
+
+    <!-- =====================================================
+         SUCCESS HERO
+    ====================================================== -->
+
+    <div
+        class="hero"
+        style="
+            text-align:center;
+        "
+    >
+
+        <div
+            class="eyebrow"
+            id="environmentBadge"
+        >
+            TIKTOK PUBLISHING
+        </div>
+
+
+        <div
+            style="
+                width:76px;
+                height:76px;
+                margin:20px auto;
+                border-radius:50%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:40px;
+                font-weight:700;
+                background:rgba(34,197,94,.12);
+                border:1px solid rgba(34,197,94,.35);
+            "
+        >
+            ✓
+        </div>
+
+
+        <h1 id="successTitle">
+            Publication Successful
+        </h1>
+
+
+        <p id="successMessage">
+
+            Your video publication request has been
+            successfully processed.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         STATUS CARD
+    ====================================================== -->
+
+    <div
+        class="card"
+        id="statusCard"
+    >
+
+        <div
+            style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                gap:20px;
+                flex-wrap:wrap;
+            "
+        >
+
+            <div>
+
+                <h2 style="margin:0;">
+                    Publication Status
+                </h2>
+
+                <p
+                    class="muted"
+                    style="margin:6px 0 0;"
+                >
+                    TikTok publication result.
+                </p>
+
+            </div>
+
+
+            <div
+                id="statusBadge"
+                style="
+                    padding:8px 14px;
+                    border-radius:20px;
+                    font-size:13px;
+                    font-weight:700;
+                    background:rgba(34,197,94,.12);
+                    border:1px solid rgba(34,197,94,.30);
+                "
+            >
+                PUBLISH_COMPLETE
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             STATUS DETAILS
+        ================================================== -->
+
+        <div
+            style="
+                margin-top:22px;
+                display:grid;
+                grid-template-columns:
+                    repeat(
+                        auto-fit,
+                        minmax(220px,1fr)
+                    );
+                gap:12px;
+            "
+        >
+
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Platform
+                </span>
+
+                <strong id="platform">
+                    TikTok
+                </strong>
+
+            </div>
+
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Environment
+                </span>
+
+                <strong id="environment">
+                    SANDBOX
+                </strong>
+
+            </div>
+
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Status
+                </span>
+
+                <strong id="status">
+                    PUBLISH_COMPLETE
+                </strong>
+
+            </div>
+
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Privacy
+                </span>
+
+                <strong id="privacy">
+                    SELF_ONLY
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACCOUNT
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            TikTok Account
+        </h2>
+
+
+        <div
+            id="accountDetails"
+            style="
+                margin-top:18px;
+            "
+        >
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PUBLICATION DETAILS
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Publication Details
+        </h2>
+
+
+        <div
+            style="
+                margin-top:20px;
+                display:grid;
+                gap:12px;
+            "
+        >
+
+
+            <!-- PUBLISH ID -->
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Publish ID
+                </span>
+
+                <strong
+                    id="publishId"
+                    style="
+                        word-break:break-all;
+                    "
+                >
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- FILE -->
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Video file
+                </span>
+
+                <strong id="fileName">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- STORAGE -->
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Storage path
+                </span>
+
+                <strong
+                    id="storagePath"
+                    style="
+                        word-break:break-all;
+                    "
+                >
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- CAPTION -->
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Caption
+                </span>
+
+                <div
+                    id="caption"
+                    style="
+                        margin-top:7px;
+                        line-height:1.6;
+                    "
+                >
+                    —
+                </div>
+
+            </div>
+
+
+
+            <!-- PUBLISHED AT -->
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Published at
+                </span>
+
+                <strong id="publishedAt">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- WORKFLOW -->
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Workflow ID
+                </span>
+
+                <strong id="workflowId">
+                    —
+                </strong>
+
+            </div>
+
+
+
+            <!-- SOURCE -->
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Source
+                </span>
+
+                <strong id="source">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         VIDEO SUMMARY
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Video Summary
+        </h2>
+
+
+        <div
+            style="
+                margin-top:20px;
+                display:grid;
+                grid-template-columns:
+                    repeat(
+                        auto-fit,
+                        minmax(150px,1fr)
+                    );
+                gap:12px;
+            "
+        >
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Duration
+                </span>
+
+                <strong id="duration">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Resolution
+                </span>
+
+                <strong id="resolution">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    Aspect ratio
+                </span>
+
+                <strong id="aspectRatio">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="success-detail">
+
+                <span class="muted">
+                    File size
+                </span>
+
+                <strong id="videoSize">
+                    —
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SANDBOX INFORMATION
+    ====================================================== -->
+
+    <div
+        class="card"
+        id="sandboxCard"
+        style="display:none;"
+    >
+
+        <h2>
+            TikTok Sandbox
+        </h2>
+
+
+        <div
+            style="
+                margin-top:18px;
+                padding:18px;
+                border-radius:12px;
+                border:1px solid rgba(245,158,11,.30);
+                background:rgba(245,158,11,.06);
+            "
+        >
+
+            <strong>
+                Sandbox publication completed
+            </strong>
+
+
+            <p
+                class="muted"
+                style="
+                    margin:8px 0 0;
+                    line-height:1.6;
+                "
+            >
+
+                The TikTok client is currently running in
+                Sandbox / non-audited mode. The publication
+                was completed using a privacy level permitted
+                by TikTok Creator Info.
+
+            </p>
+
+
+            <p
+                class="muted"
+                style="
+                    margin:8px 0 0;
+                    line-height:1.6;
+                "
+            >
+
+                Public visibility is not represented here as
+                PUBLIC_TO_EVERYONE. The current test uses
+                SELF_ONLY when required by the Sandbox
+                restrictions.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         AUDIT EVIDENCE
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Audit Evidence
+        </h2>
+
+
+        <p class="muted">
+
+            This page records the final user-facing result
+            of the TikTok publishing journey.
+
+        </p>
+
+
+        <div
+            style="
+                margin-top:20px;
+                display:grid;
+                gap:12px;
+            "
+        >
+
+
+            <div class="step">
+
+                <div class="num">
+                    1
+                </div>
+
+                <div>
+
+                    <b>
+                        User selected a video
+                    </b>
+
+                    <p class="muted">
+                        Video asset selected before publishing.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    2
+                </div>
+
+                <div>
+
+                    <b>
+                        User edited the caption
+                    </b>
+
+                    <p class="muted">
+                        Caption was reviewed before publication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    3
+                </div>
+
+                <div>
+
+                    <b>
+                        User selected privacy
+                    </b>
+
+                    <p class="muted">
+                        Privacy setting was explicitly displayed.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    4
+                </div>
+
+                <div>
+
+                    <b>
+                        User confirmed publication
+                    </b>
+
+                    <p class="muted">
+                        Explicit confirmation was required.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="step"
+                style="
+                    border-color:rgba(34,197,94,.35);
+                "
+            >
+
+                <div class="num">
+                    ✓
+                </div>
+
+                <div>
+
+                    <b>
+                        TikTok publication completed
+                    </b>
+
+                    <p class="muted">
+                        The final TikTok status was returned.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACTIONS
+    ====================================================== -->
+
+    <div
+        class="card"
+        style="
+            text-align:center;
+        "
+    >
+
+        <h2>
+            What's next?
+        </h2>
+
+
+        <p class="muted">
+
+            You can return to the audit dashboard or start
+            another publishing flow.
+
+        </p>
+
+
+        <div
+            style="
+                display:flex;
+                justify-content:center;
+                gap:12px;
+                flex-wrap:wrap;
+                margin-top:22px;
+            "
+        >
+
+            <a
+                href="dashboard.html"
+                class="btn primary"
+            >
+                ← Audit Dashboard
+            </a>
+
+
+            <a
+                href="select-video.html"
+                class="btn secondary"
+            >
+                Publish Another Video
+            </a>
+
+
+            <a
+                href="connect-tiktok.html"
+                class="btn secondary"
+            >
+                TikTok Account
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    © 2026 Brain Africa Labs — AI Marketing Brain
+
+</footer>
+
+
+
+<!-- =========================================================
+     PAGE STYLE
+========================================================= -->
+
+<style>
+
+.success-detail {
+
+    padding:15px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.02);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+
+.success-detail strong {
+
+    word-break:break-word;
+
+}
+
+
+@media (
+    max-width:700px
+) {
+
+    .hero h1 {
+
+        font-size:36px;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function escapeHtml(value) {
+
+    return String(
+        value ?? ''
+    )
+
+    .replace(
+        /&/g,
+        '&amp;'
+    )
+
+    .replace(
+        /</g,
+        '&lt;'
+    )
+
+    .replace(
+        />/g,
+        '&gt;'
+    )
+
+    .replace(
+        /"/g,
+        '&quot;'
+    )
+
+    .replace(
+        /'/g,
+        '&#039;'
+    );
+
+}
+
+
+
+function formatBytes(bytes) {
+
+    bytes =
+        Number(bytes);
+
+
+    if (
+        !Number.isFinite(bytes) ||
+        bytes <= 0
+    ) {
+
+        return '—';
+
+    }
+
+
+    const units = [
+        'Bytes',
+        'KB',
+        'MB',
+        'GB'
+    ];
+
+
+    const index =
+        Math.min(
+            Math.floor(
+                Math.log(bytes) /
+                Math.log(1024)
+            ),
+            units.length - 1
+        );
+
+
+    return (
+        Math.round(
+            (
+                bytes /
+                Math.pow(
+                    1024,
+                    index
+                )
+            ) * 100
+        ) / 100
+    )
+    + ' '
+    + units[index];
+
+}
+
+
+
+function formatDate(value) {
+
+    if (!value) {
+
+        return '—';
+
+    }
+
+
+    const date =
+        new Date(value);
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return String(value);
+
+    }
+
+
+    return date.toLocaleString(
+        'en-GB',
+        {
+            dateStyle:
+                'medium',
+
+            timeStyle:
+                'medium'
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   LOAD DATA
+========================================================= */
+
+let result = null;
+
+let publication = null;
+
+let account = null;
+
+let video = null;
+
+
+try {
+
+    result =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokPublishResult'
+            )
+        );
+
+} catch (
+    error
+) {
+
+    result = null;
+
+}
+
+
+try {
+
+    publication =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokPublication'
+            )
+        );
+
+} catch (
+    error
+) {
+
+    publication = null;
+
+}
+
+
+try {
+
+    account =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokAccount'
+            )
+        );
+
+} catch (
+    error
+) {
+
+    account = null;
+
+}
+
+
+try {
+
+    video =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokVideo'
+            )
+        );
+
+} catch (
+    error
+) {
+
+    video = null;
+
+}
+
+
+
+/* =========================================================
+   NORMALIZE RESULT
+========================================================= */
+
+const resultData =
+    result?.data ||
+    result ||
+    {};
+
+
+const status =
+    String(
+        resultData.status ||
+        result?.status ||
+        'PUBLISH_COMPLETE'
+    )
+    .trim()
+    .toUpperCase();
+
+
+const publishId =
+    resultData.publish_id ||
+    result?.publish_id ||
+    publication?.publish_id ||
+    '—';
+
+
+const finalPrivacy =
+    resultData.privacy_level ||
+    result?.privacy_level ||
+    publication?.privacy_level ||
+    'SELF_ONLY';
+
+
+const environment =
+    resultData.tiktok_environment ||
+    result?.tiktok_environment ||
+    'SANDBOX';
+
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+document.getElementById(
+    'status'
+).textContent =
+    status;
+
+
+document.getElementById(
+    'statusBadge'
+).textContent =
+    status;
+
+
+document.getElementById(
+    'environment'
+).textContent =
+    environment;
+
+
+document.getElementById(
+    'privacy'
+).textContent =
+    finalPrivacy;
+
+
+document.getElementById(
+    'platform'
+).textContent =
+    result?.platform ||
+    resultData.platform ||
+    'TikTok';
+
+
+
+/* =========================================================
+   SUCCESS / FAILURE
+========================================================= */
+
+const isSuccess =
+    status ===
+    'PUBLISH_COMPLETE';
+
+
+if (!isSuccess) {
+
+    document.getElementById(
+        'successTitle'
+    ).textContent =
+        'Publication Status';
+
+
+    document.getElementById(
+        'successMessage'
+    ).textContent =
+        'TikTok returned the following publication status.';
+
+
+    document.getElementById(
+        'statusCard'
+    ).style.borderColor =
+        'rgba(245,158,11,.35)';
+
+}
+
+
+
+/* =========================================================
+   PUBLISH ID
+========================================================= */
+
+document.getElementById(
+    'publishId'
+).textContent =
+    publishId;
+
+
+
+/* =========================================================
+   ACCOUNT
+========================================================= */
+
+const accountName =
+    result?.account_name ||
+    resultData.account_name ||
+    account?.account_name ||
+    'TikTok Account';
+
+
+const creatorUsername =
+    result?.creator_username ||
+    resultData.creator_username ||
+    account?.username ||
+    '';
+
+
+const openId =
+    result?.open_id ||
+    resultData.open_id ||
+    account?.open_id ||
+    '';
+
+
+document.getElementById(
+    'accountDetails'
+).innerHTML = `
+
+    <div
+        style="
+            display:flex;
+            align-items:center;
+            gap:14px;
+            padding:17px;
+            border:1px solid rgba(255,255,255,.08);
+            border-radius:12px;
+        "
+    >
+
+        <div
+            style="
+                width:50px;
+                height:50px;
+                border-radius:50%;
+                background:#111827;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:25px;
+            "
+        >
+            ♪
+        </div>
+
+
+        <div>
+
+            <strong>
+                ${escapeHtml(accountName)}
+            </strong>
+
+
+            ${
+                creatorUsername
+                ?
+                `
+                <div
+                    class="muted"
+                    style="margin-top:4px;"
+                >
+                    @${escapeHtml(creatorUsername)}
+                </div>
+                `
+                :
+                ''
+            }
+
+
+            ${
+                openId
+                ?
+                `
+                <div
+                    class="muted"
+                    style="
+                        margin-top:4px;
+                        font-size:12px;
+                    "
+                >
+                    Connected TikTok account
+                </div>
+                `
+                :
+                ''
+            }
+
+        </div>
+
+    </div>
+
+`;
+
+
+
+/* =========================================================
+   FILE
+========================================================= */
+
+const fileName =
+    result?.file_name ||
+    resultData.file_name ||
+    video?.file_name ||
+    publication?.video?.file_name ||
+    '—';
+
+
+const storagePath =
+    result?.storage_path ||
+    resultData.storage_path ||
+    video?.storage_path ||
+    '—';
+
+
+document.getElementById(
+    'fileName'
+).textContent =
+    fileName;
+
+
+document.getElementById(
+    'storagePath'
+).textContent =
+    storagePath;
+
+
+
+/* =========================================================
+   CAPTION
+========================================================= */
+
+const caption =
+    result?.caption ||
+    resultData.caption ||
+    publication?.caption ||
+    video?.caption ||
+    '—';
+
+
+document.getElementById(
+    'caption'
+).textContent =
+    caption;
+
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+const publishedAt =
+    result?.published_at ||
+    resultData.published_at ||
+    publication?.published_at ||
+    null;
+
+
+document.getElementById(
+    'publishedAt'
+).textContent =
+    formatDate(
+        publishedAt
+    );
+
+
+
+/* =========================================================
+   WORKFLOW
+========================================================= */
+
+document.getElementById(
+    'workflowId'
+).textContent =
+    result?.workflow_id ||
+    resultData.workflow_id ||
+    '—';
+
+
+
+/* =========================================================
+   SOURCE
+========================================================= */
+
+document.getElementById(
+    'source'
+).textContent =
+    result?.source ||
+    resultData.source ||
+    '—';
+
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+const duration =
+    result?.duration ||
+    resultData.duration ||
+    video?.duration ||
+    null;
+
+
+const width =
+    result?.width ||
+    resultData.width ||
+    video?.width ||
+    null;
+
+
+const height =
+    result?.height ||
+    resultData.height ||
+    video?.height ||
+    null;
+
+
+const aspectRatio =
+    result?.aspect_ratio ||
+    resultData.aspect_ratio ||
+    video?.aspect_ratio ||
+    (
+        width &&
+        height
+        ?
+        `${width}:${height}`
+        :
+        '—'
+    );
+
+
+const videoSize =
+    result?.video_size ||
+    resultData.video_size ||
+    video?.file_size ||
+    null;
+
+
+document.getElementById(
+    'duration'
+).textContent =
+    duration
+        ? `${duration} seconds`
+        : '—';
+
+
+document.getElementById(
+    'resolution'
+).textContent =
+    width && height
+        ? `${width} × ${height}`
+        : '—';
+
+
+document.getElementById(
+    'aspectRatio'
+).textContent =
+    aspectRatio;
+
+
+document.getElementById(
+    'videoSize'
+).textContent =
+    formatBytes(
+        videoSize
+    );
+
+
+
+/* =========================================================
+   SANDBOX
+========================================================= */
+
+const sandbox =
+    result?.sandbox_mode === true ||
+    resultData.sandbox_mode === true ||
+    String(
+        environment
+    ).toUpperCase() ===
+    'SANDBOX';
+
+
+if (sandbox) {
+
+    document.getElementById(
+        'sandboxCard'
+    ).style.display =
+        'block';
+
+
+    document.getElementById(
+        'environmentBadge'
+    ).textContent =
+        'TIKTOK SANDBOX • PUBLISH COMPLETE';
+
+}
+
+
+
+/* =========================================================
+   STORE FINAL AUDIT RESULT
+========================================================= */
+
+const auditRecord = {
+
+    platform:
+        'tiktok',
+
+    status:
+        status,
+
+    publish_id:
+        publishId,
+
+    account_name:
+        accountName,
+
+    creator_username:
+        creatorUsername || null,
+
+    file_name:
+        fileName,
+
+    storage_path:
+        storagePath,
+
+    caption:
+        caption,
+
+    privacy_level:
+        finalPrivacy,
+
+    tiktok_environment:
+        environment,
+
+    sandbox_mode:
+        sandbox,
+
+    published_at:
+        publishedAt,
+
+    recorded_at:
+        new Date().toISOString()
+
+};
+
+
+localStorage.setItem(
+    'brainAfricaTikTokAuditResult',
+    JSON.stringify(
+        auditRecord
+    )
+);
+
+
+
+/* =========================================================
+   CONSOLE DIAGNOSTIC
+========================================================= */
+
+console.log(
+    'Brain Africa Labs — TikTok Audit Result:',
+    auditRecord
+);
+
+
+</script>
+
+
+</body>
+
+</html>
