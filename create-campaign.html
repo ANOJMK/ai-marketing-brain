@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Create Campaign — Brain Africa Labs</title>
+
+    <link rel="stylesheet" href="css/audit.css">
+</head>
+
+<body>
+
+<header class="nav">
+
+    <div class="nav-inner">
+
+        <a class="brand" href="dashboard.html">
+
+            <img
+                src="assets/logo.png"
+                onerror="this.style.display='none'"
+                alt="Brain Africa Labs"
+            >
+
+            <div>
+                <strong>Brain Africa Labs</strong>
+                <span>AI Marketing Brain • TikTok Audit</span>
+            </div>
+
+        </a>
+
+        <div class="links">
+
+            <a href="dashboard.html">
+                Audit Dashboard
+            </a>
+
+            <a href="campaigns.html">
+                Campaigns
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="wrap">
+
+    <div class="hero">
+
+        <div class="eyebrow">
+            STEP 1 — CREATE CAMPAIGN
+        </div>
+
+        <h1>
+            Create Campaign
+        </h1>
+
+        <p>
+            Create a campaign and define the content that will be
+            published through Brain Africa Labs.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>
+            Campaign Information
+        </h2>
+
+        <p class="muted">
+            Define the campaign objective and content brief.
+        </p>
+
+
+        <form id="campaignForm">
+
+            <div class="form-group">
+
+                <label for="campaignName">
+                    Campaign name
+                </label>
+
+                <input
+                    id="campaignName"
+                    name="campaignName"
+                    type="text"
+                    placeholder="Mangeons — TikTok Campaign"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="objective">
+                    Campaign objective
+                </label>
+
+                <select
+                    id="objective"
+                    name="objective"
+                    required
+                >
+
+                    <option value="">
+                        Select an objective
+                    </option>
+
+                    <option value="awareness">
+                        Brand Awareness
+                    </option>
+
+                    <option value="engagement">
+                        Engagement
+                    </option>
+
+                    <option value="traffic">
+                        Website / Traffic
+                    </option>
+
+                    <option value="sales">
+                        Sales / Conversions
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="brief">
+                    Content brief
+                </label>
+
+                <textarea
+                    id="brief"
+                    name="brief"
+                    rows="6"
+                    placeholder="Describe the content you want to publish..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="platform">
+                    Publishing platform
+                </label>
+
+                <select
+                    id="platform"
+                    name="platform"
+                    required
+                >
+
+                    <option value="tiktok">
+                        TikTok
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="card" style="margin-top:20px;">
+
+                <h3>
+                    Campaign Preview
+                </h3>
+
+                <div id="preview">
+
+                    <p class="muted">
+                        Complete the fields above to preview
+                        your campaign.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                style="
+                    display:flex;
+                    gap:12px;
+                    margin-top:24px;
+                    flex-wrap:wrap;
+                "
+            >
+
+                <button
+                    type="submit"
+                    class="btn primary"
+                >
+                    Continue to Select Video →
+                </button>
+
+                <a
+                    href="dashboard.html"
+                    class="btn secondary"
+                >
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>
+            Audit Journey
+        </h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="num">
+                    1
+                </div>
+
+                <div>
+
+                    <b>
+                        Create Campaign
+                    </b>
+
+                    <p class="muted">
+                        Campaign objective and content brief.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="num">
+                    2
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Video
+                    </b>
+
+                    <p class="muted">
+                        Choose the video asset.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="num">
+                    3
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Platform
+                    </b>
+
+                    <p class="muted">
+                        TikTok is selected as the publishing platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="num">
+                    4
+                </div>
+
+                <div>
+
+                    <b>
+                        Connect TikTok / Authorize
+                    </b>
+
+                    <p class="muted">
+                        User authorizes Brain Africa Labs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="num">
+                    5
+                </div>
+
+                <div>
+
+                    <b>
+                        TikTok Account Connected
+                    </b>
+
+                    <p class="muted">
+                        Connected account is displayed before publishing.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="num">
+                    6
+                </div>
+
+                <div>
+
+                    <b>
+                        Caption + Privacy
+                    </b>
+
+                    <p class="muted">
+                        User controls caption and privacy.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="num">
+                    7
+                </div>
+
+                <div>
+
+                    <b>
+                        Review & Publish
+                    </b>
+
+                    <p class="muted">
+                        User explicitly confirms publication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="num">
+                    8
+                </div>
+
+                <div>
+
+                    <b>
+                        Publish Success
+                    </b>
+
+                    <p class="muted">
+                        Publication result is shown.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+
+    © 2026 Brain Africa Labs — AI Marketing Brain
+
+</footer>
+
+
+<script>
+
+const form = document.getElementById('campaignForm');
+
+const preview = document.getElementById('preview');
+
+
+function updatePreview() {
+
+    const name =
+        document.getElementById('campaignName').value.trim();
+
+    const objective =
+        document.getElementById('objective').value;
+
+    const brief =
+        document.getElementById('brief').value.trim();
+
+    const platform =
+        document.getElementById('platform').value;
+
+
+    if (!name && !objective && !brief) {
+
+        preview.innerHTML = `
+            <p class="muted">
+                Complete the fields above to preview
+                your campaign.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    preview.innerHTML = `
+
+        <div style="display:grid;gap:10px;">
+
+            <div>
+                <strong>Campaign:</strong>
+                ${escapeHtml(name || '—')}
+            </div>
+
+            <div>
+                <strong>Objective:</strong>
+                ${escapeHtml(objective || '—')}
+            </div>
+
+            <div>
+                <strong>Platform:</strong>
+                ${escapeHtml(platform || '—')}
+            </div>
+
+            <div>
+                <strong>Brief:</strong>
+                ${escapeHtml(brief || '—')}
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+function escapeHtml(value) {
+
+    return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+}
+
+
+form.addEventListener('input', updatePreview);
+
+
+form.addEventListener('submit', function(event) {
+
+    event.preventDefault();
+
+
+    const campaign = {
+
+        name:
+            document.getElementById('campaignName').value.trim(),
+
+        objective:
+            document.getElementById('objective').value,
+
+        brief:
+            document.getElementById('brief').value.trim(),
+
+        platform:
+            document.getElementById('platform').value
+
+    };
+
+
+    localStorage.setItem(
+        'brainAfricaTikTokCampaign',
+        JSON.stringify(campaign)
+    );
+
+
+    window.location.href =
+        'select-video.html';
+
+});
+
+
+updatePreview();
+
+</script>
+
+</body>
+
+</html>
