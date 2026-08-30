@@ -1,18 +1,451 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TikTok Audit — Dashboard | Brain Africa Labs</title><link rel="stylesheet" href="css/audit.css"></head><body>
-<header class="nav"><div class="nav-inner"><a class="brand" href="dashboard.html"><img src="../assets/logo.png" onerror="this.style.display='none'" alt="Brain Africa Labs"><div><strong>Brain Africa Labs</strong><span>AI Marketing Brain • TikTok Audit</span></div></a><div class="links"><a href="dashboard.html">Audit Dashboard</a><a href="../campaigns.html">Campaigns</a></div></div></header>
-<main class="wrap"><div class="hero"><div class="eyebrow">TikTok Audit Flow</div><h1>Brain Africa Labs</h1><p>Demonstration du parcours utilisateur de création et publication TikTok.</p></div>
-<div class="grid">
-<div class="card"><h2>1. Create Campaign</h2><p class="muted">Créer une campagne et définir son objectif.</p><a class="btn primary" href="create-campaign.html">Create Campaign →</a></div>
-<div class="card"><h2>2. TikTok Account</h2><p class="muted">Connexion OAuth et compte TikTok autorisé.</p><a class="btn secondary" href="connect-tiktok.html">Connect TikTok →</a></div>
-<div class="card"><h2>3. Publish</h2><p class="muted">Sélectionner une vidéo, définir la confidentialité puis publier.</p><a class="btn secondary" href="select-video.html">Start Publishing →</a></div>
-</div>
-<div class="card"><h2>Audit Journey</h2><div class="steps">
-<div class="step"><div class="num">1</div><div><b>Create Campaign</b><p class="muted">Campaign objective and content brief.</p></div></div>
-<div class="step"><div class="num">2</div><div><b>Select Video</b><p class="muted">Choose the video asset.</p></div></div>
-<div class="step"><div class="num">3</div><div><b>Select Platform</b><p class="muted">TikTok is selected as the publishing platform.</p></div></div>
-<div class="step"><div class="num">4</div><div><b>Connect TikTok / Authorize</b><p class="muted">User authorizes Brain Africa Labs.</p></div></div>
-<div class="step"><div class="num">5</div><div><b>TikTok Account Connected</b><p class="muted">Connected account is displayed before publishing.</p></div></div>
-<div class="step"><div class="num">6</div><div><b>Caption + Privacy</b><p class="muted">User controls caption and privacy.</p></div></div>
-<div class="step"><div class="num">7</div><div><b>Review & Publish</b><p class="muted">User explicitly confirms publication.</p></div></div>
-<div class="step"><div class="num">8</div><div><b>Publish Success</b><p class="muted">Publication result is shown.</p></div></div>
-</div></div></main><footer class="footer">© 2026 Brain Africa Labs — AI Marketing Brain</footer><script src="js/audit.js"></script></body></html>
+<!doctype html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Brain Africa Labs — TikTok Audit Dashboard"
+  >
+
+  <meta
+    name="theme-color"
+    content="#070b12"
+  >
+
+  <title>
+    TikTok Audit — Dashboard | Brain Africa Labs
+  </title>
+
+  <!-- ========================================================
+       AUDIT DASHBOARD CSS
+  ========================================================= -->
+
+  <link
+    rel="stylesheet"
+    href="css/audit.css"
+  >
+
+</head>
+
+
+<body>
+
+  <!-- ========================================================
+       NAVIGATION
+  ========================================================= -->
+
+  <header class="nav">
+
+    <div class="nav-inner">
+
+      <!-- BRAND -->
+
+      <a
+        class="brand"
+        href="dashboard.html"
+      >
+
+        <img
+          src="../assets/logo.png"
+          alt="Brain Africa Labs"
+          onerror="this.style.display='none'"
+        >
+
+        <div>
+
+          <strong>
+            Brain Africa Labs
+          </strong>
+
+          <span>
+            AI Marketing Brain • TikTok Audit
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <!-- NAVIGATION LINKS -->
+
+      <nav class="links">
+
+        <a
+          href="dashboard.html"
+        >
+          Audit Dashboard
+        </a>
+
+        <a
+          href="../campaigns.html"
+        >
+          Campaigns
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- ========================================================
+       MAIN CONTENT
+  ========================================================= -->
+
+  <main class="wrap">
+
+
+    <!-- ======================================================
+         HERO
+    ======================================================= -->
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        TikTok Audit Flow
+      </div>
+
+      <h1>
+        Brain Africa Labs
+      </h1>
+
+      <p>
+        Démonstration du parcours utilisateur de création,
+        préparation et publication de contenu TikTok.
+      </p>
+
+    </section>
+
+
+    <!-- ======================================================
+         PRIMARY ACTIONS
+    ======================================================= -->
+
+    <section class="grid">
+
+
+      <!-- CREATE CAMPAIGN -->
+
+      <article class="card">
+
+        <h2>
+          1. Create Campaign
+        </h2>
+
+        <p class="muted">
+          Créer une campagne et définir son objectif
+          ainsi que son contenu.
+        </p>
+
+        <a
+          class="btn primary"
+          href="create-campaign.html"
+        >
+          Create Campaign →
+        </a>
+
+      </article>
+
+
+      <!-- CONNECT TIKTOK -->
+
+      <article class="card">
+
+        <h2>
+          2. TikTok Account
+        </h2>
+
+        <p class="muted">
+          Connecter et autoriser le compte TikTok
+          avant la publication.
+        </p>
+
+        <a
+          class="btn secondary"
+          href="connect-tiktok.html"
+        >
+          Connect TikTok →
+        </a>
+
+      </article>
+
+
+      <!-- PUBLISH -->
+
+      <article class="card">
+
+        <h2>
+          3. Publish
+        </h2>
+
+        <p class="muted">
+          Sélectionner une vidéo, modifier la légende,
+          choisir la confidentialité puis confirmer
+          la publication.
+        </p>
+
+        <a
+          class="btn secondary"
+          href="select-video.html"
+        >
+          Start Publishing →
+        </a>
+
+      </article>
+
+
+    </section>
+
+
+    <!-- ======================================================
+         AUDIT JOURNEY
+    ======================================================= -->
+
+    <section class="card">
+
+      <h2>
+        Audit Journey
+      </h2>
+
+      <p class="muted">
+        User journey demonstrating how Brain Africa Labs
+        allows a user to prepare and explicitly publish
+        content to TikTok.
+      </p>
+
+
+      <div class="steps">
+
+
+        <!-- STEP 1 -->
+
+        <div class="step">
+
+          <div class="num">
+            1
+          </div>
+
+          <div>
+
+            <b>
+              Create Campaign
+            </b>
+
+            <p class="muted">
+              Campaign objective and content brief.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="step">
+
+          <div class="num">
+            2
+          </div>
+
+          <div>
+
+            <b>
+              Select Video
+            </b>
+
+            <p class="muted">
+              User chooses the video asset to publish.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="step">
+
+          <div class="num">
+            3
+          </div>
+
+          <div>
+
+            <b>
+              Select Platform
+            </b>
+
+            <p class="muted">
+              TikTok is selected as the publishing
+              platform.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- STEP 4 -->
+
+        <div class="step">
+
+          <div class="num">
+            4
+          </div>
+
+          <div>
+
+            <b>
+              Connect TikTok / Authorize
+            </b>
+
+            <p class="muted">
+              User connects and authorizes Brain Africa
+              Labs to access TikTok publishing features.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- STEP 5 -->
+
+        <div class="step">
+
+          <div class="num">
+            5
+          </div>
+
+          <div>
+
+            <b>
+              TikTok Account Connected
+            </b>
+
+            <p class="muted">
+              The connected TikTok account is displayed
+              before publishing.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- STEP 6 -->
+
+        <div class="step">
+
+          <div class="num">
+            6
+          </div>
+
+          <div>
+
+            <b>
+              Caption + Privacy
+            </b>
+
+            <p class="muted">
+              User can review or modify the caption
+              and select an available privacy option.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- STEP 7 -->
+
+        <div class="step">
+
+          <div class="num">
+            7
+          </div>
+
+          <div>
+
+            <b>
+              Review & Publish
+            </b>
+
+            <p class="muted">
+              User reviews the video, caption, account
+              and privacy settings before explicitly
+              confirming publication.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- STEP 8 -->
+
+        <div class="step">
+
+          <div class="num">
+            8
+          </div>
+
+          <div>
+
+            <b>
+              Publish Success
+            </b>
+
+            <p class="muted">
+              The publication result and TikTok status
+              are displayed to the user.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer class="footer">
+
+    © 2026 Brain Africa Labs —
+    AI Marketing Brain
+
+  </footer>
+
+
+  <!-- ========================================================
+       AUDIT JAVASCRIPT
+  ========================================================= -->
+
+  <script
+    src="js/audit.js"
+  ></script>
+
+
+</body>
+
+</html>
