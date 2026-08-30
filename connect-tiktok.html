@@ -1,0 +1,1201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Connect TikTok — Brain Africa Labs
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/audit.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav">
+
+    <div class="nav-inner">
+
+        <a
+            class="brand"
+            href="dashboard.html"
+        >
+
+            <img
+                src="assets/logo.png"
+                onerror="this.style.display='none'"
+                alt="Brain Africa Labs"
+            >
+
+            <div>
+
+                <strong>
+                    Brain Africa Labs
+                </strong>
+
+                <span>
+                    AI Marketing Brain • TikTok Audit
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="links">
+
+            <a href="dashboard.html">
+                Audit Dashboard
+            </a>
+
+            <a href="campaigns.html">
+                Campaigns
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="wrap">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <div class="hero">
+
+        <div class="eyebrow">
+            STEP 4 — CONNECT TIKTOK
+        </div>
+
+
+        <h1>
+            Connect TikTok
+        </h1>
+
+
+        <p>
+            Connect your TikTok account to Brain Africa Labs
+            before publishing your video.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CAMPAIGN SUMMARY
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Campaign & Video
+        </h2>
+
+
+        <div
+            id="campaignSummary"
+            style="
+                display:grid;
+                gap:12px;
+                margin-top:18px;
+            "
+        >
+
+            <p class="muted">
+                Loading campaign information...
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TIKTOK CONNECTION
+    ====================================================== -->
+
+    <div class="card">
+
+        <div
+            style="
+                display:flex;
+                align-items:center;
+                gap:16px;
+                margin-bottom:20px;
+            "
+        >
+
+            <div
+                style="
+                    width:58px;
+                    height:58px;
+                    border-radius:16px;
+                    background:#111827;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:30px;
+                "
+            >
+                ♪
+            </div>
+
+
+            <div>
+
+                <h2 style="margin:0;">
+                    TikTok Account
+                </h2>
+
+                <p
+                    class="muted"
+                    style="margin:5px 0 0;"
+                >
+                    Authorization required
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <p>
+
+            To continue, connect your TikTok account.
+            Brain Africa Labs will request permission to
+            publish the selected content on your behalf.
+
+        </p>
+
+
+        <!-- =================================================
+             PERMISSIONS
+        ================================================== -->
+
+        <div
+            style="
+                margin-top:24px;
+                display:grid;
+                gap:12px;
+            "
+        >
+
+            <div
+                style="
+                    padding:16px;
+                    border:1px solid rgba(255,255,255,.10);
+                    border-radius:12px;
+                    background:rgba(255,255,255,.02);
+                "
+            >
+
+                <strong>
+                    Requested access
+                </strong>
+
+
+                <ul
+                    style="
+                        margin:12px 0 0;
+                        padding-left:20px;
+                    "
+                >
+
+                    <li>
+                        Access your TikTok account information
+                    </li>
+
+                    <li>
+                        Access your TikTok creator information
+                    </li>
+
+                    <li>
+                        Publish video content through TikTok
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             AUTHORIZATION NOTICE
+        ================================================== -->
+
+        <div
+            style="
+                margin-top:20px;
+                padding:16px;
+                border-left:3px solid rgba(236,29,81,.8);
+                background:rgba(236,29,81,.06);
+                border-radius:8px;
+            "
+        >
+
+            <strong>
+                You remain in control
+            </strong>
+
+
+            <p
+                class="muted"
+                style="margin:7px 0 0;"
+            >
+
+                TikTok will ask you to authorize Brain Africa Labs.
+                You can review the requested permissions before
+                approving access.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             BUTTON
+        ================================================== -->
+
+        <div
+            style="
+                margin-top:28px;
+                display:flex;
+                gap:12px;
+                flex-wrap:wrap;
+            "
+        >
+
+            <button
+                id="connectTikTokButton"
+                type="button"
+                class="btn primary"
+            >
+                Continue with TikTok →
+            </button>
+
+
+            <a
+                href="select-video.html"
+                class="btn secondary"
+            >
+                ← Back to Video
+            </a>
+
+        </div>
+
+
+        <div
+            id="connectionStatus"
+            style="
+                display:none;
+                margin-top:18px;
+            "
+        ></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONNECTED ACCOUNT
+    ====================================================== -->
+
+    <div
+        class="card"
+        id="connectedAccountCard"
+        style="display:none;"
+    >
+
+        <h2>
+            TikTok Account Connected
+        </h2>
+
+
+        <div
+            id="connectedAccount"
+            style="
+                margin-top:18px;
+            "
+        >
+        </div>
+
+
+        <div
+            style="
+                margin-top:24px;
+            "
+        >
+
+            <a
+                href="review-publish.html"
+                class="btn primary"
+            >
+                Continue to Review & Publish →
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         AUDIT JOURNEY
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Audit Journey
+        </h2>
+
+
+        <div class="steps">
+
+
+            <!-- STEP 1 -->
+
+            <div class="step">
+
+                <div class="num">
+                    1
+                </div>
+
+                <div>
+
+                    <b>
+                        Create Campaign
+                    </b>
+
+                    <p class="muted">
+                        Campaign objective and content brief.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 2 -->
+
+            <div class="step">
+
+                <div class="num">
+                    2
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Video
+                    </b>
+
+                    <p class="muted">
+                        Choose the video asset.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 3 -->
+
+            <div class="step">
+
+                <div class="num">
+                    3
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Platform
+                    </b>
+
+                    <p class="muted">
+                        TikTok is selected as the publishing platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 4 -->
+
+            <div
+                class="step"
+                style="
+                    border-color:rgba(236,29,81,.5);
+                "
+            >
+
+                <div class="num">
+                    4
+                </div>
+
+                <div>
+
+                    <b>
+                        Connect TikTok / Authorize
+                    </b>
+
+                    <p class="muted">
+                        User authorizes Brain Africa Labs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 5 -->
+
+            <div class="step">
+
+                <div class="num">
+                    5
+                </div>
+
+                <div>
+
+                    <b>
+                        TikTok Account Connected
+                    </b>
+
+                    <p class="muted">
+                        Connected account is displayed before publishing.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 6 -->
+
+            <div class="step">
+
+                <div class="num">
+                    6
+                </div>
+
+                <div>
+
+                    <b>
+                        Caption + Privacy
+                    </b>
+
+                    <p class="muted">
+                        User controls caption and privacy.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 7 -->
+
+            <div class="step">
+
+                <div class="num">
+                    7
+                </div>
+
+                <div>
+
+                    <b>
+                        Review & Publish
+                    </b>
+
+                    <p class="muted">
+                        User explicitly confirms publication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 8 -->
+
+            <div class="step">
+
+                <div class="num">
+                    8
+                </div>
+
+                <div>
+
+                    <b>
+                        Publish Success
+                    </b>
+
+                    <p class="muted">
+                        Publication result is shown.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    © 2026 Brain Africa Labs — AI Marketing Brain
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   CONFIGURATION
+========================================================= */
+
+/*
+ * IMPORTANT
+ *
+ * Mets ici l'URL EXACTE de ton endpoint qui démarre
+ * l'autorisation TikTok OAuth.
+ *
+ * Exemple si ton backend expose :
+ *
+ * https://oauth.brainafricalabs.com/tiktok/authorize
+ *
+ * alors :
+ *
+ * const OAUTH_START_URL =
+ *     'https://oauth.brainafricalabs.com/tiktok/authorize';
+ *
+ * Ne change pas le reste du fichier.
+ */
+
+const OAUTH_START_URL =
+    'https://oauth.brainafricalabs.com/tiktok/authorize';
+
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const campaignSummary =
+    document.getElementById(
+        'campaignSummary'
+    );
+
+
+const connectButton =
+    document.getElementById(
+        'connectTikTokButton'
+    );
+
+
+const connectionStatus =
+    document.getElementById(
+        'connectionStatus'
+    );
+
+
+const connectedAccountCard =
+    document.getElementById(
+        'connectedAccountCard'
+    );
+
+
+const connectedAccount =
+    document.getElementById(
+        'connectedAccount'
+    );
+
+
+
+/* =========================================================
+   LOAD CAMPAIGN
+========================================================= */
+
+let campaign = null;
+
+let video = null;
+
+
+try {
+
+    campaign = JSON.parse(
+        localStorage.getItem(
+            'brainAfricaTikTokCampaign'
+        )
+    );
+
+} catch (error) {
+
+    campaign = null;
+
+}
+
+
+
+try {
+
+    video = JSON.parse(
+        localStorage.getItem(
+            'brainAfricaTikTokVideo'
+        )
+    );
+
+} catch (error) {
+
+    video = null;
+
+}
+
+
+
+/* =========================================================
+   DISPLAY CAMPAIGN
+========================================================= */
+
+if (
+    campaign ||
+    video
+) {
+
+    campaignSummary.innerHTML = `
+
+        <div
+            style="
+                display:grid;
+                gap:10px;
+            "
+        >
+
+            <div>
+
+                <strong>
+                    Campaign:
+                </strong>
+
+                ${escapeHtml(
+                    campaign?.name ||
+                    'Mangeons TikTok Campaign'
+                )}
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Objective:
+                </strong>
+
+                ${escapeHtml(
+                    campaign?.objective ||
+                    'Brand Awareness'
+                )}
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Video:
+                </strong>
+
+                ${escapeHtml(
+                    video?.file_name ||
+                    'Selected video'
+                )}
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Platform:
+                </strong>
+
+                TikTok
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Caption:
+                </strong>
+
+                <div
+                    class="muted"
+                    style="
+                        margin-top:5px;
+                    "
+                >
+                    ${escapeHtml(
+                        video?.caption ||
+                        localStorage.getItem(
+                            'brainAfricaTikTokCaption'
+                        ) ||
+                        'No caption'
+                    )}
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+} else {
+
+    campaignSummary.innerHTML = `
+
+        <p>
+            No campaign or video has been selected.
+        </p>
+
+        <div style="margin-top:15px;">
+
+            <a
+                href="create-campaign.html"
+                class="btn secondary"
+            >
+                Start Campaign
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =========================================================
+   CHECK OAUTH CALLBACK
+========================================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const connected =
+    params.get('connected');
+
+
+const error =
+    params.get('error');
+
+
+const accountName =
+    params.get('account_name');
+
+
+const username =
+    params.get('username');
+
+
+
+/* =========================================================
+   SUCCESS CALLBACK
+========================================================= */
+
+if (
+    connected === 'true'
+) {
+
+    showConnectedAccount(
+        accountName ||
+        'TikTok account',
+        username ||
+        ''
+    );
+
+}
+
+
+
+/* =========================================================
+   ERROR CALLBACK
+========================================================= */
+
+if (
+    error
+) {
+
+    showStatus(
+        'error',
+        'TikTok authorization failed: ' +
+        decodeURIComponent(error)
+    );
+
+}
+
+
+
+/* =========================================================
+   CONNECT BUTTON
+========================================================= */
+
+connectButton.addEventListener(
+    'click',
+    function () {
+
+        connectButton.disabled =
+            true;
+
+
+        connectButton.textContent =
+            'Connecting to TikTok...';
+
+
+
+        /*
+         * Build OAuth URL.
+         */
+
+        const url =
+            new URL(
+                OAUTH_START_URL
+            );
+
+
+
+        /*
+         * Optional information passed to backend.
+         */
+
+        url.searchParams.set(
+            'platform',
+            'tiktok'
+        );
+
+
+        url.searchParams.set(
+            'return_to',
+            window.location.origin +
+            '/connect-tiktok.html'
+        );
+
+
+
+        /*
+         * Campaign information.
+         */
+
+        if (
+            campaign?.name
+        ) {
+
+            url.searchParams.set(
+                'campaign_name',
+                campaign.name
+            );
+
+        }
+
+
+
+        /*
+         * Selected video.
+         */
+
+        if (
+            video?.file_name
+        ) {
+
+            url.searchParams.set(
+                'file_name',
+                video.file_name
+            );
+
+        }
+
+
+
+        /*
+         * Redirect user to OAuth.
+         */
+
+        window.location.href =
+            url.toString();
+
+    }
+);
+
+
+
+/* =========================================================
+   SHOW CONNECTED ACCOUNT
+========================================================= */
+
+function showConnectedAccount(
+    name,
+    username
+) {
+
+    connectedAccountCard.style.display =
+        'block';
+
+
+    connectedAccount.innerHTML = `
+
+        <div
+            style="
+                padding:20px;
+                border:1px solid rgba(255,255,255,.10);
+                border-radius:14px;
+                display:flex;
+                align-items:center;
+                gap:16px;
+            "
+        >
+
+            <div
+                style="
+                    width:52px;
+                    height:52px;
+                    border-radius:50%;
+                    background:#111827;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:24px;
+                "
+            >
+                ♪
+            </div>
+
+
+            <div>
+
+                <strong>
+                    ${escapeHtml(name)}
+                </strong>
+
+
+                ${
+                    username
+                        ? `
+                            <p
+                                class="muted"
+                                style="margin:4px 0 0;"
+                            >
+                                @${escapeHtml(username)}
+                            </p>
+                          `
+                        : ''
+                }
+
+
+                <p
+                    style="
+                        margin:8px 0 0;
+                    "
+                >
+                    ✓ TikTok account connected
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    showStatus(
+        'success',
+        'TikTok account successfully connected.'
+    );
+
+
+    connectButton.style.display =
+        'none';
+
+
+    /*
+     * Save connection state locally.
+     */
+
+    localStorage.setItem(
+        'brainAfricaTikTokConnected',
+        'true'
+    );
+
+
+    localStorage.setItem(
+        'brainAfricaTikTokAccount',
+        JSON.stringify({
+            account_name: name,
+            username: username,
+            connected_at:
+                new Date().toISOString()
+        })
+    );
+
+}
+
+
+
+/* =========================================================
+   STATUS MESSAGE
+========================================================= */
+
+function showStatus(
+    type,
+    message
+) {
+
+    connectionStatus.style.display =
+        'block';
+
+
+    const isSuccess =
+        type === 'success';
+
+
+    connectionStatus.innerHTML = `
+
+        <div
+            style="
+                padding:14px 16px;
+                border-radius:10px;
+                border:1px solid
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        .10
+                    );
+                background:
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        .03
+                    );
+            "
+        >
+
+            ${isSuccess ? '✓' : '⚠'}
+
+            ${escapeHtml(message)}
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHtml(
+    value
+) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            '&amp;'
+        )
+
+        .replace(
+            /</g,
+            '&lt;'
+        )
+
+        .replace(
+            />/g,
+            '&gt;'
+        )
+
+        .replace(
+            /"/g,
+            '&quot;'
+        )
+
+        .replace(
+            /'/g,
+            '&#039;'
+        );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
