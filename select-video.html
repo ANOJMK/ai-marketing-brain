@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        Select Video — Brain Africa Labs
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/audit.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav">
+
+    <div class="nav-inner">
+
+        <a
+            class="brand"
+            href="dashboard.html"
+        >
+
+            <img
+                src="assets/logo.png"
+                onerror="this.style.display='none'"
+                alt="Brain Africa Labs"
+            >
+
+            <div>
+
+                <strong>
+                    Brain Africa Labs
+                </strong>
+
+                <span>
+                    AI Marketing Brain • TikTok Audit
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="links">
+
+            <a href="dashboard.html">
+                Audit Dashboard
+            </a>
+
+            <a href="campaigns.html">
+                Campaigns
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="wrap">
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="eyebrow">
+            STEP 2 — SELECT VIDEO
+        </div>
+
+
+        <h1>
+            Select Video
+        </h1>
+
+
+        <p>
+            Choose the video asset you want to publish
+            on TikTok through Brain Africa Labs.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CAMPAIGN SUMMARY
+    ====================================================== -->
+
+    <div
+        class="card"
+        id="campaignCard"
+    >
+
+        <h2>
+            Campaign
+        </h2>
+
+
+        <div
+            id="campaignSummary"
+            class="muted"
+        >
+            Loading campaign information...
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         VIDEO SELECTION
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Video Asset
+        </h2>
+
+
+        <p class="muted">
+
+            Select an MP4 video from your device.
+            The selected video will be displayed
+            before continuing.
+
+        </p>
+
+
+        <div
+            style="
+                margin-top:20px;
+                padding:24px;
+                border:1px dashed rgba(255,255,255,.2);
+                border-radius:14px;
+                text-align:center;
+            "
+        >
+
+            <input
+                id="videoFile"
+                type="file"
+                accept="video/mp4,video/*"
+                style="
+                    display:block;
+                    width:100%;
+                    margin-bottom:16px;
+                "
+            >
+
+
+            <label
+                for="videoFile"
+                class="btn primary"
+                style="
+                    display:inline-block;
+                    cursor:pointer;
+                "
+            >
+                Choose Video
+            </label>
+
+        </div>
+
+
+
+        <!-- VIDEO PREVIEW -->
+
+        <div
+            id="videoPreviewContainer"
+            style="
+                display:none;
+                margin-top:24px;
+            "
+        >
+
+            <h3>
+                Video Preview
+            </h3>
+
+
+            <video
+                id="videoPreview"
+                controls
+                playsinline
+                style="
+                    width:100%;
+                    max-width:420px;
+                    display:block;
+                    margin:16px auto 0;
+                    border-radius:16px;
+                    background:#000;
+                "
+            >
+            </video>
+
+
+            <!-- VIDEO INFORMATION -->
+
+            <div
+                id="videoInfo"
+                style="
+                    margin-top:20px;
+                    display:grid;
+                    gap:10px;
+                "
+            >
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CAPTION
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Caption
+        </h2>
+
+
+        <p class="muted">
+            Add or modify the caption before publishing.
+        </p>
+
+
+        <div
+            class="form-group"
+            style="margin-top:20px;"
+        >
+
+            <label for="caption">
+                TikTok Caption
+            </label>
+
+
+            <textarea
+                id="caption"
+                rows="5"
+                maxlength="2200"
+                placeholder="Write your TikTok caption..."
+            ></textarea>
+
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:space-between;
+                    margin-top:8px;
+                    font-size:13px;
+                    opacity:.7;
+                "
+            >
+
+                <span>
+                    Caption
+                </span>
+
+
+                <span id="captionCount">
+                    0 / 2200
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PLATFORM
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Publishing Platform
+        </h2>
+
+
+        <div
+            style="
+                display:flex;
+                align-items:center;
+                gap:14px;
+                margin-top:18px;
+                padding:16px;
+                border:1px solid rgba(255,255,255,.1);
+                border-radius:12px;
+            "
+        >
+
+            <div
+                style="
+                    width:46px;
+                    height:46px;
+                    border-radius:12px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    background:#111827;
+                    font-size:22px;
+                "
+            >
+                ♪
+            </div>
+
+
+            <div>
+
+                <strong>
+                    TikTok
+                </strong>
+
+                <p
+                    class="muted"
+                    style="margin:4px 0 0;"
+                >
+                    Selected publishing platform
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACTIONS
+    ====================================================== -->
+
+    <div
+        style="
+            display:flex;
+            gap:12px;
+            margin-top:24px;
+            flex-wrap:wrap;
+        "
+    >
+
+        <button
+            id="continueButton"
+            type="button"
+            class="btn primary"
+        >
+            Continue to TikTok →
+        </button>
+
+
+        <a
+            href="create-campaign.html"
+            class="btn secondary"
+        >
+            ← Back to Campaign
+        </a>
+
+
+        <a
+            href="dashboard.html"
+            class="btn secondary"
+        >
+            Dashboard
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         AUDIT JOURNEY
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Audit Journey
+        </h2>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="num">
+                    1
+                </div>
+
+                <div>
+
+                    <b>
+                        Create Campaign
+                    </b>
+
+                    <p class="muted">
+                        Campaign objective and content brief.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="step"
+                style="
+                    border-color:rgba(236,29,81,.5);
+                "
+            >
+
+                <div class="num">
+                    2
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Video
+                    </b>
+
+                    <p class="muted">
+                        Choose the video asset and edit the caption.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    3
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Platform
+                    </b>
+
+                    <p class="muted">
+                        TikTok is selected as the publishing platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    4
+                </div>
+
+                <div>
+
+                    <b>
+                        Connect TikTok / Authorize
+                    </b>
+
+                    <p class="muted">
+                        User authorizes Brain Africa Labs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    5
+                </div>
+
+                <div>
+
+                    <b>
+                        TikTok Account Connected
+                    </b>
+
+                    <p class="muted">
+                        Connected account is displayed before publishing.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    6
+                </div>
+
+                <div>
+
+                    <b>
+                        Caption + Privacy
+                    </b>
+
+                    <p class="muted">
+                        User controls caption and privacy.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    7
+                </div>
+
+                <div>
+
+                    <b>
+                        Review & Publish
+                    </b>
+
+                    <p class="muted">
+                        User explicitly confirms publication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="num">
+                    8
+                </div>
+
+                <div>
+
+                    <b>
+                        Publish Success
+                    </b>
+
+                    <p class="muted">
+                        Publication result is shown.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    © 2026 Brain Africa Labs — AI Marketing Brain
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const videoFile =
+    document.getElementById('videoFile');
+
+const videoPreview =
+    document.getElementById('videoPreview');
+
+const videoPreviewContainer =
+    document.getElementById('videoPreviewContainer');
+
+const videoInfo =
+    document.getElementById('videoInfo');
+
+const caption =
+    document.getElementById('caption');
+
+const captionCount =
+    document.getElementById('captionCount');
+
+const continueButton =
+    document.getElementById('continueButton');
+
+const campaignSummary =
+    document.getElementById('campaignSummary');
+
+
+
+/* =========================================================
+   LOAD CAMPAIGN
+========================================================= */
+
+let campaign = null;
+
+
+try {
+
+    campaign = JSON.parse(
+        localStorage.getItem(
+            'brainAfricaTikTokCampaign'
+        )
+    );
+
+} catch (error) {
+
+    campaign = null;
+
+}
+
+
+
+if (campaign) {
+
+    campaignSummary.innerHTML = `
+
+        <div
+            style="
+                display:grid;
+                gap:10px;
+            "
+        >
+
+            <div>
+                <strong>Campaign:</strong>
+                ${escapeHtml(campaign.name || '—')}
+            </div>
+
+            <div>
+                <strong>Objective:</strong>
+                ${escapeHtml(campaign.objective || '—')}
+            </div>
+
+            <div>
+                <strong>Platform:</strong>
+                TikTok
+            </div>
+
+        </div>
+
+    `;
+
+} else {
+
+    campaignSummary.innerHTML = `
+
+        <p>
+            No campaign information was found.
+        </p>
+
+        <a
+            href="create-campaign.html"
+            class="btn secondary"
+        >
+            Create Campaign
+        </a>
+
+    `;
+
+}
+
+
+
+/* =========================================================
+   DEFAULT CAPTION
+========================================================= */
+
+const defaultCaption =
+    'Mangeons — Le plaisir fait maison. #Mangeons #Abidjan #CotedIvoire';
+
+
+const savedCaption =
+    localStorage.getItem(
+        'brainAfricaTikTokCaption'
+    );
+
+
+caption.value =
+    savedCaption ||
+    campaign?.caption ||
+    defaultCaption;
+
+
+updateCaptionCount();
+
+
+
+/* =========================================================
+   CAPTION COUNTER
+========================================================= */
+
+caption.addEventListener(
+    'input',
+    updateCaptionCount
+);
+
+
+function updateCaptionCount() {
+
+    captionCount.textContent =
+        `${caption.value.length} / 2200`;
+
+}
+
+
+
+/* =========================================================
+   VIDEO SELECTION
+========================================================= */
+
+let selectedVideo = null;
+let videoObjectUrl = null;
+
+
+videoFile.addEventListener(
+    'change',
+    function () {
+
+        const file =
+            this.files &&
+            this.files[0];
+
+
+        if (!file) {
+
+            return;
+
+        }
+
+
+        /* ---------------------------------------------
+           Validate video
+        --------------------------------------------- */
+
+        if (
+            !file.type.startsWith('video/')
+        ) {
+
+            alert(
+                'Please select a valid video file.'
+            );
+
+            this.value = '';
+
+            return;
+
+        }
+
+
+
+        /* ---------------------------------------------
+           MP4 recommendation
+        --------------------------------------------- */
+
+        const isMp4 =
+            file.type === 'video/mp4' ||
+            file.name
+                .toLowerCase()
+                .endsWith('.mp4');
+
+
+        if (!isMp4) {
+
+            const proceed =
+                confirm(
+                    'TikTok audit testing is configured for MP4 videos. Continue with this file?'
+                );
+
+
+            if (!proceed) {
+
+                this.value = '';
+
+                return;
+
+            }
+
+        }
+
+
+
+        /* ---------------------------------------------
+           File size
+        --------------------------------------------- */
+
+        const maxSize =
+            4 * 1024 * 1024 * 1024;
+
+
+        if (file.size > maxSize) {
+
+            alert(
+                'The selected video is too large.'
+            );
+
+            this.value = '';
+
+            return;
+
+        }
+
+
+
+        /* ---------------------------------------------
+           Save selected file
+        --------------------------------------------- */
+
+        selectedVideo = file;
+
+
+        if (videoObjectUrl) {
+
+            URL.revokeObjectURL(
+                videoObjectUrl
+            );
+
+        }
+
+
+        videoObjectUrl =
+            URL.createObjectURL(file);
+
+
+        videoPreview.src =
+            videoObjectUrl;
+
+
+        videoPreviewContainer.style.display =
+            'block';
+
+
+
+        /* ---------------------------------------------
+           Display information
+        --------------------------------------------- */
+
+        videoInfo.innerHTML = `
+
+            <div>
+                <strong>File:</strong>
+                ${escapeHtml(file.name)}
+            </div>
+
+            <div>
+                <strong>Type:</strong>
+                ${escapeHtml(file.type || 'video')}
+            </div>
+
+            <div>
+                <strong>Size:</strong>
+                ${formatBytes(file.size)}
+            </div>
+
+            <div id="videoDuration">
+                <strong>Duration:</strong>
+                Reading...
+            </div>
+
+        `;
+
+
+        videoPreview.onloadedmetadata =
+            function () {
+
+                const duration =
+                    videoPreview.duration;
+
+
+                const durationElement =
+                    document.getElementById(
+                        'videoDuration'
+                    );
+
+
+                if (durationElement) {
+
+                    durationElement.innerHTML = `
+
+                        <strong>Duration:</strong>
+                        ${formatDuration(duration)}
+
+                    `;
+
+                }
+
+            };
+
+    }
+);
+
+
+
+/* =========================================================
+   CONTINUE
+========================================================= */
+
+continueButton.addEventListener(
+    'click',
+    function () {
+
+
+        if (!selectedVideo) {
+
+            alert(
+                'Please select a video before continuing.'
+            );
+
+            return;
+
+        }
+
+
+        const captionValue =
+            caption.value.trim();
+
+
+        if (!captionValue) {
+
+            alert(
+                'Please add a TikTok caption.'
+            );
+
+            caption.focus();
+
+            return;
+
+        }
+
+
+
+        /* ---------------------------------------------
+           Save campaign caption
+        --------------------------------------------- */
+
+        localStorage.setItem(
+            'brainAfricaTikTokCaption',
+            captionValue
+        );
+
+
+
+        /* ---------------------------------------------
+           Save video metadata
+           -------------------------------------------- */
+
+        const videoData = {
+
+            file_name:
+                selectedVideo.name,
+
+            file_type:
+                selectedVideo.type,
+
+            file_size:
+                selectedVideo.size,
+
+            caption:
+                captionValue,
+
+            platform:
+                'tiktok',
+
+            selected_at:
+                new Date().toISOString()
+
+        };
+
+
+        localStorage.setItem(
+            'brainAfricaTikTokVideo',
+            JSON.stringify(videoData)
+        );
+
+
+
+        /* ---------------------------------------------
+           Continue to TikTok connection
+        --------------------------------------------- */
+
+        window.location.href =
+            'connect-tiktok.html';
+
+    }
+);
+
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function formatBytes(bytes) {
+
+    if (!bytes) {
+
+        return '0 Bytes';
+
+    }
+
+
+    const units = [
+        'Bytes',
+        'KB',
+        'MB',
+        'GB'
+    ];
+
+
+    const index =
+        Math.floor(
+            Math.log(bytes) /
+            Math.log(1024)
+        );
+
+
+    return (
+        Math.round(
+            bytes /
+            Math.pow(1024, index) *
+            100
+        ) / 100
+    )
+    + ' '
+    + units[index];
+
+}
+
+
+
+function formatDuration(seconds) {
+
+    if (!Number.isFinite(seconds)) {
+
+        return 'Unknown';
+
+    }
+
+
+    const minutes =
+        Math.floor(seconds / 60);
+
+
+    const remainingSeconds =
+        Math.floor(seconds % 60);
+
+
+    return (
+        String(minutes).padStart(2, '0')
+        + ':'
+        + String(remainingSeconds).padStart(2, '0')
+    );
+
+}
+
+
+
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            '&amp;'
+        )
+
+        .replace(
+            /</g,
+            '&lt;'
+        )
+
+        .replace(
+            />/g,
+            '&gt;'
+        )
+
+        .replace(
+            /"/g,
+            '&quot;'
+        )
+
+        .replace(
+            /'/g,
+            '&#039;'
+        );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
