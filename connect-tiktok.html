@@ -143,7 +143,10 @@
          TIKTOK CONNECTION
     ====================================================== -->
 
-    <div class="card">
+    <div
+        class="card"
+        id="tiktokConnectionCard"
+    >
 
         <div
             style="
@@ -172,11 +175,16 @@
 
             <div>
 
-                <h2 style="margin:0;">
+                <h2
+                    id="tiktokConnectionTitle"
+                    style="margin:0;"
+                >
                     TikTok Account
                 </h2>
 
+
                 <p
+                    id="tiktokConnectionSubtitle"
                     class="muted"
                     style="margin:5px 0 0;"
                 >
@@ -188,7 +196,7 @@
         </div>
 
 
-        <p>
+        <p id="connectionDescription">
 
             To continue, connect your TikTok account.
             Brain Africa Labs will request permission to
@@ -202,6 +210,7 @@
         ================================================== -->
 
         <div
+            id="permissionsBlock"
             style="
                 margin-top:24px;
                 display:grid;
@@ -255,6 +264,7 @@
         ================================================== -->
 
         <div
+            id="authorizationNotice"
             style="
                 margin-top:20px;
                 padding:16px;
@@ -289,6 +299,7 @@
         ================================================== -->
 
         <div
+            id="connectButtons"
             style="
                 margin-top:28px;
                 display:flex;
@@ -316,6 +327,10 @@
         </div>
 
 
+        <!-- =================================================
+             STATUS
+        ================================================== -->
+
         <div
             id="connectionStatus"
             style="
@@ -339,7 +354,7 @@
     >
 
         <h2>
-            TikTok Account Connected
+            ✓ TikTok Account Connected
         </h2>
 
 
@@ -359,6 +374,7 @@
         >
 
             <a
+                id="reviewPublishButton"
                 href="review-publish.html"
                 class="btn primary"
             >
@@ -488,7 +504,10 @@
 
             <!-- STEP 5 -->
 
-            <div class="step">
+            <div
+                class="step"
+                id="stepConnected"
+            >
 
                 <div class="num">
                     5
@@ -613,24 +632,6 @@
    CONFIGURATION
 ========================================================= */
 
-/*
- * IMPORTANT
- *
- * Mets ici l'URL EXACTE de ton endpoint qui démarre
- * l'autorisation TikTok OAuth.
- *
- * Exemple si ton backend expose :
- *
- * https://oauth.brainafricalabs.com/tiktok/authorize
- *
- * alors :
- *
- * const OAUTH_START_URL =
- *     'https://oauth.brainafricalabs.com/tiktok/authorize';
- *
- * Ne change pas le reste du fichier.
- */
-
 const OAUTH_START_URL =
     'https://oauth.brainafricalabs.com/tiktok/authorize';
 
@@ -643,6 +644,48 @@ const OAUTH_START_URL =
 const campaignSummary =
     document.getElementById(
         'campaignSummary'
+    );
+
+
+const tiktokConnectionCard =
+    document.getElementById(
+        'tiktokConnectionCard'
+    );
+
+
+const tiktokConnectionTitle =
+    document.getElementById(
+        'tiktokConnectionTitle'
+    );
+
+
+const tiktokConnectionSubtitle =
+    document.getElementById(
+        'tiktokConnectionSubtitle'
+    );
+
+
+const connectionDescription =
+    document.getElementById(
+        'connectionDescription'
+    );
+
+
+const permissionsBlock =
+    document.getElementById(
+        'permissionsBlock'
+    );
+
+
+const authorizationNotice =
+    document.getElementById(
+        'authorizationNotice'
+    );
+
+
+const connectButtons =
+    document.getElementById(
+        'connectButtons'
     );
 
 
@@ -670,6 +713,18 @@ const connectedAccount =
     );
 
 
+const reviewPublishButton =
+    document.getElementById(
+        'reviewPublishButton'
+    );
+
+
+const stepConnected =
+    document.getElementById(
+        'stepConnected'
+    );
+
+
 
 /* =========================================================
    LOAD CAMPAIGN
@@ -682,11 +737,12 @@ let video = null;
 
 try {
 
-    campaign = JSON.parse(
-        localStorage.getItem(
-            'brainAfricaTikTokCampaign'
-        )
-    );
+    campaign =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokCampaign'
+            )
+        );
 
 } catch (error) {
 
@@ -695,14 +751,14 @@ try {
 }
 
 
-
 try {
 
-    video = JSON.parse(
-        localStorage.getItem(
-            'brainAfricaTikTokVideo'
-        )
-    );
+    video =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokVideo'
+            )
+        );
 
 } catch (error) {
 
@@ -795,6 +851,7 @@ if (
                         margin-top:5px;
                     "
                 >
+
                     ${escapeHtml(
                         video?.caption ||
                         localStorage.getItem(
@@ -802,6 +859,7 @@ if (
                         ) ||
                         'No caption'
                     )}
+
                 </div>
 
             </div>
@@ -818,7 +876,11 @@ if (
             No campaign or video has been selected.
         </p>
 
-        <div style="margin-top:15px;">
+        <div
+            style="
+                margin-top:15px;
+            "
+        >
 
             <a
                 href="create-campaign.html"
@@ -836,7 +898,7 @@ if (
 
 
 /* =========================================================
-   CHECK OAUTH CALLBACK
+   READ URL PARAMETERS
 ========================================================= */
 
 const params =
@@ -845,54 +907,131 @@ const params =
     );
 
 
-const connected =
+/*
+ * IMPORTANT:
+ *
+ * Backend actuel :
+ *
+ * ?tiktok=connected
+ * &account_id=2
+ * &open_id=...
+ * &display_name=...
+ *
+ * Ancienne version frontend :
+ *
+ * ?connected=true
+ *
+ * Nous acceptons LES DEUX.
+ */
+
+const tiktokStatus =
+    params.get('tiktok');
+
+
+const connectedParam =
     params.get('connected');
+
+
+const isConnected =
+    tiktokStatus === 'connected' ||
+    connectedParam === 'true';
 
 
 const error =
     params.get('error');
 
 
-const accountName =
-    params.get('account_name');
+/*
+ * Support de plusieurs noms possibles.
+ */
+
+const accountId =
+    params.get('account_id') ||
+    params.get('accountId') ||
+    '';
+
+
+const openId =
+    params.get('open_id') ||
+    params.get('openId') ||
+    '';
+
+
+const displayName =
+    params.get('display_name') ||
+    params.get('displayName') ||
+    params.get('account_name') ||
+    params.get('accountName') ||
+    params.get('username') ||
+    'TikTok account';
 
 
 const username =
-    params.get('username');
+    params.get('creator_username') ||
+    params.get('creatorUsername') ||
+    params.get('username') ||
+    '';
 
 
 
 /* =========================================================
-   SUCCESS CALLBACK
+   OAUTH SUCCESS
 ========================================================= */
 
 if (
-    connected === 'true'
+    isConnected
 ) {
 
-    showConnectedAccount(
-        accountName ||
-        'TikTok account',
-        username ||
-        ''
-    );
+    showConnectedAccount({
+
+        accountId:
+            accountId,
+
+        openId:
+            openId,
+
+        displayName:
+            displayName,
+
+        username:
+            username
+
+    });
 
 }
 
 
 
 /* =========================================================
-   ERROR CALLBACK
+   OAUTH ERROR
 ========================================================= */
 
 if (
     error
 ) {
 
+    let errorMessage =
+        error;
+
+    try {
+
+        errorMessage =
+            decodeURIComponent(
+                error
+            );
+
+    } catch {
+
+        errorMessage =
+            error;
+
+    }
+
+
     showStatus(
         'error',
         'TikTok authorization failed: ' +
-        decodeURIComponent(error)
+        errorMessage
     );
 
 }
@@ -915,7 +1054,6 @@ connectButton.addEventListener(
             'Connecting to TikTok...';
 
 
-
         /*
          * Build OAuth URL.
          */
@@ -926,9 +1064,8 @@ connectButton.addEventListener(
             );
 
 
-
         /*
-         * Optional information passed to backend.
+         * Platform.
          */
 
         url.searchParams.set(
@@ -937,12 +1074,15 @@ connectButton.addEventListener(
         );
 
 
+        /*
+         * Return page.
+         */
+
         url.searchParams.set(
             'return_to',
             window.location.origin +
             '/connect-tiktok.html'
         );
-
 
 
         /*
@@ -961,7 +1101,6 @@ connectButton.addEventListener(
         }
 
 
-
         /*
          * Selected video.
          */
@@ -978,9 +1117,8 @@ connectButton.addEventListener(
         }
 
 
-
         /*
-         * Redirect user to OAuth.
+         * Redirect to backend.
          */
 
         window.location.href =
@@ -995,10 +1133,68 @@ connectButton.addEventListener(
    SHOW CONNECTED ACCOUNT
 ========================================================= */
 
-function showConnectedAccount(
-    name,
+function showConnectedAccount({
+    accountId,
+    openId,
+    displayName,
     username
-) {
+}) {
+
+    /*
+     * Hide authorization UI.
+     */
+
+    permissionsBlock.style.display =
+        'none';
+
+
+    authorizationNotice.style.display =
+        'none';
+
+
+    connectButtons.style.display =
+        'none';
+
+
+    /*
+     * Update connection card.
+     */
+
+    tiktokConnectionTitle.textContent =
+        'TikTok Account Connected';
+
+
+    tiktokConnectionSubtitle.textContent =
+        'Authorization successful';
+
+
+    connectionDescription.innerHTML = `
+
+        <strong>
+            ✓ Your TikTok account is connected.
+        </strong>
+
+        <br><br>
+
+        Brain Africa Labs can now continue
+        to the publishing review.
+
+    `;
+
+
+    /*
+     * Show success status.
+     */
+
+    showStatus(
+        'success',
+        'TikTok account successfully connected.'
+    );
+
+
+    /*
+     * Build connected account card.
+     */
 
     connectedAccountCard.style.display =
         'block';
@@ -1027,6 +1223,7 @@ function showConnectedAccount(
                     align-items:center;
                     justify-content:center;
                     font-size:24px;
+                    flex-shrink:0;
                 "
             >
                 ♪
@@ -1036,7 +1233,9 @@ function showConnectedAccount(
             <div>
 
                 <strong>
-                    ${escapeHtml(name)}
+                    ${escapeHtml(
+                        displayName
+                    )}
                 </strong>
 
 
@@ -1045,9 +1244,32 @@ function showConnectedAccount(
                         ? `
                             <p
                                 class="muted"
-                                style="margin:4px 0 0;"
+                                style="
+                                    margin:4px 0 0;
+                                "
                             >
-                                @${escapeHtml(username)}
+                                @${escapeHtml(
+                                    username
+                                )}
+                            </p>
+                          `
+                        : ''
+                }
+
+
+                ${
+                    accountId
+                        ? `
+                            <p
+                                class="muted"
+                                style="
+                                    margin:4px 0 0;
+                                "
+                            >
+                                Brain Africa account ID:
+                                ${escapeHtml(
+                                    accountId
+                                )}
                             </p>
                           `
                         : ''
@@ -1069,14 +1291,57 @@ function showConnectedAccount(
     `;
 
 
-    showStatus(
-        'success',
-        'TikTok account successfully connected.'
+    /*
+     * Update Audit Journey.
+     */
+
+    stepConnected.style.borderColor =
+        'rgba(34,197,94,.7)';
+
+
+    /*
+     * Build Review & Publish URL.
+     */
+
+    const reviewUrl =
+        new URL(
+            'review-publish.html',
+            window.location.href
+        );
+
+
+    if (
+        accountId
+    ) {
+
+        reviewUrl.searchParams.set(
+            'account_id',
+            accountId
+        );
+
+    }
+
+
+    if (
+        openId
+    ) {
+
+        reviewUrl.searchParams.set(
+            'open_id',
+            openId
+        );
+
+    }
+
+
+    reviewUrl.searchParams.set(
+        'tiktok',
+        'connected'
     );
 
 
-    connectButton.style.display =
-        'none';
+    reviewPublishButton.href =
+        reviewUrl.toString();
 
 
     /*
@@ -1092,11 +1357,117 @@ function showConnectedAccount(
     localStorage.setItem(
         'brainAfricaTikTokAccount',
         JSON.stringify({
-            account_name: name,
-            username: username,
+
+            account_id:
+                accountId,
+
+            open_id:
+                openId,
+
+            account_name:
+                displayName,
+
+            username:
+                username,
+
             connected_at:
                 new Date().toISOString()
+
         })
+    );
+
+
+    /*
+     * Remove OAuth parameters from browser URL
+     * after successful processing.
+     *
+     * This prevents the success callback from
+     * being processed again on refresh.
+     */
+
+    try {
+
+        const cleanUrl =
+            new URL(
+                window.location.href
+            );
+
+
+        cleanUrl.searchParams.delete(
+            'tiktok'
+        );
+
+        cleanUrl.searchParams.delete(
+            'connected'
+        );
+
+        cleanUrl.searchParams.delete(
+            'account_id'
+        );
+
+        cleanUrl.searchParams.delete(
+            'open_id'
+        );
+
+        cleanUrl.searchParams.delete(
+            'display_name'
+        );
+
+        cleanUrl.searchParams.delete(
+            'displayName'
+        );
+
+        cleanUrl.searchParams.delete(
+            'account_name'
+        );
+
+        cleanUrl.searchParams.delete(
+            'accountName'
+        );
+
+        cleanUrl.searchParams.delete(
+            'creator_username'
+        );
+
+        cleanUrl.searchParams.delete(
+            'creatorUsername'
+        );
+
+        cleanUrl.searchParams.delete(
+            'username'
+        );
+
+
+        window.history.replaceState(
+            {},
+            document.title,
+            cleanUrl.toString()
+        );
+
+    } catch {
+
+        /*
+         * URL cleanup is optional.
+         * Do nothing if the browser blocks it.
+         */
+
+    }
+
+
+    /*
+     * Scroll automatically to the connected account.
+     */
+
+    setTimeout(
+        function () {
+
+            connectedAccountCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+        },
+        150
     );
 
 }
@@ -1133,19 +1504,31 @@ function showStatus(
                         255,
                         .10
                     );
+
                 background:
-                    rgba(
-                        255,
-                        255,
-                        255,
-                        .03
-                    );
+                    ${
+                        isSuccess
+                            ? 'rgba(34,197,94,.08)'
+                            : 'rgba(236,29,81,.08)'
+                    };
+
+                ${
+                    isSuccess
+                        ? 'color:#86efac;'
+                        : 'color:#fca5a5;'
+                }
             "
         >
 
-            ${isSuccess ? '✓' : '⚠'}
+            <strong>
+                ${isSuccess ? '✓' : '⚠'}
+            </strong>
 
-            ${escapeHtml(message)}
+            &nbsp;
+
+            ${escapeHtml(
+                message
+            )}
 
         </div>
 
@@ -1163,7 +1546,9 @@ function escapeHtml(
     value
 ) {
 
-    return String(value)
+    return String(
+        value ?? ''
+    )
 
         .replace(
             /&/g,
