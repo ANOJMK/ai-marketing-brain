@@ -94,11 +94,9 @@
             STEP 7 — REVIEW & PUBLISH
         </div>
 
-
         <h1>
             Review & Publish
         </h1>
-
 
         <p>
             Review your video, caption and TikTok publishing
@@ -163,9 +161,7 @@
 
         <div
             id="accountDetails"
-            style="
-                margin-top:20px;
-            "
+            style="margin-top:20px;"
         >
         </div>
 
@@ -201,9 +197,7 @@
 
             <div
                 id="videoContainer"
-                style="
-                    margin-top:18px;
-                "
+                style="margin-top:18px;"
             >
 
                 <div
@@ -350,23 +344,17 @@
                 </label>
 
 
-                <select
-                    id="privacy"
-                >
+                <select id="privacy">
 
                     <option value="SELF_ONLY">
                         Only me
                     </option>
 
-                    <option
-                        value="FOLLOWER_OF_CREATOR"
-                    >
+                    <option value="FOLLOWER_OF_CREATOR">
                         Followers of creator
                     </option>
 
-                    <option
-                        value="MUTUAL_FOLLOW_FRIENDS"
-                    >
+                    <option value="MUTUAL_FOLLOW_FRIENDS">
                         Friends
                     </option>
 
@@ -561,8 +549,9 @@
         </div>
 
 
+
         <!-- =================================================
-             EXPLICIT CONFIRMATION
+             CONFIRMATION
         ================================================== -->
 
         <div
@@ -603,11 +592,9 @@
                             margin-top:5px;
                         "
                     >
-
                         I have reviewed the video, caption
                         and privacy settings and want to publish
                         this content to TikTok.
-
                     </span>
 
                 </span>
@@ -711,7 +698,6 @@
             </div>
 
 
-
             <div class="step">
 
                 <div class="num">
@@ -731,7 +717,6 @@
                 </div>
 
             </div>
-
 
 
             <div class="step">
@@ -755,7 +740,6 @@
             </div>
 
 
-
             <div class="step">
 
                 <div class="num">
@@ -775,7 +759,6 @@
                 </div>
 
             </div>
-
 
 
             <div class="step">
@@ -799,7 +782,6 @@
             </div>
 
 
-
             <div class="step">
 
                 <div class="num">
@@ -821,12 +803,9 @@
             </div>
 
 
-
             <div
                 class="step"
-                style="
-                    border-color:rgba(236,29,81,.5);
-                "
+                style="border-color:rgba(236,29,81,.5);"
             >
 
                 <div class="num">
@@ -846,7 +825,6 @@
                 </div>
 
             </div>
-
 
 
             <div class="step">
@@ -894,32 +872,29 @@
 <script>
 
 /* =========================================================
-   CONFIGURATION
+   TIKTOK API CONFIGURATION
 ========================================================= */
 
 /*
- * IMPORTANT:
+ * UNE SEULE configuration.
  *
- * NE PAS inventer cette URL.
+ * Backend testé avec succès :
  *
- * Elle devra correspondre à ton endpoint backend/n8n
- * qui déclenche réellement la publication TikTok.
+ * POST https://oauth.brainafricalabs.com/tiktok/publish
  *
- * Exemple :
- *
- * const PUBLISH_ENDPOINT =
- *     'https://oauth.brainafricalabs.com/tiktok/publish';
- *
- * Nous la renseignerons lorsque tu me donneras
- * l'endpoint existant.
+ * POST https://oauth.brainafricalabs.com/tiktok/publish/status
  */
 
-const PUBLISH_ENDPOINT = '';
+const PUBLISH_ENDPOINT =
+    'https://oauth.brainafricalabs.com/tiktok/publish';
+
+const PUBLISH_STATUS_ENDPOINT =
+    'https://oauth.brainafricalabs.com/tiktok/publish/status';
 
 
 
 /* =========================================================
-   ELEMENTS
+   DOM ELEMENTS
 ========================================================= */
 
 const caption =
@@ -969,13 +944,11 @@ const videoPlaceholderText =
 
 
 /* =========================================================
-   LOAD DATA
+   LOAD LOCAL STORAGE
 ========================================================= */
 
 let campaign = null;
-
 let video = null;
-
 let account = null;
 
 
@@ -984,10 +957,15 @@ try {
     campaign = JSON.parse(
         localStorage.getItem(
             'brainAfricaTikTokCampaign'
-        )
+        ) || 'null'
     );
 
 } catch (error) {
+
+    console.error(
+        '[TikTok] Campaign JSON error:',
+        error
+    );
 
     campaign = null;
 
@@ -999,10 +977,15 @@ try {
     video = JSON.parse(
         localStorage.getItem(
             'brainAfricaTikTokVideo'
-        )
+        ) || 'null'
     );
 
 } catch (error) {
+
+    console.error(
+        '[TikTok] Video JSON error:',
+        error
+    );
 
     video = null;
 
@@ -1014,10 +997,15 @@ try {
     account = JSON.parse(
         localStorage.getItem(
             'brainAfricaTikTokAccount'
-        )
+        ) || 'null'
     );
 
 } catch (error) {
+
+    console.error(
+        '[TikTok] Account JSON error:',
+        error
+    );
 
     account = null;
 
@@ -1025,8 +1013,35 @@ try {
 
 
 
+console.log(
+    '[TikTok] CAMPAIGN =',
+    campaign
+);
+
+console.log(
+    '[TikTok] VIDEO =',
+    video
+);
+
+console.log(
+    '[TikTok] ACCOUNT =',
+    account
+);
+
+console.log(
+    '[TikTok] PUBLISH ENDPOINT =',
+    PUBLISH_ENDPOINT
+);
+
+console.log(
+    '[TikTok] STATUS ENDPOINT =',
+    PUBLISH_STATUS_ENDPOINT
+);
+
+
+
 /* =========================================================
-   ACCOUNT
+   ACCOUNT DISPLAY
 ========================================================= */
 
 if (account) {
@@ -1068,7 +1083,6 @@ if (account) {
                         'TikTok Account'
                     )}
                 </strong>
-
 
                 ${
                     account.username
@@ -1151,6 +1165,7 @@ caption.addEventListener(
     function () {
 
         updateCaptionCount();
+
         updateReview();
 
         localStorage.setItem(
@@ -1160,7 +1175,6 @@ caption.addEventListener(
 
     }
 );
-
 
 
 function updateCaptionCount() {
@@ -1173,19 +1187,22 @@ function updateCaptionCount() {
 
 
 /* =========================================================
-   VIDEO INFORMATION
+   VIDEO DISPLAY
 ========================================================= */
 
 if (video) {
 
-    reviewFile.textContent =
+    const fileName =
         video.file_name ||
         'Selected video';
+
+
+    reviewFile.textContent =
+        fileName;
 
 
     videoPlaceholderText.textContent =
-        video.file_name ||
-        'Selected video';
+        fileName;
 
 
     videoDetails.innerHTML = `
@@ -1196,8 +1213,20 @@ if (video) {
                 File:
             </strong>
 
+            ${escapeHtml(fileName)}
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Storage:
+            </strong>
+
             ${escapeHtml(
-                video.file_name ||
+                video.storage_path ||
+                video.storagePath ||
                 '—'
             )}
 
@@ -1225,7 +1254,10 @@ if (video) {
             </strong>
 
             ${formatBytes(
-                Number(video.file_size || 0)
+                Number(
+                    video.file_size ||
+                    0
+                )
             )}
 
         </div>
@@ -1256,7 +1288,7 @@ if (video) {
 
 
 /* =========================================================
-   CAMPAIGN
+   CAMPAIGN DISPLAY
 ========================================================= */
 
 if (campaign) {
@@ -1304,7 +1336,6 @@ if (
 updateReview();
 
 
-
 privacy.addEventListener(
     'change',
     function () {
@@ -1318,7 +1349,6 @@ privacy.addEventListener(
 
     }
 );
-
 
 
 function updateReview() {
@@ -1339,16 +1369,8 @@ function updateReview() {
 
 
 /* =========================================================
-   LOAD LOCAL VIDEO PREVIEW
+   VIDEO PREVIEW
 ========================================================= */
-
-/*
- * select-video.html currently stores metadata in
- * localStorage but does not store the video Blob.
- *
- * Therefore this page will display the video automatically
- * if a video_preview_url was saved.
- */
 
 const previewUrl =
     localStorage.getItem(
@@ -1372,25 +1394,224 @@ if (previewUrl) {
 
 
 /* =========================================================
-   PUBLISH
+   STORAGE PATH
 ========================================================= */
 
-/*
- * Backend TikTok API
- *
- * Le serveur testé avec succès est :
- *
- * https://oauth.brainafricalabs.com
- *
- * POST /tiktok/publish
- * POST /tiktok/publish/status
- */
+function getStoragePath(
+    videoData
+) {
 
-const PUBLISH_ENDPOINT =
-    'https://oauth.brainafricalabs.com/tiktok/publish';
+    if (!videoData) {
 
-const PUBLISH_STATUS_ENDPOINT =
-    'https://oauth.brainafricalabs.com/tiktok/publish/status';
+        return null;
+
+    }
+
+
+    if (
+        videoData.storage_path &&
+        String(
+            videoData.storage_path
+        ).trim()
+    ) {
+
+        return String(
+            videoData.storage_path
+        ).trim();
+
+    }
+
+
+    if (
+        videoData.storagePath &&
+        String(
+            videoData.storagePath
+        ).trim()
+    ) {
+
+        return String(
+            videoData.storagePath
+        ).trim();
+
+    }
+
+
+    if (
+        videoData.path &&
+        String(
+            videoData.path
+        ).trim()
+    ) {
+
+        return String(
+            videoData.path
+        ).trim();
+
+    }
+
+
+    const fileName =
+        String(
+            videoData.file_name ||
+            ''
+        ).trim();
+
+
+    if (!fileName) {
+
+        return null;
+
+    }
+
+
+    if (
+        fileName.startsWith(
+            'mangeons/'
+        )
+    ) {
+
+        return fileName;
+
+    }
+
+
+    return (
+        'mangeons/' +
+        fileName
+    );
+
+}
+
+
+
+/* =========================================================
+   BUILD PUBLICATION PAYLOAD
+========================================================= */
+
+function buildPublication() {
+
+    if (
+        !video ||
+        !video.file_name
+    ) {
+
+        throw new Error(
+            'No video has been selected.'
+        );
+
+    }
+
+
+    if (!account) {
+
+        throw new Error(
+            'No connected TikTok account was detected.'
+        );
+
+    }
+
+
+    const accountId =
+        Number(
+            account.account_id ||
+            account.id ||
+            0
+        );
+
+
+    if (
+        !Number.isInteger(accountId) ||
+        accountId <= 0
+    ) {
+
+        throw new Error(
+            'Invalid TikTok account ID.'
+        );
+
+    }
+
+
+    const captionValue =
+        caption.value.trim();
+
+
+    if (!captionValue) {
+
+        throw new Error(
+            'Please enter a TikTok caption.'
+        );
+
+    }
+
+
+    const storagePath =
+        getStoragePath(video);
+
+
+    if (!storagePath) {
+
+        throw new Error(
+            'Unable to determine the Supabase Storage path.'
+        );
+
+    }
+
+
+    return {
+
+        platform:
+            'tiktok',
+
+        campaign:
+            campaign || null,
+
+        video:
+            {
+                ...video,
+
+                storage_path:
+                    storagePath
+            },
+
+        account:
+            account,
+
+        account_id:
+            accountId,
+
+        storage_path:
+            storagePath,
+
+        caption:
+            captionValue,
+
+        privacy_level:
+            privacy.value,
+
+        disable_comment:
+            document.getElementById(
+                'disableComment'
+            ).checked,
+
+        disable_duet:
+            document.getElementById(
+                'disableDuet'
+            ).checked,
+
+        disable_stitch:
+            document.getElementById(
+                'disableStitch'
+            ).checked,
+
+        confirmed:
+            true,
+
+        confirmed_at:
+            new Date().toISOString()
+
+    };
+
+}
 
 
 
@@ -1402,8 +1623,18 @@ publishButton.addEventListener(
     'click',
     async function () {
 
+        console.log(
+            '[TikTok] ======================================='
+        );
+
+        console.log(
+            '[TikTok] PUBLISH BUTTON CLICKED'
+        );
+
+
+
         /* ---------------------------------------------
-           1. EXPLICIT CONFIRMATION
+           CONFIRMATION
         --------------------------------------------- */
 
         if (
@@ -1422,40 +1653,16 @@ publishButton.addEventListener(
 
 
         /* ---------------------------------------------
-           2. CAPTION
-        --------------------------------------------- */
-
-        const captionValue =
-            caption.value.trim();
-
-
-        if (!captionValue) {
-
-            showStatus(
-                'error',
-                'Please enter a TikTok caption.'
-            );
-
-            caption.focus();
-
-            return;
-
-        }
-
-
-
-        /* ---------------------------------------------
-           3. VIDEO
+           PREVENT DOUBLE CLICK
         --------------------------------------------- */
 
         if (
-            !video ||
-            !video.file_name
+            publishButton.dataset.busy ===
+            'true'
         ) {
 
-            showStatus(
-                'error',
-                'No video has been selected.'
+            console.log(
+                '[TikTok] Publication already running.'
             );
 
             return;
@@ -1463,191 +1670,80 @@ publishButton.addEventListener(
         }
 
 
-
-        /* ---------------------------------------------
-           4. TIKTOK ACCOUNT
-        --------------------------------------------- */
-
-        if (!account) {
-
-            showStatus(
-                'error',
-                'No connected TikTok account was detected.'
-            );
-
-            return;
-
-        }
-
-
-
-        /* ---------------------------------------------
-           5. ACCOUNT ID
-        --------------------------------------------- */
-
-        const accountId =
-            Number(
-                account.account_id ||
-                account.id ||
-                2
-            );
-
-
-        if (
-            !Number.isInteger(accountId) ||
-            accountId <= 0
-        ) {
-
-            showStatus(
-                'error',
-                'Invalid TikTok account ID.'
-            );
-
-            return;
-
-        }
-
-
-
-        /* ---------------------------------------------
-           6. SUPABASE STORAGE PATH
-        --------------------------------------------- */
-
-        /*
-         * select-video.html stores the selected video
-         * metadata in localStorage.
-         *
-         * The TikTok backend expects:
-         *
-         * mangeons/Mangeons_V8_2_TEST.mp4
-         *
-         * and NOT only:
-         *
-         * Mangeons_V8_2_TEST.mp4
-         */
-
-        const storagePath =
-            video.storage_path ||
-            video.storagePath ||
-            video.path ||
-            (
-                video.file_name.startsWith('mangeons/')
-                    ? video.file_name
-                    : `mangeons/${video.file_name}`
-            );
-
-
-
-        /* ---------------------------------------------
-           7. CURRENT PUBLISH SETTINGS
-        --------------------------------------------- */
-
-        const privacyValue =
-            privacy.value;
-
-        const disableComment =
-            document.getElementById(
-                'disableComment'
-            ).checked;
-
-        const disableDuet =
-            document.getElementById(
-                'disableDuet'
-            ).checked;
-
-        const disableStitch =
-            document.getElementById(
-                'disableStitch'
-            ).checked;
-
-
-
-        /* ---------------------------------------------
-           8. PUBLICATION PAYLOAD
-        --------------------------------------------- */
-
-        const publication = {
-
-            platform:
-                'tiktok',
-
-            campaign:
-                campaign || null,
-
-            video:
-                video || null,
-
-            account:
-                account || null,
-
-            account_id:
-                accountId,
-
-            storage_path:
-                storagePath,
-
-            caption:
-                captionValue,
-
-            privacy_level:
-                privacyValue,
-
-            disable_comment:
-                disableComment,
-
-            disable_duet:
-                disableDuet,
-
-            disable_stitch:
-                disableStitch,
-
-            confirmed:
-                true,
-
-            confirmed_at:
-                new Date().toISOString()
-
-        };
-
-
-
-        /* ---------------------------------------------
-           9. SAVE LOCAL PUBLICATION STATE
-        --------------------------------------------- */
-
-        localStorage.setItem(
-            'brainAfricaTikTokPublication',
-            JSON.stringify(
-                publication
-            )
-        );
-
-
-
-        /* ---------------------------------------------
-           10. DISABLE BUTTON
-        --------------------------------------------- */
-
-        publishButton.disabled =
-            true;
-
-        publishButton.textContent =
-            'Publishing to TikTok...';
-
-
-        showStatus(
-            'info',
-            'Sending the video to TikTok...'
-        );
+        publishButton.dataset.busy =
+            'true';
 
 
 
         try {
 
             /* =========================================
-               STEP 1
-               START TIKTOK PUBLICATION
+               BUILD PAYLOAD
             ========================================= */
+
+            const publication =
+                buildPublication();
+
+
+            console.log(
+                '[TikTok] PUBLICATION PAYLOAD =',
+                publication
+            );
+
+
+            console.log(
+                '[TikTok] ACCOUNT ID =',
+                publication.account_id
+            );
+
+
+            console.log(
+                '[TikTok] STORAGE PATH =',
+                publication.storage_path
+            );
+
+
+
+            /* =========================================
+               SAVE PUBLICATION STATE
+            ========================================= */
+
+            localStorage.setItem(
+                'brainAfricaTikTokPublication',
+                JSON.stringify(
+                    publication
+                )
+            );
+
+
+
+            /* =========================================
+               BUTTON
+            ========================================= */
+
+            publishButton.disabled =
+                true;
+
+            publishButton.textContent =
+                'Publishing to TikTok...';
+
+
+            showStatus(
+                'info',
+                'Sending the video to TikTok...'
+            );
+
+
+
+            /* =========================================
+               POST /tiktok/publish
+            ========================================= */
+
+            console.log(
+                '[TikTok] POST',
+                PUBLISH_ENDPOINT
+            );
+
 
             const response =
                 await fetch(
@@ -1660,6 +1756,9 @@ publishButton.addEventListener(
                         headers:
                             {
                                 'Content-Type':
+                                    'application/json',
+
+                                'Accept':
                                     'application/json'
                             },
 
@@ -1672,10 +1771,26 @@ publishButton.addEventListener(
                 );
 
 
+            console.log(
+                '[TikTok] HTTP STATUS =',
+                response.status
+            );
 
-            /* -----------------------------------------
+
+
+            /* =========================================
                READ RESPONSE
-            ----------------------------------------- */
+            ========================================= */
+
+            const responseText =
+                await response.text();
+
+
+            console.log(
+                '[TikTok] RESPONSE =',
+                responseText
+            );
+
 
             let result = null;
 
@@ -1683,32 +1798,37 @@ publishButton.addEventListener(
             try {
 
                 result =
-                    await response.json();
+                    responseText
+                        ? JSON.parse(
+                            responseText
+                        )
+                        : null;
 
-            } catch (jsonError) {
+            } catch (error) {
 
                 console.error(
-                    '[TikTok] Invalid JSON response:',
-                    jsonError
+                    '[TikTok] JSON PARSE ERROR =',
+                    error
                 );
 
-                result =
-                    null;
+                throw new Error(
+                    `Backend returned invalid JSON. HTTP ${response.status}`
+                );
 
             }
 
 
 
             console.log(
-                '[TikTok] /tiktok/publish response:',
+                '[TikTok] PARSED RESULT =',
                 result
             );
 
 
 
-            /* -----------------------------------------
+            /* =========================================
                HTTP ERROR
-            ----------------------------------------- */
+            ========================================= */
 
             if (
                 !response.ok
@@ -1725,9 +1845,9 @@ publishButton.addEventListener(
 
 
 
-            /* -----------------------------------------
+            /* =========================================
                API ERROR
-            ----------------------------------------- */
+            ========================================= */
 
             if (
                 !result ||
@@ -1745,9 +1865,9 @@ publishButton.addEventListener(
 
 
 
-            /* -----------------------------------------
+            /* =========================================
                PUBLISH ID
-            ----------------------------------------- */
+            ========================================= */
 
             const publishId =
                 result.publish_id;
@@ -1762,10 +1882,16 @@ publishButton.addEventListener(
             }
 
 
+            console.log(
+                '[TikTok] PUBLISH ID =',
+                publishId
+            );
 
-            /* -----------------------------------------
+
+
+            /* =========================================
                SAVE INITIAL RESULT
-            ----------------------------------------- */
+            ========================================= */
 
             localStorage.setItem(
                 'brainAfricaTikTokPublishResult',
@@ -1774,15 +1900,6 @@ publishButton.addEventListener(
                 )
             );
 
-
-
-            /*
-             * At this point the backend normally returns:
-             *
-             * PROCESSING_UPLOAD
-             *
-             * The actual TikTok publication is asynchronous.
-             */
 
             showStatus(
                 'info',
@@ -1796,12 +1913,12 @@ publishButton.addEventListener(
 
 
             /* =========================================
-               STEP 2
-               POLL PUBLICATION STATUS
+               POLLING
             ========================================= */
 
             const maxAttempts =
                 40;
+
 
             const intervalMs =
                 3000;
@@ -1809,6 +1926,7 @@ publishButton.addEventListener(
 
             let lastStatus =
                 result.status ||
+                result.data?.status ||
                 'PROCESSING_UPLOAD';
 
 
@@ -1818,9 +1936,11 @@ publishButton.addEventListener(
                 attempt++
             ) {
 
-                /*
-                 * Wait before asking TikTok for the next status.
-                 */
+                console.log(
+                    `[TikTok] STATUS CHECK ${attempt}/${maxAttempts}`
+                );
+
+
                 await new Promise(
                     function (resolve) {
 
@@ -1838,6 +1958,12 @@ publishButton.addEventListener(
                    STATUS REQUEST
                 ------------------------------------- */
 
+                console.log(
+                    '[TikTok] POST',
+                    PUBLISH_STATUS_ENDPOINT
+                );
+
+
                 const statusResponse =
                     await fetch(
                         PUBLISH_STATUS_ENDPOINT,
@@ -1849,6 +1975,9 @@ publishButton.addEventListener(
                             headers:
                                 {
                                     'Content-Type':
+                                        'application/json',
+
+                                    'Accept':
                                         'application/json'
                                 },
 
@@ -1856,7 +1985,7 @@ publishButton.addEventListener(
                                 JSON.stringify({
 
                                     account_id:
-                                        accountId,
+                                        publication.account_id,
 
                                     publish_id:
                                         publishId
@@ -1867,10 +1996,26 @@ publishButton.addEventListener(
                     );
 
 
+                console.log(
+                    '[TikTok] STATUS HTTP =',
+                    statusResponse.status
+                );
+
+
 
                 /* -------------------------------------
-                   READ STATUS RESPONSE
+                   STATUS RESPONSE
                 ------------------------------------- */
+
+                const statusText =
+                    await statusResponse.text();
+
+
+                console.log(
+                    '[TikTok] STATUS RESPONSE =',
+                    statusText
+                );
+
 
                 let statusResult =
                     null;
@@ -1879,26 +2024,19 @@ publishButton.addEventListener(
                 try {
 
                     statusResult =
-                        await statusResponse.json();
+                        statusText
+                            ? JSON.parse(
+                                statusText
+                            )
+                            : null;
 
-                } catch (jsonError) {
+                } catch (error) {
 
-                    console.error(
-                        '[TikTok] Invalid status JSON:',
-                        jsonError
+                    throw new Error(
+                        `Invalid status JSON. HTTP ${statusResponse.status}`
                     );
 
-                    statusResult =
-                        null;
-
                 }
-
-
-
-                console.log(
-                    `[TikTok] Status attempt ${attempt}:`,
-                    statusResult
-                );
 
 
 
@@ -1922,7 +2060,7 @@ publishButton.addEventListener(
 
 
                 /* -------------------------------------
-                   GET STATUS
+                   GET CURRENT STATUS
                 ------------------------------------- */
 
                 const currentStatus =
@@ -1939,9 +2077,15 @@ publishButton.addEventListener(
                 }
 
 
+                console.log(
+                    '[TikTok] CURRENT STATUS =',
+                    lastStatus
+                );
+
+
 
                 /* -------------------------------------
-                   SAVE LATEST STATUS
+                   SAVE LATEST RESULT
                 ------------------------------------- */
 
                 const mergedResult = {
@@ -1954,7 +2098,10 @@ publishButton.addEventListener(
                         publishId,
 
                     account_id:
-                        accountId,
+                        publication.account_id,
+
+                    storage_path:
+                        publication.storage_path,
 
                     status:
                         lastStatus
@@ -1971,14 +2118,27 @@ publishButton.addEventListener(
 
 
 
-                /* -------------------------------------
-                   PUBLICATION COMPLETE
-                ------------------------------------- */
+                /* =====================================
+                   SUCCESS
+                ===================================== */
 
                 if (
                     lastStatus ===
                     'PUBLISH_COMPLETE'
                 ) {
+
+                    console.log(
+                        '[TikTok] ======================================='
+                    );
+
+                    console.log(
+                        '[TikTok] PUBLICATION COMPLETE'
+                    );
+
+                    console.log(
+                        '[TikTok] ======================================='
+                    );
+
 
                     showStatus(
                         'success',
@@ -1990,11 +2150,9 @@ publishButton.addEventListener(
                         'Published ✓';
 
 
+                    publishButton.disabled =
+                        true;
 
-                    /*
-                     * Small delay so the user can see
-                     * the success message.
-                     */
 
                     setTimeout(
                         function () {
@@ -2013,9 +2171,9 @@ publishButton.addEventListener(
 
 
 
-                /* -------------------------------------
-                   PUBLICATION FAILED
-                ------------------------------------- */
+                /* =====================================
+                   FAILURE
+                ===================================== */
 
                 const failedStatuses = [
 
@@ -2023,7 +2181,8 @@ publishButton.addEventListener(
                     'PUBLISH_FAILED',
                     'UPLOAD_FAILED',
                     'ERROR',
-                    'CANCELLED'
+                    'CANCELLED',
+                    'PUBLISH_ERROR'
 
                 ];
 
@@ -2045,22 +2204,25 @@ publishButton.addEventListener(
 
 
 
-                /* -------------------------------------
+                /* =====================================
                    STILL PROCESSING
-                ------------------------------------- */
+                ===================================== */
 
                 showStatus(
                     'info',
-                    `TikTok status: ${lastStatus || 'PROCESSING_UPLOAD'} — checking again...`
+                    `TikTok status: ${
+                        lastStatus ||
+                        'PROCESSING_UPLOAD'
+                    } — checking again...`
                 );
 
             }
 
 
 
-            /* -----------------------------------------
+            /* =========================================
                TIMEOUT
-            ----------------------------------------- */
+            ========================================= */
 
             throw new Error(
                 `TikTok is still processing after ${
@@ -2070,16 +2232,36 @@ publishButton.addEventListener(
                             intervalMs
                         ) / 1000
                     )
-                } seconds. Publish ID: ${publishId}. Last status: ${lastStatus}`
+                } seconds. Publish ID: ${
+                    publishId
+                }. Last status: ${
+                    lastStatus
+                }`
             );
 
 
         } catch (error) {
 
             console.error(
-                '[TikTok] Publication failed:',
+                '[TikTok] ======================================='
+            );
+
+            console.error(
+                '[TikTok] PUBLICATION FAILED'
+            );
+
+            console.error(
+                '[TikTok] ERROR =',
                 error
             );
+
+            console.error(
+                '[TikTok] ======================================='
+            );
+
+
+            publishButton.dataset.busy =
+                'false';
 
 
             publishButton.disabled =
@@ -2105,8 +2287,9 @@ publishButton.addEventListener(
 );
 
 
+
 /* =========================================================
-   STATUS
+   STATUS DISPLAY
 ========================================================= */
 
 function showStatus(
@@ -2172,7 +2355,7 @@ function showStatus(
 
 
 /* =========================================================
-   HELPERS
+   FORMAT BYTES
 ========================================================= */
 
 function formatBytes(
@@ -2189,13 +2372,14 @@ function formatBytes(
     }
 
 
-    const units =
-        [
-            'Bytes',
-            'KB',
-            'MB',
-            'GB'
-        ];
+    const units = [
+
+        'Bytes',
+        'KB',
+        'MB',
+        'GB'
+
+    ];
 
 
     const index =
@@ -2225,6 +2409,10 @@ function formatBytes(
 }
 
 
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHtml(
     value
@@ -2259,6 +2447,48 @@ function escapeHtml(
 
 }
 
+
+
+/* =========================================================
+   FINAL INITIALIZATION
+========================================================= */
+
+console.log(
+    '=============================================='
+);
+
+console.log(
+    '[TikTok] Review & Publish initialized'
+);
+
+console.log(
+    '[TikTok] PUBLISH_ENDPOINT:',
+    PUBLISH_ENDPOINT
+);
+
+console.log(
+    '[TikTok] PUBLISH_STATUS_ENDPOINT:',
+    PUBLISH_STATUS_ENDPOINT
+);
+
+console.log(
+    '[TikTok] Video:',
+    video
+);
+
+console.log(
+    '[TikTok] Account:',
+    account
+);
+
+console.log(
+    '[TikTok] Campaign:',
+    campaign
+);
+
+console.log(
+    '=============================================='
+);
 
 </script>
 
