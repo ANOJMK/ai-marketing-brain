@@ -1008,16 +1008,50 @@ continueButton.addEventListener(
            Save video metadata
            -------------------------------------------- */
 
+        const fileName =
+            selectedVideo.name ||
+            '';
+
+        if (!fileName) {
+
+            alert(
+                'The selected video has no file name.'
+            );
+
+            return;
+
+        }
+
+        /*
+         * Videos published by the TikTok backend must already
+         * exist in Supabase Storage.
+         *
+         * Storage bucket:
+         *   tiktok-videos
+         *
+         * Folder:
+         *   mangeons/
+         */
+        const storagePath =
+            fileName.startsWith('mangeons/')
+                ? fileName
+                : `mangeons/${fileName}`;
+
         const videoData = {
 
             file_name:
-                selectedVideo.name,
+                fileName,
+
+            storage_path:
+                storagePath,
 
             file_type:
-                selectedVideo.type,
+                selectedVideo.type ||
+                'video/mp4',
 
             file_size:
-                selectedVideo.size,
+                selectedVideo.size ||
+                0,
 
             caption:
                 captionValue,
