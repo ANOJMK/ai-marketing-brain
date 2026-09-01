@@ -19,6 +19,9 @@
         content="Select or upload a TikTok video for Brain Africa Labs."
     >
 
+    <!-- Public runtime configuration. NEVER put SUPABASE_SERVICE_ROLE_KEY in this file. -->
+    <script src="./env.js"></script>
+
     <style>
 
         * {
@@ -1342,136 +1345,134 @@
  * Expose the PUBLIC values through /env.js or window.__ENV__.
  * NEVER expose SUPABASE_SERVICE_ROLE_KEY here.
  */
-let SUPABASE_URL = '';
-let SUPABASE_ANON_KEY = '';
+/*
+ * Supabase configuration
+ *
+ * env.js must be in the SAME directory as select-video.html:
+ *
+ * window.__ENV__ = {
+ *     SUPABASE_URL: 'https://xxxxx.supabase.co',
+ *     SUPABASE_ANON_KEY: 'sb_publishable_...'
+ * };
+ *
+ * IMPORTANT:
+ * - SUPABASE_ANON_KEY / publishable key is safe for browser use.
+ * - NEVER expose SUPABASE_SERVICE_ROLE_KEY in env.js or this HTML file.
+ */
 
+const runtimeEnv =
+    window.__ENV__ ||
+    window.ENV ||
+    {};
+
+const SUPABASE_URL =
+    String(
+        runtimeEnv.SUPABASE_URL ||
+        runtimeEnv.supabaseUrl ||
+        ''
+    ).trim();
+
+const SUPABASE_ANON_KEY =
+    String(
+        runtimeEnv.SUPABASE_ANON_KEY ||
+        runtimeEnv.SUPABASE_PUBLISHABLE_KEY ||
+        runtimeEnv.supabaseAnonKey ||
+        runtimeEnv.supabasePublishableKey ||
+        ''
+    ).trim();
 
 const SUPABASE_BUCKET =
     'tiktok-videos';
 
-
 const STORAGE_FOLDER =
     'mangeons';
-
-
-/*
- * Maximum upload size.
- *
- * 50 MB by default, matching the current Supabase bucket limit.
- *
- * Change if necessary.
- */
 
 const MAX_FILE_SIZE =
     50 * 1024 * 1024;
 
 
 /* ============================================================
-   RUNTIME ENVIRONMENT CONFIG
+   VALIDATE RUNTIME CONFIG
 ============================================================ */
 
-async function loadRuntimeConfig() {
+function validateSupabaseConfig() {
 
-    const injected =
-        window.__ENV__ ||
-        window.ENV ||
-        {};
+    if (
+        !SUPABASE_URL ||
+        !/^https:\/\/[^\s/]+(?:\.[^\s/]+)+/i.test(
+            SUPABASE_URL
+        )
+    ) {
 
-    SUPABASE_URL =
-        injected.SUPABASE_URL ||
-        injected.supabaseUrl ||
-        '';
-
-    SUPABASE_ANON_KEY =
-        injected.SUPABASE_ANON_KEY ||
-        injected.supabaseAnonKey ||
-        '';
-
-    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-
-        try {
-
-            await new Promise((resolve, reject) => {
-
-                const script = document.createElement('script');
-                script.src = '/env.js?ts=' + Date.now();
-                script.async = true;
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-
-            });
-
-            const env =
-                window.__ENV__ ||
-                window.ENV ||
-                {};
-
-            SUPABASE_URL =
-                env.SUPABASE_URL ||
-                env.supabaseUrl ||
-                SUPABASE_URL;
-
-            SUPABASE_ANON_KEY =
-                env.SUPABASE_ANON_KEY ||
-                env.supabaseAnonKey ||
-                SUPABASE_ANON_KEY;
-
-        } catch (error) {
-
-            console.warn(
-                '[TikTok Select] /env.js could not be loaded.',
-                error
-            );
-
-        }
+        throw new Error(
+            'SUPABASE_URL is missing or invalid. Check env.js.'
+        );
 
     }
 
-    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    if (
+        !SUPABASE_ANON_KEY ||
+        SUPABASE_ANON_KEY.length < 20
+    ) {
 
-        try {
-
-            const response = await fetch(
-                '/api/config',
-                {
-                    method: 'GET',
-                    headers: { 'Accept': 'application/json' },
-                    cache: 'no-store'
-                }
-            );
-
-            if (response.ok) {
-
-                const config = await response.json();
-
-                SUPABASE_URL =
-                    config.SUPABASE_URL ||
-                    config.supabaseUrl ||
-                    SUPABASE_URL;
-
-                SUPABASE_ANON_KEY =
-                    config.SUPABASE_ANON_KEY ||
-                    config.supabaseAnonKey ||
-                    SUPABASE_ANON_KEY;
-
-            }
-
-        } catch (error) {
-
-            console.warn(
-                '[TikTok Select] /api/config is not available.',
-                error
-            );
-
-        }
+        throw new Error(
+            'SUPABASE_ANON_KEY is missing or invalid. Check env.js.'
+        );
 
     }
-
-    return { SUPABASE_URL, SUPABASE_ANON_KEY };
 
 }
 
+
+/* ============================================================
+   SUPABASE HEADERS
+============================================================ */
+
+function supabaseHeaders(
+    extra = {}
+) {
+
+    return {
+        apikey:
+            SUPABASE_ANON_KEY,
+
+        Authorization:
+            `Bearer ${SUPABASE_ANON_KEY}`,
+
+        ...extra
+    };
+
+}
+
+
+/* ============================================================
+   CONFIG DEBUG
+============================================================ */
+
+console.log(
+    '[TikTok Select] env.js loaded:',
+    Boolean(window.__ENV__)
+);
+
+console.log(
+    '[TikTok Select] Supabase URL:',
+    SUPABASE_URL || '(missing)'
+);
+
+console.log(
+    '[TikTok Select] Supabase public key loaded:',
+    Boolean(SUPABASE_ANON_KEY)
+);
+
+console.log(
+    '[TikTok Select] Bucket:',
+    SUPABASE_BUCKET
+);
+
+console.log(
+    '[TikTok Select] Folder:',
+    STORAGE_FOLDER
+);
 
 /* ============================================================
    DOM
@@ -1646,7 +1647,7 @@ function validateSupabaseConfig() {
     ) {
 
         throw new Error(
-            'Supabase URL is missing. Configure SUPABASE_URL in the server environment and expose it through /env.js.'
+            'Supabase URL is missing. Configure SUPABASE_URL in env.js.'
         );
 
     }
@@ -1657,7 +1658,7 @@ function validateSupabaseConfig() {
     ) {
 
         throw new Error(
-            'Supabase ANON key is missing. Configure SUPABASE_ANON_KEY in the server environment and expose it through /env.js.'
+            'Supabase ANON key is missing. Configure SUPABASE_ANON_KEY in env.js.'
         );
 
     }
@@ -2036,7 +2037,7 @@ async function loadVideos() {
                         JSON.stringify({
 
                             prefix:
-                                STORAGE_FOLDER,
+                                `${STORAGE_FOLDER}/`,
 
                             limit:
                                 1000,
@@ -3532,15 +3533,10 @@ continueButton.addEventListener(
          * It is intentionally NOT needed by backend.
          */
 
-        if (
-            selectedVideo.preview_url
-        ) {
-
-            videoData.preview_url =
-                selectedVideo.preview_url;
-
-        }
-
+        /*
+         * preview_url is intentionally NOT persisted.
+         * Blob URLs are page/session-specific and become invalid later.
+         */
 
         localStorage.setItem(
 
@@ -3643,32 +3639,11 @@ async function initialize() {
 
     try {
 
-        await loadRuntimeConfig();
+        validateSupabaseConfig();
 
-    } catch (error) {
+        loadCampaign();
 
-        console.error(
-            '[TikTok Select] Runtime config error:',
-            error
-        );
-
-    }
-
-    console.log(
-        '[TikTok Select] Supabase URL:',
-        SUPABASE_URL || '(missing)'
-    );
-
-    console.log(
-        '[TikTok Select] Supabase ANON key loaded:',
-        Boolean(SUPABASE_ANON_KEY)
-    );
-
-    loadCampaign();
-
-    loadExistingVideo();
-
-    try {
+        loadExistingVideo();
 
         await loadVideos();
 
@@ -3679,8 +3654,36 @@ async function initialize() {
             error
         );
 
-    }
+        videoList.innerHTML = `
 
+            <div class="empty">
+
+                <strong>
+                    Configuration / Supabase error
+                </strong>
+
+                <br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+                <br><br>
+
+                Make sure <strong>env.js</strong> is next to
+                <strong>select-video.html</strong> and contains
+                SUPABASE_URL + SUPABASE_ANON_KEY.
+
+            </div>
+
+        `;
+
+        showStatus(
+            'error',
+            error.message
+        );
+
+    }
 
     updateContinueButton();
 
