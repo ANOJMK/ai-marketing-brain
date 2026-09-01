@@ -1488,92 +1488,82 @@ function getStoragePath(
 ) {
 
     if (!videoData) {
-
         return null;
-
     }
 
-
     const candidates = [
-
         videoData.storage_path,
-
         videoData.storagePath,
-
         videoData.path
-
     ];
 
-
-    for (
-        const candidate of candidates
-    ) {
+    for (const candidate of candidates) {
 
         if (
             candidate &&
-            String(
-                candidate
-            ).trim()
+            String(candidate).trim()
         ) {
 
-            const path =
-                String(
-                    candidate
-                ).trim();
+            let path =
+                String(candidate)
+                    .trim()
+                    .replace(/^\/+/, '');
 
+            /*
+             * Accept both:
+             *   mangeons/video.mp4
+             *   tiktok-videos/mangeons/video.mp4
+             *   video.mp4
+             *
+             * The backend receives a bucket-relative path.
+             */
+
+            path =
+                path.replace(
+                    /^tiktok-videos\//i,
+                    ''
+                );
+
+            path =
+                path.replace(
+                    /^storage\/v1\/object\/(?:public\/)?tiktok-videos\//i,
+                    ''
+                );
 
             if (
                 path.startsWith(
                     'mangeons/'
                 )
             ) {
-
                 return path;
-
             }
 
-
-            return (
-                'mangeons/' +
-                path
-            );
-
+            return `mangeons/${path}`;
         }
-
     }
-
 
     const fileName =
         String(
             videoData.file_name ||
             videoData.name ||
             ''
-        ).trim();
-
+        )
+        .trim()
+        .replace(/^\/+/, '');
 
     if (!fileName) {
-
         return null;
-
     }
-
 
     if (
         fileName.startsWith(
             'mangeons/'
         )
     ) {
-
         return fileName;
-
     }
 
-
-    return (
-        'mangeons/' +
-        fileName
-    );
-
+    return `mangeons/${fileName}`;
 }
 
 
@@ -1827,6 +1817,17 @@ async function publishToTikTok() {
         const publication =
             buildPublication();
 
+        /*
+         * Never send a browser blob URL to the backend.
+         * TikTok publishing is performed server-side from
+         * Supabase Storage using storage_path.
+         */
+        if (
+            publication.video &&
+            publication.video.preview_url
+        ) {
+            delete publication.video.preview_url;
+        }
 
         console.log(
             '[TikTok] PUBLICATION PAYLOAD =',
@@ -1979,11 +1980,15 @@ async function publishToTikTok() {
             !response.ok
         ) {
 
-            throw new Error(
+            const backendMessage =
                 result?.message ||
                 result?.error?.message ||
+                result?.error?.description ||
                 result?.error ||
-                `HTTP ${response.status}`
+                `HTTP ${response.status}`;
+
+            throw new Error(
+                `Backend publication failed (HTTP ${response.status}): ${backendMessage}`
             );
 
         }
