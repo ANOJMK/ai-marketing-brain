@@ -1307,6 +1307,49 @@ select:focus-visible {
     outline-offset: 2px;
 }
 
+
+/* =========================================================
+   TIKTOK AUDIT — COMMERCIAL CONTENT DISCLOSURE
+========================================================= */
+.commercial-box{
+    margin-top:16px;
+    padding:15px 16px;
+    border:1px solid rgba(148,163,184,.14);
+    border-radius:11px;
+    background:rgba(5,15,28,.42);
+}
+.commercial-help{
+    margin-top:6px;
+    color:#718198;
+    font-size:9px;
+    line-height:1.55;
+}
+.sub-checks{
+    margin-top:10px;
+    padding-left:2px;
+}
+.sub-checks.disabled{opacity:.52;}
+.field-inline{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:10px 0;
+    color:#c8d2df;
+    font-size:10px;
+    line-height:1.45;
+}
+.field-inline input{margin-top:2px;}
+.compliance-note{
+    margin-top:12px;
+    padding:11px 12px;
+    border-radius:9px;
+    background:rgba(37,99,235,.08);
+    border:1px solid rgba(96,165,250,.18);
+    color:#93c5fd;
+    font-size:9px;
+    line-height:1.55;
+}
+
 </style>
 
 </head>
@@ -1605,6 +1648,71 @@ Disable Stitch
 </section>
 
 
+
+<div class="commercial-box">
+
+    <div class="field" style="margin-bottom:10px;">
+        <label for="commercialContentToggle">
+            Commercial Content Disclosure
+        </label>
+        <div class="commercial-help">
+            Indicate whether this content promotes yourself, your own business,
+            or a third-party brand/product/service. This setting is off by default.
+        </div>
+    </div>
+
+    <div class="check">
+        <input type="checkbox" id="commercialContentToggle">
+        <label for="commercialContentToggle">
+            This content promotes a brand, product or service
+        </label>
+    </div>
+
+    <div id="commercialSubChecks" class="sub-checks disabled">
+
+        <label class="field-inline">
+            <input type="checkbox" id="yourBrand" disabled>
+            <span>
+                <strong>Your brand</strong><br>
+                You are promoting yourself or your own business.
+            </span>
+        </label>
+
+        <label class="field-inline">
+            <input type="checkbox" id="brandedContent" disabled>
+            <span>
+                <strong>Branded content</strong><br>
+                You are promoting another brand or a third party.
+            </span>
+        </label>
+
+        <div id="commercialHint" class="commercial-help">
+            You need to indicate if your content promotes yourself,
+            a third party, or both.
+        </div>
+
+    </div>
+</div>
+
+<div class="commercial-box">
+
+    <div class="check" style="margin-top:0;">
+        <input type="checkbox" id="isAigc">
+        <label for="isAigc">
+            This video is AI-generated content
+        </label>
+    </div>
+
+    <div class="commercial-help">
+        When enabled, the publication request declares the content as AI-generated.
+    </div>
+
+</div>
+
+<div id="complianceNote" class="compliance-note">
+    By posting, you agree to TikTok's Music Usage Confirmation.
+</div>
+
 <section class="card">
 
 <h2>
@@ -1654,7 +1762,9 @@ Public
 >
 
 <label for="confirmPublication">
-I confirm that I want to publish this video to TikTok.
+<span id="consentText">
+By posting, you agree to TikTok's Music Usage Confirmation.
+</span>
 </label>
 
 </div>
@@ -1804,6 +1914,30 @@ const disableDuet =
 
 const disableStitch =
     document.getElementById('disableStitch');
+
+const commercialContentToggle =
+    document.getElementById('commercialContentToggle');
+
+const commercialSubChecks =
+    document.getElementById('commercialSubChecks');
+
+const yourBrand =
+    document.getElementById('yourBrand');
+
+const brandedContent =
+    document.getElementById('brandedContent');
+
+const commercialHint =
+    document.getElementById('commercialHint');
+
+const isAigc =
+    document.getElementById('isAigc');
+
+const complianceNote =
+    document.getElementById('complianceNote');
+
+const consentText =
+    document.getElementById('consentText');
 
 
 /* =========================================================
@@ -2080,7 +2214,10 @@ updateCaptionCount();
 
 privacy.addEventListener(
     'change',
-    updateReview
+    () => {
+        syncBrandedPrivacy();
+        updateReview();
+    }
 );
 
 
@@ -2101,6 +2238,131 @@ function updateReview() {
 updateReview();
 
 
+
+/* =========================================================
+   COMMERCIAL CONTENT / AI DISCLOSURE
+========================================================= */
+
+function syncCommercialDisclosure() {
+
+    const enabled = commercialContentToggle.checked;
+
+    commercialSubChecks.classList.toggle(
+        'disabled',
+        !enabled
+    );
+
+    yourBrand.disabled = !enabled;
+    brandedContent.disabled = !enabled;
+
+    if (!enabled) {
+        yourBrand.checked = false;
+        brandedContent.checked = false;
+    }
+
+    updateConsentText();
+    syncBrandedPrivacy();
+    updatePublishButton();
+}
+
+
+function updateConsentText() {
+
+    const enabled = commercialContentToggle.checked;
+    const ownBrand = yourBrand.checked;
+    const branded = brandedContent.checked;
+
+    if (!enabled) {
+
+        consentText.textContent =
+            "By posting, you agree to TikTok's Music Usage Confirmation.";
+
+        complianceNote.textContent =
+            "By posting, you agree to TikTok's Music Usage Confirmation.";
+
+        return;
+    }
+
+    if (!ownBrand && !branded) {
+
+        consentText.textContent =
+            "Select Your brand and/or Branded content to continue.";
+
+        complianceNote.textContent =
+            "You need to indicate if your content promotes yourself, a third party, or both.";
+
+        return;
+    }
+
+    if (branded) {
+
+        consentText.textContent =
+            "By posting, you agree to TikTok's Branded Content Policy and Music Usage Confirmation.";
+
+        complianceNote.textContent =
+            "Branded content will be labeled as 'Paid partnership'.";
+
+    } else {
+
+        consentText.textContent =
+            "By posting, you agree to TikTok's Music Usage Confirmation.";
+
+        complianceNote.textContent =
+            "Your Brand content will be labeled as 'Promotional content'.";
+
+    }
+}
+
+
+function syncBrandedPrivacy() {
+
+    const privateOption =
+        Array.from(privacy.options).find(
+            option => option.value === 'SELF_ONLY'
+        );
+
+    const branded = brandedContent.checked;
+
+    if (privateOption) {
+        privateOption.disabled = branded;
+    }
+
+    if (branded && privacy.value === 'SELF_ONLY') {
+        privacy.value = 'PUBLIC_TO_EVERYONE';
+        updateReview();
+    }
+
+    updateConsentText();
+}
+
+
+commercialContentToggle.addEventListener(
+    'change',
+    syncCommercialDisclosure
+);
+
+yourBrand.addEventListener(
+    'change',
+    () => {
+        updateConsentText();
+        updatePublishButton();
+    }
+);
+
+brandedContent.addEventListener(
+    'change',
+    () => {
+        syncBrandedPrivacy();
+        updatePublishButton();
+    }
+);
+
+isAigc.addEventListener(
+    'change',
+    updatePublishButton
+);
+
+
 /* =========================================================
    CONFIRMATION
 ========================================================= */
@@ -2113,16 +2375,24 @@ confirmPublication.addEventListener(
 
 function updatePublishButton() {
 
+    const commercialValid =
+        !commercialContentToggle.checked ||
+        yourBrand.checked ||
+        brandedContent.checked;
+
     publishButton.disabled =
         !video ||
         !account ||
         !account.account_id ||
         !confirmPublication.checked ||
+        !commercialValid ||
         publishButton.dataset.busy === 'true';
 
 }
 
 
+syncCommercialDisclosure();
+syncBrandedPrivacy();
 updatePublishButton();
 
 
@@ -2235,7 +2505,16 @@ async function publishToTikTok() {
                 disableDuet.checked,
 
             disable_stitch:
-                disableStitch.checked
+                disableStitch.checked,
+
+            brand_content_toggle:
+                brandedContent.checked,
+
+            brand_organic_toggle:
+                yourBrand.checked,
+
+            is_aigc:
+                isAigc.checked
 
         };
 
@@ -2395,6 +2674,15 @@ async function publishToTikTok() {
 
             disable_stitch:
                 disableStitch.checked,
+
+            brand_content_toggle:
+                brandedContent.checked,
+
+            brand_organic_toggle:
+                yourBrand.checked,
+
+            is_aigc:
+                isAigc.checked,
 
             status:
                 result.status ||
