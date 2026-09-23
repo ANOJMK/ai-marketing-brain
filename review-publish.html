@@ -1582,23 +1582,13 @@ Privacy
 </label>
 
 <select id="privacy">
-
-<option value="PUBLIC_TO_EVERYONE">
-Public
-</option>
-
-<option value="MUTUAL_FOLLOW_FRIENDS">
-Friends
-</option>
-
-<option value="SELF_ONLY">
-Only me
-</option>
-
+    <option value="" selected disabled>
+        Select privacy level
+    </option>
 </select>
 
-<div class="muted" style="margin-top:6px;">
-TikTok may restrict privacy options depending on the connected account.
+<div id="privacyHelp" class="muted" style="margin-top:6px;">
+    Loading privacy options from TikTok Creator Info...
 </div>
 
 </div>
@@ -1746,7 +1736,7 @@ Privacy
     id="reviewPrivacy"
     class="detail-value"
 >
-Public
+Not selected
 </div>
 
 </div>
@@ -1853,6 +1843,9 @@ const PUBLISH_ENDPOINT =
 const PUBLISH_STATUS_ENDPOINT =
     'https://oauth.brainafricalabs.com/tiktok/publish/status';
 
+const CREATOR_INFO_ENDPOINT =
+    'https://oauth.brainafricalabs.com/tiktok/creator-info';
+
 
 /* =========================================================
    DOM
@@ -1866,6 +1859,9 @@ const captionCount =
 
 const privacy =
     document.getElementById('privacy');
+
+const privacyHelp =
+    document.getElementById('privacyHelp');
 
 const publishButton =
     document.getElementById('publishButton');
@@ -1978,6 +1974,12 @@ let account =
     readJsonStorage(
         'brainAfricaTikTokAccount'
     );
+
+let creatorInfo =
+    null;
+
+let privacyOptionsLoaded =
+    false;
 
 
 /* =========================================================
@@ -2167,16 +2169,28 @@ if (video) {
         );
 
 
-    if (video.preview_url) {
+    const previewUrl =
+        video.preview_url ||
+        video.public_url ||
+        video.video_url ||
+        video.url ||
+        null;
+
+    if (previewUrl) {
 
         reviewVideo.src =
-            video.preview_url;
+            previewUrl;
 
         reviewVideo.style.display =
             'block';
 
         videoPlaceholder.style.display =
             'none';
+
+    } else {
+
+        videoPlaceholder.textContent =
+            'No video preview URL is available for this selected video.';
 
     }
 
@@ -2209,19 +2223,320 @@ updateCaptionCount();
 
 
 /* =========================================================
-   PRIVACY
+   PRIVACY — TIKTOK CREATOR INFO DRIVEN
 ========================================================= */
+
+const PRIVACY_LABELS = {
+    PUBLIC_TO_EVERYONE: 'Public',
+    MUTUAL_FOLLOW_FRIENDS: 'Friends',
+    FOLLOWER_OF_CREATOR: 'Followers',
+    SELF_ONLY: 'Only me'
+};
+
+function normalizePrivacyOptions(rawOptions) {
+
+    if (!Array.isArray(rawOptions)) {
+        return [];
+    }
+
+    return [
+        ...new Set(
+            rawOptions
+                .map(value =>
+                    String(value || '')
+                        .trim()
+                        .toUpperCase()
+                )
+                .filter(value =>
+                    Object.prototype.hasOwnProperty.call(
+                        PRIVACY_LABELS,
+                        value
+                    )
+                )
+        )
+    ];
+}
+
+function setPrivacyMessage(message, isError = false) {
+
+    if (!privacyHelp) {
+        return;
+    }
+
+    privacyHelp.textContent =
+        message;
+
+    privacyHelp.style.color =
+        isError
+            ? '#fca5a5'
+            : '#718198';
+}
+
+function clearPrivacyOptions() {
+
+    privacy.innerHTML = `
+        <option value="" selected disabled>
+            Select privacy level
+        </option>
+    `;
+
+    privacy.value =
+        '';
+
+    privacyOptionsLoaded =
+        false;
+
+    updateReview();
+    updatePublishButton();
+}
+
+function populatePrivacyOptions(rawOptions) {
+
+    const options =
+        normalizePrivacyOptions(
+            rawOptions
+        );
+
+    clearPrivacyOptions();
+
+    if (!options.length) {
+
+        setPrivacyMessage(
+            'TikTok did not return any available privacy option. Reconnect the TikTok account and try again.',
+            true
+        );
+
+        return false;
+    }
+
+    const fragment =
+        document.createDocumentFragment();
+
+    for (const value of options) {
+
+        const option =
+            document.createElement('option');
+
+        option.value =
+            value;
+
+        option.textContent =
+            PRIVACY_LABELS[value];
+
+        fragment.appendChild(
+            option
+        );
+    }
+
+    privacy.appendChild(
+        fragment
+    );
+
+    privacy.value =
+        '';
+
+    privacyOptionsLoaded =
+        true;
+
+    setPrivacyMessage(
+        'Choose a privacy level available for this TikTok account.'
+    );
+
+    updateReview();
+    updatePublishButton();
+
+    return true;
+}
+
+async function loadCreatorInfo() {
+
+    if (!account?.account_id) {
+
+        clearPrivacyOptions();
+
+        setPrivacyMessage(
+            'TikTok account is not connected.',
+            true
+        );
+
+        return;
+    }
+
+    setPrivacyMessage(
+        'Loading privacy options from TikTok Creator Info...'
+    );
+
+    try {
+
+        const response =
+            await fetch(
+                `${CREATOR_INFO_ENDPOINT}?account_id=${encodeURIComponent(
+                    account.account_id
+                )}`,
+                {
+                    method: 'GET',
+                    headers: {
+                        'Accept':
+                            'application/json'
+                    }
+                }
+            );
+
+        const text =
+            await response.text();
+
+        let result =
+            null;
+
+        try {
+
+            result =
+                text
+                    ? JSON.parse(text)
+                    : null;
+
+        } catch {
+
+            throw new Error(
+                `Invalid Creator Info JSON. HTTP ${response.status}`
+            );
+        }
+
+        if (!response.ok) {
+
+            throw new Error(
+                result?.message ||
+                result?.error?.message ||
+                result?.error ||
+                `Creator Info HTTP ${response.status}`
+            );
+        }
+
+        const data =
+            result?.data ||
+            result?.creator ||
+            null;
+
+        if (!data) {
+
+            throw new Error(
+                'TikTok Creator Info response is empty.'
+            );
+        }
+
+        creatorInfo =
+            data;
+
+        account =
+            {
+                ...account,
+                privacy_level_options:
+                    data.privacy_level_options || [],
+                creator_username:
+                    data.creator_username ||
+                    account.creator_username ||
+                    null,
+                creator_nickname:
+                    data.creator_nickname ||
+                    account.creator_nickname ||
+                    null,
+                comment_disabled:
+                    data.comment_disabled ??
+                    account.comment_disabled ??
+                    false,
+                duet_disabled:
+                    data.duet_disabled ??
+                    account.duet_disabled ??
+                    false,
+                stitch_disabled:
+                    data.stitch_disabled ??
+                    account.stitch_disabled ??
+                    false,
+                max_video_post_duration_sec:
+                    data.max_video_post_duration_sec ??
+                    account.max_video_post_duration_sec ??
+                    null
+            };
+
+        localStorage.setItem(
+            'brainAfricaTikTokAccount',
+            JSON.stringify(account)
+        );
+
+        const loaded =
+            populatePrivacyOptions(
+                data.privacy_level_options
+            );
+
+        if (!loaded) {
+            throw new Error(
+                'TikTok Creator Info returned no privacy_level_options.'
+            );
+        }
+
+        // Respect Creator Info interaction availability.
+        disableComment.disabled =
+            data.comment_disabled === true;
+
+        disableDuet.disabled =
+            data.duet_disabled === true;
+
+        disableStitch.disabled =
+            data.stitch_disabled === true;
+
+        if (data.comment_disabled === true) {
+            disableComment.checked = false;
+        }
+
+        if (data.duet_disabled === true) {
+            disableDuet.checked = false;
+        }
+
+        if (data.stitch_disabled === true) {
+            disableStitch.checked = false;
+        }
+
+        syncBrandedPrivacy();
+        updatePublishButton();
+
+    } catch (error) {
+
+        console.error(
+            '[TikTok] Creator Info failed:',
+            error
+        );
+
+        creatorInfo =
+            null;
+
+        clearPrivacyOptions();
+
+        setPrivacyMessage(
+            `Unable to load TikTok privacy options: ${error.message}`,
+            true
+        );
+    }
+}
 
 privacy.addEventListener(
     'change',
     () => {
+
         syncBrandedPrivacy();
         updateReview();
+        updatePublishButton();
     }
 );
 
-
 function updateReview() {
+
+    if (!privacy.value) {
+
+        reviewPrivacy.textContent =
+            'Not selected';
+
+        return;
+    }
 
     const text =
         privacy.options[
@@ -2231,12 +2546,9 @@ function updateReview() {
 
     reviewPrivacy.textContent =
         text;
-
 }
 
-
 updateReview();
-
 
 
 /* =========================================================
@@ -2321,14 +2633,23 @@ function syncBrandedPrivacy() {
             option => option.value === 'SELF_ONLY'
         );
 
-    const branded = brandedContent.checked;
+    const branded =
+        brandedContent.checked;
 
     if (privateOption) {
-        privateOption.disabled = branded;
+        privateOption.disabled =
+            branded;
     }
 
-    if (branded && privacy.value === 'SELF_ONLY') {
-        privacy.value = 'PUBLIC_TO_EVERYONE';
+    // Never silently change the user's privacy choice.
+    // If SELF_ONLY becomes unavailable, require a new explicit choice.
+    if (
+        branded &&
+        privacy.value === 'SELF_ONLY'
+    ) {
+        privacy.value =
+            '';
+
         updateReview();
     }
 
@@ -2384,6 +2705,8 @@ function updatePublishButton() {
         !video ||
         !account ||
         !account.account_id ||
+        !privacyOptionsLoaded ||
+        !privacy.value ||
         !confirmPublication.checked ||
         !commercialValid ||
         publishButton.dataset.busy === 'true';
@@ -2394,6 +2717,10 @@ function updatePublishButton() {
 syncCommercialDisclosure();
 syncBrandedPrivacy();
 updatePublishButton();
+
+// Privacy choices are loaded from the latest TikTok Creator Info.
+// No privacy value is selected automatically.
+loadCreatorInfo();
 
 
 /* =========================================================
@@ -2444,6 +2771,36 @@ async function publishToTikTok() {
         showStatus(
             'error',
             'TikTok account ID is missing.'
+        );
+
+        return;
+
+    }
+
+
+    if (!privacyOptionsLoaded || !privacy.value) {
+
+        showStatus(
+            'error',
+            'Please select a TikTok privacy level before publishing.'
+        );
+
+        return;
+
+    }
+
+    if (
+        Array.isArray(
+            creatorInfo?.privacy_level_options
+        ) &&
+        !creatorInfo.privacy_level_options.includes(
+            privacy.value
+        )
+    ) {
+
+        showStatus(
+            'error',
+            'The selected privacy level is not available for this TikTok account.'
         );
 
         return;
