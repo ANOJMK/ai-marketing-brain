@@ -2528,8 +2528,19 @@ continueButton.addEventListener(
         );
 
 
+        /*
+         * TikTok audit flow:
+         * After selecting the video, always pass through
+         * the dedicated TikTok connection / authorization page.
+         *
+         * connect-tiktok.html will:
+         * 1. show the selected campaign/video
+         * 2. launch TikTok OAuth
+         * 3. display TikTok Account Connected
+         * 4. continue to Review & Publish after authorization
+         */
         window.location.href =
-            'review-publish.html';
+            'connect-tiktok.html';
 
     }
 );
