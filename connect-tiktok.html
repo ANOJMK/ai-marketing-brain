@@ -1,3027 +1,1588 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Select Video • Brain Africa Labs</title>
-
-<script src="env.js"></script>
-
-<style>
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-
-    font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-
-    color: #e8edf5;
-
-    background:
-        radial-gradient(
-            circle at 15% 0%,
-            rgba(59, 130, 246, .16),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 85% 10%,
-            rgba(139, 92, 246, .13),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #07101f 0%,
-            #0b1425 45%,
-            #101a2d 100%
-        );
-
-    -webkit-font-smoothing: antialiased;
-}
-
-
-/* =========================================================
-   TOPBAR
-========================================================= */
-
-.topbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
-    background:
-        rgba(7, 16, 31, .88);
-
-    border-bottom:
-        1px solid rgba(148, 163, 184, .13);
-
-    backdrop-filter:
-        blur(18px);
-
-    box-shadow:
-        0 8px 30px
-        rgba(0, 0, 0, .18);
-}
-
-.topbar-inner {
-    width:
-        min(
-            calc(100% - 48px),
-            1180px
-        );
-
-    min-height: 72px;
-
-    margin: 0 auto;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-
-/* =========================================================
-   BRAND
-========================================================= */
-
-.brand {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    color: #ffffff;
-
-    text-decoration: none;
-}
-
-.brand-logo {
-    width: 43px;
-    height: 43px;
-
-    object-fit: contain;
-
-    border-radius: 10px;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0, 0, 0, .35);
-}
-
-.brand-name {
-    font-size: 15px;
-
-    font-weight: 800;
-
-    color: #ffffff;
-
-    letter-spacing: -.2px;
-}
-
-.brand-subtitle {
-    margin-top: 2px;
-
-    color: #8493aa;
-
-    font-size: 10px;
-}
-
-
-/* =========================================================
-   NAV
-========================================================= */
-
-.nav {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-}
-
-.nav a {
-    padding:
-        9px 13px;
-
-    border-radius: 8px;
-
-    color: #9aa8bc;
-
-    text-decoration: none;
-
-    font-size: 11px;
-
-    font-weight: 650;
-
-    transition:
-        .2s ease;
-}
-
-.nav a:hover {
-    background:
-        rgba(255, 255, 255, .07);
-
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   PAGE
-========================================================= */
-
-.page {
-    width:
-        min(
-            calc(100% - 48px),
-            1080px
-        );
-
-    margin:
-        32px auto 70px;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    position: relative;
-
-    overflow: hidden;
-
-    padding:
-        34px 34px;
-
-    margin-bottom: 18px;
-
-    border-radius: 20px;
-
-    border:
-        1px solid rgba(
-            148,
-            163,
-            184,
-            .15
-        );
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(22, 34, 56, .96),
-            rgba(13, 24, 42, .96)
-        );
-
-    box-shadow:
-        0 20px 55px
-        rgba(0, 0, 0, .22);
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 280px;
-    height: 280px;
-
-    right: -110px;
-    top: -150px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(59, 130, 246, .25),
-            transparent 68%
-        );
-
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    left: -80px;
-    bottom: -120px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(139, 92, 246, .15),
-            transparent 70%
-        );
-}
-
-.hero h1 {
-    position: relative;
-    z-index: 1;
-
-    margin:
-        0 0 8px;
-
-    color: #ffffff;
-
-    font-size: 28px;
-
-    line-height: 1.2;
-
-    letter-spacing:
-        -.7px;
-}
-
-.hero p {
-    position: relative;
-    z-index: 1;
-
-    margin: 0;
-
-    color: #91a0b5;
-
-    font-size: 12px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   CARDS
-========================================================= */
-
-.card {
-    position: relative;
-
-    margin-bottom: 16px;
-
-    padding: 23px;
-
-    border-radius: 17px;
-
-    border:
-        1px solid rgba(
-            148,
-            163,
-            184,
-            .14
-        );
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(19, 31, 51, .96),
-            rgba(12, 22, 38, .96)
-        );
-
-    box-shadow:
-        0 12px 35px
-        rgba(0, 0, 0, .18);
-
-    transition:
-        border-color .2s ease,
-        transform .2s ease,
-        box-shadow .2s ease;
-}
-
-.card:hover {
-    border-color:
-        rgba(148, 163, 184, .25);
-
-    box-shadow:
-        0 16px 42px
-        rgba(0, 0, 0, .24);
-}
-
-.card h2 {
-    margin:
-        0 0 5px;
-
-    color: #ffffff;
-
-    font-size: 16px;
-
-    letter-spacing:
-        -.2px;
-}
-
-.muted {
-    color: #8190a6;
-
-    font-size: 10px;
-
-    line-height: 1.55;
-}
-
-
-/* =========================================================
-   CAMPAIGN
-========================================================= */
-
-.campaign {
-    position: relative;
-
-    overflow: hidden;
-
-    margin-bottom: 22px;
-
-    padding:
-        15px 18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(30, 45, 70, .95),
-            rgba(18, 31, 52, .95)
-        );
-
-    border:
-        1px solid rgba(
-            96,
-            165,
-            250,
-            .18
-        );
-
-    border-radius: 12px;
-}
-
-.campaign::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 3px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #60a5fa,
-            #818cf8
-        );
-}
-
-.campaign strong {
-    display: block;
-
-    margin-left: 8px;
-    margin-bottom: 4px;
-
-    color: #8ea4c4;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-#campaignInfo {
-    display: block;
-
-    margin-left: 8px;
-
-    color: #f1f5f9;
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   UPLOAD ZONE
-========================================================= */
-
-.upload-zone {
-    position: relative;
-
-    min-height: 155px;
-
-    margin-top: 14px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 11px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(9, 20, 36, .95),
-            rgba(13, 27, 46, .95)
-        );
-
-    border:
-        1px dashed
-        rgba(
-            148,
-            163,
-            184,
-            .30
-        );
-
-    border-radius: 14px;
-
-    transition:
-        border-color .2s ease,
-        background .2s ease,
-        transform .2s ease;
-}
-
-.upload-zone:hover {
-    border-color:
-        rgba(96, 165, 250, .65);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(14, 29, 50, .98),
-            rgba(17, 34, 56, .98)
-        );
-
-    transform:
-        translateY(-1px);
-}
-
-.upload-zone input {
-    display: none;
-}
-
-.upload-zone p {
-    margin: 0;
-
-    color: #718198;
-
-    font-size: 9px;
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn {
-    min-height: 37px;
-
-    padding:
-        0 15px;
-
-    border: 0;
-
-    border-radius: 9px;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 7px;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    font-size: 10px;
-
-    font-weight: 750;
-
-    text-decoration: none;
-
-    transition:
-        transform .15s ease,
-        box-shadow .15s ease,
-        background .15s ease,
-        border-color .15s ease;
-}
-
-.btn:hover:not(:disabled) {
-    transform:
-        translateY(-1px);
-}
-
-.btn:active:not(:disabled) {
-    transform:
-        translateY(0);
-}
-
-.btn:disabled {
-    opacity: .45;
-
-    cursor: not-allowed;
-}
-
-
-/* Primary */
-
-.btn-primary {
-    color: #ffffff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #4f46e5
-        );
-
-    border:
-        1px solid
-        rgba(
-            129,
-            140,
-            248,
-            .35
-        );
-
-    box-shadow:
-        0 7px 18px
-        rgba(37, 99, 235, .23);
-}
-
-.btn-primary:hover:not(:disabled) {
-    box-shadow:
-        0 9px 25px
-        rgba(37, 99, 235, .32);
-}
-
-
-/* Secondary */
-
-.btn-secondary {
-    color: #c4cfdd;
-
-    background:
-        rgba(
-            148,
-            163,
-            184,
-            .08
-        );
-
-    border:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .14
-        );
-}
-
-.btn-secondary:hover:not(:disabled) {
-    color: #ffffff;
-
-    background:
-        rgba(
-            148,
-            163,
-            184,
-            .14
-        );
-
-    border-color:
-        rgba(
-            148,
-            163,
-            184,
-            .25
-        );
-}
-
-
-/* =========================================================
-   TOOLBAR
-========================================================= */
-
-.toolbar {
-    display: flex;
-
-    gap: 10px;
-
-    margin:
-        18px 0 12px;
-}
-
-.search {
-    width: 100%;
-
-    min-height: 39px;
-
-    padding:
-        0 13px;
-
-    background:
-        rgba(
-            5,
-            15,
-            28,
-            .85
-        );
-
-    border:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .16
-        );
-
-    border-radius: 9px;
-
-    outline: none;
-
-    color: #e8edf5;
-
-    font-family: inherit;
-
-    font-size: 10px;
-
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
-}
-
-.search::placeholder {
-    color: #637289;
-}
-
-.search:focus {
-    border-color:
-        rgba(
-            96,
-            165,
-            250,
-            .55
-        );
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            59,
-            130,
-            246,
-            .10
-        );
-}
-
-
-/* =========================================================
-   VIDEO LIST
-========================================================= */
-
-.video-list {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-}
-
-
-/* =========================================================
-   VIDEO ITEM
-========================================================= */
-
-.video-item {
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 18px;
-
-    padding:
-        13px 14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(22, 35, 57, .88),
-            rgba(14, 27, 45, .88)
-        );
-
-    border:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .13
-        );
-
-    border-radius: 11px;
-
-    transition:
-        border-color .2s ease,
-        background .2s ease,
-        box-shadow .2s ease,
-        transform .2s ease;
-}
-
-.video-item:hover {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(27, 43, 68, .96),
-            rgba(17, 33, 54, .96)
-        );
-
-    border-color:
-        rgba(
-            96,
-            165,
-            250,
-            .30
-        );
-
-    box-shadow:
-        0 8px 25px
-        rgba(0, 0, 0, .18);
-
-    transform:
-        translateY(-1px);
-}
-
-
-/* =========================================================
-   SELECTED VIDEO
-========================================================= */
-
-.video-item.selected {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(25, 48, 82, .98),
-            rgba(20, 37, 65, .98)
-        );
-
-    border-color:
-        rgba(
-            96,
-            165,
-            250,
-            .65
-        );
-
-    box-shadow:
-        0 8px 25px
-        rgba(
-            37,
-            99,
-            235,
-            .13
-        );
-}
-
-.video-item.selected::before {
-    content: "";
-
-    position: absolute;
-
-    left: -1px;
-
-    top: 10px;
-    bottom: 10px;
-
-    width: 3px;
-
-    border-radius: 4px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #60a5fa,
-            #818cf8
-        );
-}
-
-
-/* =========================================================
-   VIDEO TEXT
-========================================================= */
-
-.video-main {
-    min-width: 0;
-
-    flex: 1;
-}
-
-.video-name {
-    margin-bottom: 4px;
-
-    color: #f4f7fb;
-
-    font-size: 11px;
-
-    font-weight: 750;
-
-    line-height: 1.4;
-
-    word-break: break-word;
-}
-
-.video-meta {
-    color: #8190a6;
-
-    font-size: 9px;
-
-    line-height: 1.5;
-}
-
-.video-path {
-    margin-top: 2px;
-
-    color: #64748b;
-
-    font-size: 8.5px;
-
-    line-height: 1.4;
-
-    word-break: break-all;
-}
-
-
-/* =========================================================
-   VIDEO BUTTONS
-========================================================= */
-
-.video-actions {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    flex-shrink: 0;
-}
-
-.video-actions .btn {
-    min-height: 35px;
-
-    padding:
-        0 12px;
-
-    font-size: 9px;
-}
-
-
-/* =========================================================
-   PREVIEW
-========================================================= */
-
-.preview-box {
-    margin-top: 20px;
-
-    padding-top: 20px;
-
-    border-top:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .10
-        );
-}
-
-.preview-box h2 {
-    margin-bottom: 10px;
-}
-
-.preview-box video {
-    display: block;
-
-    width: 100%;
-
-    max-height: 450px;
-
-    background: #020617;
-
-    border:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .15
-        );
-
-    border-radius: 13px;
-
-    object-fit: contain;
-
-    box-shadow:
-        0 15px 35px
-        rgba(0, 0, 0, .35);
-}
-
-
-/* =========================================================
-   SELECTED SUMMARY
-========================================================= */
-
-.selected-summary {
-    display: none;
-
-    margin-top: 18px;
-
-    padding:
-        14px 16px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(30, 48, 76, .92),
-            rgba(19, 34, 56, .92)
-        );
-
-    border:
-        1px solid
-        rgba(
-            96,
-            165,
-            250,
-            .20
-        );
-
-    border-radius: 11px;
-}
-
-.selected-summary strong {
-    display: block;
-
-    margin-bottom: 4px;
-
-    color: #8ea4c4;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    text-transform: uppercase;
-
-    letter-spacing: .7px;
-}
-
-#selectedFile {
-    color: #ffffff;
-
-    font-size: 11px;
-
-    font-weight: 700;
-}
-
-#selectedPath {
-    margin-top: 3px;
-
-    color: #718198;
-
-    font-size: 8.5px;
-
-    word-break: break-all;
-}
-
-
-/* =========================================================
-   CAPTION
-========================================================= */
-
-label[for="caption"] {
-    color: #dce4ef !important;
-
-    font-size: 11px !important;
-
-    font-weight: 750 !important;
-}
-
-.caption {
-    width: 100%;
-
-    min-height: 95px;
-
-    margin-top: 8px;
-
-    padding:
-        12px 13px;
-
-    resize: vertical;
-
-    background:
-        rgba(
-            5,
-            15,
-            28,
-            .80
-        );
-
-    border:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .16
-        );
-
-    border-radius: 10px;
-
-    outline: none;
-
-    color: #edf2f7;
-
-    font-family: inherit;
-
-    font-size: 11px;
-
-    line-height: 1.55;
-
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
-}
-
-.caption::placeholder {
-    color: #637289;
-}
-
-.caption:focus {
-    border-color:
-        rgba(
-            96,
-            165,
-            250,
-            .55
-        );
-
-    box-shadow:
-        0 0 0 3px
-        rgba(
-            59,
-            130,
-            246,
-            .10
-        );
-}
-
-#captionCount {
-    color: #68778e !important;
-
-    font-size: 8.5px !important;
-}
-
-
-/* =========================================================
-   PROGRESS
-========================================================= */
-
-.progress-wrapper {
-    display: none;
-
-    margin-top: 16px;
-
-    padding:
-        13px;
-
-    background:
-        rgba(
-            5,
-            15,
-            28,
-            .65
-        );
-
-    border:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .13
-        );
-
-    border-radius: 10px;
-}
-
-.progress-label {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom: 7px;
-
-    color: #94a3b8;
-
-    font-size: 9px;
-
-    font-weight: 650;
-}
-
-.progress {
-    width: 100%;
-
-    height: 6px;
-
-    overflow: hidden;
-
-    background:
-        #1e293b;
-
-    border-radius: 10px;
-}
-
-.progress-bar {
-    width: 0;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #2563eb,
-            #6366f1,
-            #8b5cf6
-        );
-
-    border-radius: inherit;
-
-    transition:
-        width .2s ease;
-}
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-.status {
-    display: none;
-
-    margin-top: 12px;
-
-    padding:
-        12px 14px;
-
-    border-radius: 10px;
-
-    font-size: 10px;
-
-    line-height: 1.5;
-}
-
-.status.success {
-    background:
-        rgba(
-            22,
-            101,
-            52,
-            .18
-        );
-
-    border:
-        1px solid
-        rgba(
-            74,
-            222,
-            128,
-            .25
-        );
-
-    color: #86efac;
-}
-
-.status.error {
-    background:
-        rgba(
-            127,
-            29,
-            29,
-            .20
-        );
-
-    border:
-        1px solid
-        rgba(
-            248,
-            113,
-            113,
-            .25
-        );
-
-    color: #fca5a5;
-}
-
-.status.info {
-    background:
-        rgba(
-            30,
-            64,
-            175,
-            .18
-        );
-
-    border:
-        1px solid
-        rgba(
-            96,
-            165,
-            250,
-            .25
-        );
-
-    color: #93c5fd;
-}
-
-
-/* =========================================================
-   ACTIONS
-========================================================= */
-
-.actions {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 10px;
-
-    margin-top: 22px;
-
-    padding-top: 18px;
-
-    border-top:
-        1px solid
-        rgba(
-            148,
-            163,
-            184,
-            .10
-        );
-}
-
-.actions .btn {
-    min-width: 150px;
-}
-
-
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.empty {
-    padding:
-        38px 20px;
-
-    text-align: center;
-
-    background:
-        rgba(
-            5,
-            15,
-            28,
-            .55
-        );
-
-    border:
-        1px dashed
-        rgba(
-            148,
-            163,
-            184,
-            .16
-        );
-
-    border-radius: 12px;
-
-    color: #718198;
-
-    font-size: 10px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-    padding:
-        10px 20px 35px;
-
-    text-align: center;
-
-    color: #59687e;
-
-    font-size: 9px;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 800px) {
-
-    .topbar-inner {
-        width:
-            calc(100% - 30px);
-    }
-
-    .page {
-        width:
-            calc(100% - 30px);
-
-        margin-top: 20px;
-    }
-
-    .grid {
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(0, 1fr)
-            );
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .topbar-inner {
-        width:
-            calc(100% - 20px);
-
-        min-height: 64px;
-    }
-
-    .brand-logo {
-        width: 38px;
-        height: 38px;
-    }
-
-    .brand-name {
-        font-size: 13px;
-    }
-
-    .brand-subtitle {
-        font-size: 9px;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .page {
-        width:
-            calc(100% - 20px);
-
-        margin:
-            15px auto 40px;
-    }
-
-    .hero {
-        padding:
-            27px 19px;
-
-        border-radius: 15px;
-    }
-
-    .hero h1 {
-        font-size: 23px;
-    }
-
-    .hero p {
-        font-size: 10px;
-    }
-
-    .card {
-        padding:
-            17px;
-
-        border-radius: 14px;
-    }
-
-    .upload-zone {
-        min-height: 135px;
-    }
-
-    .video-item {
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 12px;
-    }
-
-    .video-actions {
-        width: 100%;
-    }
-
-    .video-actions .btn {
-        flex: 1;
-    }
-
-    .actions {
-        flex-direction: column-reverse;
-
-        align-items: stretch;
-    }
-
-    .actions .btn {
-        width: 100%;
-
-        min-width: 0;
-    }
-
-}
-
-</style>
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta name="brain-africa-page" content="connect-tiktok-v2-audit-20260926">
+
+    <title>
+        Connect TikTok — Brain Africa Labs
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/audit.css"
+    >
 
 </head>
 
+
 <body>
 
-<header class="topbar">
 
-<div class="topbar-inner">
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-<a class="brand" href="index.html">
+<header class="nav">
 
-<img
-    class="brand-logo"
-    src="logo.png"
-    alt="Brain Africa Labs"
-    onerror="this.style.display='none'"
->
+    <div class="nav-inner">
 
-<div>
+        <a
+            class="brand"
+            href="dashboard.html"
+        >
 
-<div class="brand-name">
-Brain Africa Labs
-</div>
+            <img
+                src="assets/logo.png"
+                onerror="this.style.display='none'"
+                alt="Brain Africa Labs"
+            >
 
-<div class="brand-subtitle">
-AI Marketing Brain • TikTok
-</div>
+            <div>
 
-</div>
+                <strong>
+                    Brain Africa Labs
+                </strong>
 
-</a>
+                <span>
+                    AI Marketing Brain • TikTok Audit
+                </span>
 
-<nav class="nav">
+            </div>
 
-<a href="audit-dashboard.html">
-Audit Dashboard
-</a>
+        </a>
 
-<a href="campaigns.html">
-Campaigns
-</a>
 
-</nav>
+        <div class="links">
 
-</div>
+            <a href="dashboard.html">
+                Audit Dashboard
+            </a>
+
+            <a href="campaigns.html">
+                Campaigns
+            </a>
+
+        </div>
+
+    </div>
 
 </header>
 
 
-<main class="page">
 
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
-<section class="hero">
+<main class="wrap">
 
-<h1>
-Select TikTok Video
-</h1>
 
-<p>
-Choose an existing MP4 video from Supabase or upload a new one.
-</p>
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-</section>
+    <div class="hero">
 
+        <div class="eyebrow">
+            STEP 4 — CONNECT TIKTOK
+        </div>
 
-<section class="card">
 
-<div class="campaign">
+        <h1>
+            Connect TikTok
+        </h1>
 
-<strong>
-Campaign
-</strong>
 
-<span id="campaignInfo">
-Loading campaign...
-</span>
+        <p>
+            Connect your TikTok account to Brain Africa Labs
+            before publishing your video.
+        </p>
 
-</div>
+    </div>
 
 
-<h2>
-Upload New Video
-</h2>
 
-<p class="muted">
-Supabase Free currently allows files up to 50 MB.
-</p>
+    <!-- =====================================================
+         CAMPAIGN SUMMARY
+    ====================================================== -->
 
+    <div class="card">
 
-<div class="upload-zone">
+        <h2>
+            Campaign & Video
+        </h2>
 
-<label
-    for="fileInput"
-    class="btn btn-primary"
->
-    📁 Choose MP4 Video
-</label>
 
-<input
-    id="fileInput"
-    type="file"
-    accept="video/mp4,.mp4"
->
+        <div
+            id="campaignSummary"
+            style="
+                display:grid;
+                gap:12px;
+                margin-top:18px;
+            "
+        >
 
-<p class="muted">
-Maximum size: 50 MB
-</p>
+            <p class="muted">
+                Loading campaign information...
+            </p>
 
-</div>
+        </div>
 
+    </div>
 
-<div
-    id="progressWrapper"
-    class="progress-wrapper"
->
 
-<div class="progress-label">
 
-<span id="progressLabel">
-Uploading...
-</span>
+    <!-- =====================================================
+         TIKTOK CONNECTION
+    ====================================================== -->
 
-<span id="progressPercent">
-0%
-</span>
+    <div
+        class="card"
+        id="tiktokConnectionCard"
+    >
 
-</div>
+        <div
+            style="
+                display:flex;
+                align-items:center;
+                gap:16px;
+                margin-bottom:20px;
+            "
+        >
 
-<div class="progress">
+            <div
+                style="
+                    width:58px;
+                    height:58px;
+                    border-radius:16px;
+                    background:#111827;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:30px;
+                "
+            >
+                ♪
+            </div>
 
-<div
-    id="progressBar"
-    class="progress-bar"
-></div>
 
-</div>
+            <div>
 
-</div>
+                <h2
+                    id="tiktokConnectionTitle"
+                    style="margin:0;"
+                >
+                    TikTok Account
+                </h2>
 
 
-<div
-    id="uploadStatus"
-    class="status"
-></div>
+                <p
+                    id="tiktokConnectionSubtitle"
+                    class="muted"
+                    style="margin:5px 0 0;"
+                >
+                    Authorization required
+                </p>
 
-</section>
+            </div>
 
+        </div>
 
-<section class="card">
 
-<div
-    style="
-        display:flex;
-        justify-content:space-between;
-        gap:15px;
-        align-items:center;
-        margin-bottom:15px;
-    "
->
+        <p id="connectionDescription">
 
-<div>
+            To continue, connect your TikTok account.
+            Brain Africa Labs will request permission to
+            publish the selected content on your behalf.
 
-<h2>
-Videos in Supabase
-</h2>
+        </p>
 
-<p class="muted">
-Folder: mangeons/
-</p>
 
-</div>
+        <!-- =================================================
+             PERMISSIONS
+        ================================================== -->
 
-<button
-    id="refreshButton"
-    type="button"
-    class="btn btn-secondary"
->
-    ↻ Refresh
-</button>
+        <div
+            id="permissionsBlock"
+            style="
+                margin-top:24px;
+                display:grid;
+                gap:12px;
+            "
+        >
 
-</div>
+            <div
+                style="
+                    padding:16px;
+                    border:1px solid rgba(255,255,255,.10);
+                    border-radius:12px;
+                    background:rgba(255,255,255,.02);
+                "
+            >
 
+                <strong>
+                    Requested access
+                </strong>
 
-<div class="toolbar">
 
-<input
-    id="searchInput"
-    class="search"
-    type="search"
-    placeholder="Search video..."
->
+                <ul
+                    style="
+                        margin:12px 0 0;
+                        padding-left:20px;
+                    "
+                >
 
-</div>
+                    <li>
+                        Access your TikTok account information
+                    </li>
 
-
-<div
-    id="videoList"
-    class="video-list"
->
-
-<div class="empty">
-Loading videos...
-</div>
+                    <li>
+                        Access your TikTok creator information
+                    </li>
 
-</div>
+                    <li>
+                        Publish video content through TikTok
+                    </li>
 
+                </ul>
 
-<div
-    id="previewBox"
-    class="preview-box"
-    style="display:none;"
->
+            </div>
 
-<h2>
-Preview
-</h2>
+        </div>
 
-<video
-    id="previewVideo"
-    controls
-    playsinline
-></video>
 
-</div>
 
+        <!-- =================================================
+             AUTHORIZATION NOTICE
+        ================================================== -->
 
-<div
-    id="selectedSummary"
-    class="selected-summary"
->
+        <div
+            id="authorizationNotice"
+            style="
+                margin-top:20px;
+                padding:16px;
+                border-left:3px solid rgba(236,29,81,.8);
+                background:rgba(236,29,81,.06);
+                border-radius:8px;
+            "
+        >
 
-<strong>
-Selected video
-</strong>
+            <strong>
+                You remain in control
+            </strong>
 
-<div id="selectedFile">
-—
-</div>
 
-<div
-    id="selectedPath"
-    class="muted"
->
-—
-</div>
+            <p
+                class="muted"
+                style="margin:7px 0 0;"
+            >
 
-</div>
+                TikTok will ask you to authorize Brain Africa Labs.
+                You can review the requested permissions before
+                approving access.
 
+            </p>
 
-<div>
+        </div>
 
-<label
-    for="caption"
-    style="
-        display:block;
-        font-weight:700;
-        margin:20px 0 8px;
-    "
->
-TikTok Caption
-</label>
 
-<textarea
-    id="caption"
-    class="caption"
-    maxlength="2200"
-    placeholder="Write your TikTok caption..."
-></textarea>
 
-<div
-    id="captionCount"
-    class="muted"
-    style="text-align:right;margin-top:5px;"
->
-0 / 2200
-</div>
+        <!-- =================================================
+             BUTTON
+        ================================================== -->
 
-</div>
+        <div
+            id="connectButtons"
+            style="
+                margin-top:28px;
+                display:flex;
+                gap:12px;
+                flex-wrap:wrap;
+            "
+        >
 
+            <button
+                id="connectTikTokButton"
+                type="button"
+                class="btn primary"
+            >
+                Continue with TikTok →
+            </button>
 
-<div class="actions">
 
-<a
-    href="campaigns.html"
-    class="btn btn-secondary"
->
-    ← Back
-</a>
+            <a
+                href="select-video.html"
+                class="btn secondary"
+            >
+                ← Back to Video
+            </a>
 
-<button
-    id="continueButton"
-    type="button"
-    class="btn btn-primary"
-    disabled
->
-    Continue to Review →
-</button>
+        </div>
 
-</div>
 
-</section>
+        <!-- =================================================
+             STATUS
+        ================================================== -->
+
+        <div
+            id="connectionStatus"
+            style="
+                display:none;
+                margin-top:18px;
+            "
+        ></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONNECTED ACCOUNT
+    ====================================================== -->
+
+    <div
+        class="card"
+        id="connectedAccountCard"
+        style="display:none;"
+    >
+
+        <h2>
+            ✓ TikTok Account Connected
+        </h2>
+
+
+        <div
+            id="connectedAccount"
+            style="
+                margin-top:18px;
+            "
+        >
+        </div>
+
+
+        <div
+            style="
+                margin-top:24px;
+            "
+        >
+
+            <a
+                id="reviewPublishButton"
+                href="review-publish.html"
+                class="btn primary"
+            >
+                Continue to Review & Publish →
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         AUDIT JOURNEY
+    ====================================================== -->
+
+    <div class="card">
+
+        <h2>
+            Audit Journey
+        </h2>
+
+
+        <div class="steps">
+
+
+            <!-- STEP 1 -->
+
+            <div class="step">
+
+                <div class="num">
+                    1
+                </div>
+
+                <div>
+
+                    <b>
+                        Create Campaign
+                    </b>
+
+                    <p class="muted">
+                        Campaign objective and content brief.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 2 -->
+
+            <div class="step">
+
+                <div class="num">
+                    2
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Video
+                    </b>
+
+                    <p class="muted">
+                        Choose the video asset.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 3 -->
+
+            <div class="step">
+
+                <div class="num">
+                    3
+                </div>
+
+                <div>
+
+                    <b>
+                        Select Platform
+                    </b>
+
+                    <p class="muted">
+                        TikTok is selected as the publishing platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 4 -->
+
+            <div
+                class="step"
+                style="
+                    border-color:rgba(236,29,81,.5);
+                "
+            >
+
+                <div class="num">
+                    4
+                </div>
+
+                <div>
+
+                    <b>
+                        Connect TikTok / Authorize
+                    </b>
+
+                    <p class="muted">
+                        User authorizes Brain Africa Labs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 5 -->
+
+            <div
+                class="step"
+                id="stepConnected"
+            >
+
+                <div class="num">
+                    5
+                </div>
+
+                <div>
+
+                    <b>
+                        TikTok Account Connected
+                    </b>
+
+                    <p class="muted">
+                        Connected account is displayed before publishing.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 6 -->
+
+            <div class="step">
+
+                <div class="num">
+                    6
+                </div>
+
+                <div>
+
+                    <b>
+                        Caption + Privacy
+                    </b>
+
+                    <p class="muted">
+                        User controls caption and privacy.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 7 -->
+
+            <div class="step">
+
+                <div class="num">
+                    7
+                </div>
+
+                <div>
+
+                    <b>
+                        Review & Publish
+                    </b>
+
+                    <p class="muted">
+                        User explicitly confirms publication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 8 -->
+
+            <div class="step">
+
+                <div class="num">
+                    8
+                </div>
+
+                <div>
+
+                    <b>
+                        Publish Success
+                    </b>
+
+                    <p class="muted">
+                        Publication result is shown.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
 
 </main>
 
 
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer class="footer">
 
-© 2026 Brain Africa Labs — AI Marketing Brain
+    © 2026 Brain Africa Labs — AI Marketing Brain
 
 </footer>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
-
-const SUPABASE_URL =
-    window.__ENV__?.SUPABASE_URL ||
-    '';
-
-const SUPABASE_ANON_KEY =
-    window.__ENV__?.SUPABASE_ANON_KEY ||
-    '';
-
-const SUPABASE_BUCKET =
-    'tiktok-videos';
-
-const STORAGE_FOLDER =
-    'mangeons';
-
-const MAX_FILE_SIZE =
-    50 * 1024 * 1024;
-
-
-const fileInput =
-    document.getElementById('fileInput');
-
-const videoList =
-    document.getElementById('videoList');
-
-const searchInput =
-    document.getElementById('searchInput');
-
-const refreshButton =
-    document.getElementById('refreshButton');
-
-const continueButton =
-    document.getElementById('continueButton');
-
-const previewBox =
-    document.getElementById('previewBox');
-
-const previewVideo =
-    document.getElementById('previewVideo');
-
-const selectedSummary =
-    document.getElementById('selectedSummary');
-
-const selectedFile =
-    document.getElementById('selectedFile');
-
-const selectedPath =
-    document.getElementById('selectedPath');
-
-const caption =
-    document.getElementById('caption');
-
-const captionCount =
-    document.getElementById('captionCount');
-
-const progressWrapper =
-    document.getElementById('progressWrapper');
-
-const progressBar =
-    document.getElementById('progressBar');
-
-const progressPercent =
-    document.getElementById('progressPercent');
-
-const progressLabel =
-    document.getElementById('progressLabel');
-
-const uploadStatus =
-    document.getElementById('uploadStatus');
-
-const campaignInfo =
-    document.getElementById('campaignInfo');
-
-
-let videos = [];
-
-let selectedVideo =
-    readJsonStorage(
-        'brainAfricaTikTokVideo'
-    );
-
-
-const campaign =
-    readJsonStorage(
-        'brainAfricaTikTokCampaign'
-    );
 
 
 /* =========================================================
-   STORAGE
+   CONFIGURATION
 ========================================================= */
 
-function readJsonStorage(key) {
+const OAUTH_START_URL =
+    'https://oauth.brainafricalabs.com/tiktok/authorize';
 
-    try {
 
-        const raw =
-            localStorage.getItem(key);
 
-        return raw
-            ? JSON.parse(raw)
-            : null;
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-    } catch {
+const campaignSummary =
+    document.getElementById(
+        'campaignSummary'
+    );
 
-        return null;
 
-    }
+const tiktokConnectionCard =
+    document.getElementById(
+        'tiktokConnectionCard'
+    );
+
+
+const tiktokConnectionTitle =
+    document.getElementById(
+        'tiktokConnectionTitle'
+    );
+
+
+const tiktokConnectionSubtitle =
+    document.getElementById(
+        'tiktokConnectionSubtitle'
+    );
+
+
+const connectionDescription =
+    document.getElementById(
+        'connectionDescription'
+    );
+
+
+const permissionsBlock =
+    document.getElementById(
+        'permissionsBlock'
+    );
+
+
+const authorizationNotice =
+    document.getElementById(
+        'authorizationNotice'
+    );
+
+
+const connectButtons =
+    document.getElementById(
+        'connectButtons'
+    );
+
+
+const connectButton =
+    document.getElementById(
+        'connectTikTokButton'
+    );
+
+
+const connectionStatus =
+    document.getElementById(
+        'connectionStatus'
+    );
+
+
+const connectedAccountCard =
+    document.getElementById(
+        'connectedAccountCard'
+    );
+
+
+const connectedAccount =
+    document.getElementById(
+        'connectedAccount'
+    );
+
+
+const reviewPublishButton =
+    document.getElementById(
+        'reviewPublishButton'
+    );
+
+
+const stepConnected =
+    document.getElementById(
+        'stepConnected'
+    );
+
+
+
+/* =========================================================
+   LOAD CAMPAIGN
+========================================================= */
+
+let campaign = null;
+
+let video = null;
+
+
+try {
+
+    campaign =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokCampaign'
+            )
+        );
+
+} catch (error) {
+
+    campaign = null;
 
 }
 
 
+try {
+
+    video =
+        JSON.parse(
+            localStorage.getItem(
+                'brainAfricaTikTokVideo'
+            )
+        );
+
+} catch (error) {
+
+    video = null;
+
+}
+
+
+
 /* =========================================================
-   CAMPAIGN
+   DISPLAY CAMPAIGN
 ========================================================= */
 
-if (campaign) {
+if (
+    campaign ||
+    video
+) {
 
-    campaignInfo.textContent =
-        campaign.name ||
-        campaign.campaign_name ||
-        campaign.title ||
-        campaign.objective ||
-        'Campaign selected';
+    campaignSummary.innerHTML = `
+
+        <div
+            style="
+                display:grid;
+                gap:10px;
+            "
+        >
+
+            <div>
+
+                <strong>
+                    Campaign:
+                </strong>
+
+                ${escapeHtml(
+                    campaign?.name ||
+                    'Mangeons TikTok Campaign'
+                )}
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Objective:
+                </strong>
+
+                ${escapeHtml(
+                    campaign?.objective ||
+                    'Brand Awareness'
+                )}
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Video:
+                </strong>
+
+                ${escapeHtml(
+                    video?.file_name ||
+                    'Selected video'
+                )}
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Platform:
+                </strong>
+
+                TikTok
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Caption:
+                </strong>
+
+                <div
+                    class="muted"
+                    style="
+                        margin-top:5px;
+                    "
+                >
+
+                    ${escapeHtml(
+                        video?.caption ||
+                        localStorage.getItem(
+                            'brainAfricaTikTokCaption'
+                        ) ||
+                        'No caption'
+                    )}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
 
 } else {
 
-    campaignInfo.textContent =
-        'No campaign information available';
+    campaignSummary.innerHTML = `
+
+        <p>
+            No campaign or video has been selected.
+        </p>
+
+        <div
+            style="
+                margin-top:15px;
+            "
+        >
+
+            <a
+                href="create-campaign.html"
+                class="btn secondary"
+            >
+                Start Campaign
+            </a>
+
+        </div>
+
+    `;
 
 }
+
 
 
 /* =========================================================
-   HELPERS
+   READ URL PARAMETERS
 ========================================================= */
 
-function escapeHtml(value) {
-
-    return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-}
-
-
-function formatBytes(bytes) {
-
-    bytes =
-        Number(bytes);
-
-    if (!Number.isFinite(bytes) || bytes <= 0) {
-
-        return '—';
-
-    }
-
-    const units =
-        ['Bytes', 'KB', 'MB', 'GB'];
-
-    const index =
-        Math.min(
-            Math.floor(
-                Math.log(bytes) /
-                Math.log(1024)
-            ),
-            units.length - 1
-        );
-
-    return (
-        Math.round(
-            (
-                bytes /
-                Math.pow(1024, index)
-            ) * 100
-        ) / 100
-    ) + ' ' + units[index];
-
-}
-
-
-function formatDate(value) {
-
-    if (!value) {
-
-        return '';
-
-    }
-
-    const date =
-        new Date(value);
-
-    if (Number.isNaN(date.getTime())) {
-
-        return '';
-
-    }
-
-    return date.toLocaleString();
-
-}
-
-
-function getStoragePath(item) {
-
-    if (item.name?.startsWith(
-        STORAGE_FOLDER + '/'
-    )) {
-
-        return item.name;
-
-    }
-
-    return (
-        STORAGE_FOLDER +
-        '/' +
-        item.name
+const params =
+    new URLSearchParams(
+        window.location.search
     );
 
-}
+
+/*
+ * IMPORTANT:
+ *
+ * Backend actuel :
+ *
+ * ?tiktok=connected
+ * &account_id=2
+ * &open_id=...
+ * &display_name=...
+ *
+ * Ancienne version frontend :
+ *
+ * ?connected=true
+ *
+ * Nous acceptons LES DEUX.
+ */
+
+const tiktokStatus =
+    params.get('tiktok');
 
 
-function showStatus(type, message) {
+const connectedParam =
+    params.get('connected');
 
-    uploadStatus.className =
-        'status ' + type;
 
-    uploadStatus.style.display =
-        'block';
+const isConnected =
+    tiktokStatus === 'connected' ||
+    connectedParam === 'true';
 
-    uploadStatus.textContent =
-        message;
 
-}
+const error =
+    params.get('error');
+
+
+/*
+ * Support de plusieurs noms possibles.
+ */
+
+const accountId =
+    params.get('account_id') ||
+    params.get('accountId') ||
+    '';
+
+
+const openId =
+    params.get('open_id') ||
+    params.get('openId') ||
+    '';
+
+
+const displayName =
+    params.get('display_name') ||
+    params.get('displayName') ||
+    params.get('account_name') ||
+    params.get('accountName') ||
+    params.get('username') ||
+    'TikTok account';
+
+
+const username =
+    params.get('creator_username') ||
+    params.get('creatorUsername') ||
+    params.get('username') ||
+    '';
+
 
 
 /* =========================================================
-   LOAD VIDEOS
+   OAUTH SUCCESS
 ========================================================= */
 
-async function loadVideos() {
+if (
+    isConnected
+) {
 
-    if (
-        !SUPABASE_URL ||
-        !SUPABASE_ANON_KEY
-    ) {
+    showConnectedAccount({
 
-        showStatus(
-            'error',
-            'Supabase configuration is missing in env.js.'
-        );
+        accountId:
+            accountId,
 
-        return;
+        openId:
+            openId,
 
-    }
+        displayName:
+            displayName,
 
-    videoList.innerHTML =
-        '<div class="empty">Loading videos...</div>';
+        username:
+            username
+
+    });
+
+}
+
+
+
+/* =========================================================
+   OAUTH ERROR
+========================================================= */
+
+if (
+    error
+) {
+
+    let errorMessage =
+        error;
 
     try {
 
-        const response =
-            await fetch(
-                `${SUPABASE_URL}/storage/v1/object/list/${SUPABASE_BUCKET}`,
-                {
-                    method: 'POST',
-
-                    headers: {
-                        'apikey':
-                            SUPABASE_ANON_KEY,
-
-                        'Authorization':
-                            `Bearer ${SUPABASE_ANON_KEY}`,
-
-                        'Content-Type':
-                            'application/json'
-                    },
-
-                    body: JSON.stringify({
-
-                        prefix:
-                            STORAGE_FOLDER + '/',
-
-                        limit:
-                            100,
-
-                        offset:
-                            0,
-
-                        sortBy: {
-                            column: 'created_at',
-                            order: 'desc'
-                        }
-
-                    })
-
-                }
+        errorMessage =
+            decodeURIComponent(
+                error
             );
 
+    } catch {
 
-        const text =
-            await response.text();
-
-
-        let data = [];
-
-        try {
-
-            data =
-                text
-                    ? JSON.parse(text)
-                    : [];
-
-        } catch {
-
-            throw new Error(
-                `Invalid Supabase response. HTTP ${response.status}`
-            );
-
-        }
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data?.message ||
-                data?.error ||
-                `Supabase HTTP ${response.status}`
-            );
-
-        }
-
-
-        videos =
-            Array.isArray(data)
-                ? data.filter(
-                    item =>
-                        item?.name &&
-                        !item.name.endsWith('/')
-                )
-                : [];
-
-
-        renderVideos();
-
-    } catch (error) {
-
-        console.error(
-            '[TikTok Select] Load videos failed:',
-            error
-        );
-
-        videoList.innerHTML = `
-            <div class="empty">
-                Unable to load videos.
-                <br><br>
-                ${escapeHtml(error.message)}
-            </div>
-        `;
-
-    }
-
-}
-
-
-/* =========================================================
-   RENDER
-========================================================= */
-
-function renderVideos() {
-
-    const query =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-    const filtered =
-        videos.filter(item => {
-
-            const name =
-                String(
-                    item.name || ''
-                ).toLowerCase();
-
-            return (
-                name.includes(query) &&
-                name.toLowerCase().endsWith('.mp4')
-            );
-
-        });
-
-
-    if (!filtered.length) {
-
-        videoList.innerHTML =
-            '<div class="empty">No MP4 videos found.</div>';
-
-        return;
+        errorMessage =
+            error;
 
     }
 
 
-    videoList.innerHTML = '';
-
-
-    filtered.forEach(item => {
-
-        const path =
-            getStoragePath(item);
-
-        const size =
-            Number(
-                item.metadata?.size ||
-                item.metadata?.contentLength ||
-                0
-            );
-
-        const row =
-            document.createElement('div');
-
-
-        row.className =
-            'video-item';
-
-
-        if (
-            selectedVideo &&
-            selectedVideo.storage_path === path
-        ) {
-
-            row.classList.add('selected');
-
-        }
-
-
-        row.innerHTML = `
-
-            <div class="video-main">
-
-                <div class="video-name">
-                    ${escapeHtml(item.name)}
-                </div>
-
-                <div class="video-meta">
-                    ${formatBytes(size)}
-                    ${
-                        item.updated_at
-                            ? ' • ' +
-                              escapeHtml(
-                                  formatDate(
-                                      item.updated_at
-                                  )
-                              )
-                            : ''
-                    }
-                </div>
-
-                <div class="video-path">
-                    ${escapeHtml(path)}
-                </div>
-
-            </div>
-
-            <div class="video-actions">
-
-                <button
-                    type="button"
-                    class="btn btn-secondary preview-btn"
-                >
-                    ▶ Preview
-                </button>
-
-                <button
-                    type="button"
-                    class="btn btn-primary select-btn"
-                >
-                    ✓ Select
-                </button>
-
-            </div>
-
-        `;
-
-
-        row
-            .querySelector('.preview-btn')
-            .addEventListener(
-                'click',
-                () => previewExistingVideo(item)
-            );
-
-
-        row
-            .querySelector('.select-btn')
-            .addEventListener(
-                'click',
-                () => selectExistingVideo(item)
-            );
-
-
-        videoList.appendChild(row);
-
-    });
-
-}
-
-
-/* =========================================================
-   PUBLIC URL
-========================================================= */
-
-function getPublicVideoUrl(path) {
-
-    return (
-        `${SUPABASE_URL}` +
-        `/storage/v1/object/public/` +
-        `${SUPABASE_BUCKET}/` +
-        path
-            .split('/')
-            .map(encodeURIComponent)
-            .join('/')
+    showStatus(
+        'error',
+        'TikTok authorization failed: ' +
+        errorMessage
     );
 
 }
 
 
-/* =========================================================
-   PREVIEW EXISTING
-========================================================= */
-
-function previewExistingVideo(item) {
-
-    const path =
-        getStoragePath(item);
-
-    previewVideo.src =
-        getPublicVideoUrl(path);
-
-    previewBox.style.display =
-        'block';
-
-    previewVideo.load();
-
-    previewBox.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-    });
-
-}
-
 
 /* =========================================================
-   SELECT EXISTING
+   CONNECT BUTTON
 ========================================================= */
 
-function selectExistingVideo(item) {
-
-    const path =
-        getStoragePath(item);
-
-
-    selectedVideo = {
-
-        file_name:
-            item.name,
-
-        storage_path:
-            path,
-
-        file_type:
-            item.metadata?.mimetype ||
-            'video/mp4',
-
-        file_size:
-            Number(
-                item.metadata?.size ||
-                item.metadata?.contentLength ||
-                0
-            ),
-
-        platform:
-            'tiktok',
-
-        selected_at:
-            new Date().toISOString(),
-
-        source:
-            'supabase'
-
-    };
-
-
-    localStorage.setItem(
-        'brainAfricaTikTokVideo',
-        JSON.stringify(selectedVideo)
-    );
-
-
-    showSelectedPreview(
-        selectedVideo,
-        false
-    );
-
-
-    renderVideos();
-
-    updateContinueButton();
-
-}
-
-
-/* =========================================================
-   SELECT PREVIEW
-========================================================= */
-
-function showSelectedPreview(video, localFile) {
-
-    selectedSummary.style.display =
-        'block';
-
-    selectedFile.textContent =
-        video.file_name || '—';
-
-    selectedPath.textContent =
-        video.storage_path || '—';
-
-
-    if (localFile && video.preview_url) {
-
-        previewVideo.src =
-            video.preview_url;
-
-        previewBox.style.display =
-            'block';
-
-        previewVideo.load();
-
-    }
-
-}
-
-
-/* =========================================================
-   CONTINUE
-========================================================= */
-
-function updateContinueButton() {
-
-    continueButton.disabled =
-        !selectedVideo ||
-        !selectedVideo.storage_path;
-
-}
-
-
-continueButton.addEventListener(
+connectButton.addEventListener(
     'click',
-    function() {
+    function () {
 
-        if (!selectedVideo) {
+        connectButton.disabled =
+            true;
 
-            showStatus(
-                'error',
-                'Please select a video first.'
+
+        connectButton.textContent =
+            'Connecting to TikTok...';
+
+
+        /*
+         * Build OAuth URL.
+         */
+
+        const url =
+            new URL(
+                OAUTH_START_URL
             );
 
-            return;
 
-        }
+        /*
+         * Platform.
+         */
 
-
-        selectedVideo.caption =
-            caption.value.trim();
-
-
-        localStorage.setItem(
-            'brainAfricaTikTokVideo',
-            JSON.stringify(
-                selectedVideo
-            )
+        url.searchParams.set(
+            'platform',
+            'tiktok'
         );
 
 
         /*
-         * TikTok audit flow:
-         * After selecting the video, always pass through
-         * the dedicated TikTok connection / authorization page.
-         *
-         * connect-tiktok.html will:
-         * 1. show the selected campaign/video
-         * 2. launch TikTok OAuth
-         * 3. display TikTok Account Connected
-         * 4. continue to Review & Publish after authorization
+         * Return page.
          */
-        window.location.href =
-            'connect-tiktok.html';
 
-    }
-);
+        url.searchParams.set(
+            'return_to',
+            window.location.origin +
+            '/connect-tiktok.html'
+        );
 
 
-/* =========================================================
-   CAPTION
-========================================================= */
+        /*
+         * Campaign information.
+         */
 
-caption.addEventListener(
-    'input',
-    function() {
+        if (
+            campaign?.name
+        ) {
 
-        captionCount.textContent =
-            `${caption.value.length} / 2200`;
-
-        if (selectedVideo) {
-
-            selectedVideo.caption =
-                caption.value.trim();
-
-            localStorage.setItem(
-                'brainAfricaTikTokVideo',
-                JSON.stringify(
-                    selectedVideo
-                )
+            url.searchParams.set(
+                'campaign_name',
+                campaign.name
             );
 
         }
 
+
+        /*
+         * Selected video.
+         */
+
+        if (
+            video?.file_name
+        ) {
+
+            url.searchParams.set(
+                'file_name',
+                video.file_name
+            );
+
+        }
+
+
+        /*
+         * Redirect to backend.
+         */
+
+        window.location.href =
+            url.toString();
+
     }
 );
 
 
-if (selectedVideo?.caption) {
 
-    caption.value =
-        selectedVideo.caption;
+/* =========================================================
+   SHOW CONNECTED ACCOUNT
+========================================================= */
 
-    captionCount.textContent =
-        `${caption.value.length} / 2200`;
+function showConnectedAccount({
+    accountId,
+    openId,
+    displayName,
+    username
+}) {
 
-}
+    /*
+     * Hide authorization UI.
+     */
+
+    permissionsBlock.style.display =
+        'none';
 
 
-if (selectedVideo) {
+    authorizationNotice.style.display =
+        'none';
 
-    showSelectedPreview(
-        selectedVideo,
-        false
+
+    connectButtons.style.display =
+        'none';
+
+
+    /*
+     * Update connection card.
+     */
+
+    tiktokConnectionTitle.textContent =
+        'TikTok Account Connected';
+
+
+    tiktokConnectionSubtitle.textContent =
+        'Authorization successful';
+
+
+    connectionDescription.innerHTML = `
+
+        <strong>
+            ✓ Your TikTok account is connected.
+        </strong>
+
+        <br><br>
+
+        Brain Africa Labs can now continue
+        to the publishing review.
+
+    `;
+
+
+    /*
+     * Show success status.
+     */
+
+    showStatus(
+        'success',
+        'TikTok account successfully connected.'
     );
 
-}
 
+    /*
+     * Build connected account card.
+     */
 
-/* =========================================================
-   FILE UPLOAD
-========================================================= */
-
-fileInput.addEventListener(
-    'change',
-    async function() {
-
-        const file =
-            fileInput.files?.[0];
-
-        if (!file) {
-
-            return;
-
-        }
-
-
-        try {
-
-            await uploadFile(file);
-
-        } catch (error) {
-
-            console.error(error);
-
-        }
-
-    }
-);
-
-
-async function uploadFile(file) {
-
-    if (
-        !file.name
-            .toLowerCase()
-            .endsWith('.mp4')
-    ) {
-
-        showStatus(
-            'error',
-            'Only MP4 videos are accepted.'
-        );
-
-        fileInput.value = '';
-
-        return;
-
-    }
-
-
-    if (file.size > MAX_FILE_SIZE) {
-
-        showStatus(
-            'error',
-            `File too large. Supabase Free allows a maximum of 50 MB. Current file: ${formatBytes(file.size)}.`
-        );
-
-        fileInput.value = '';
-
-        return;
-
-    }
-
-
-    if (
-        !SUPABASE_URL ||
-        !SUPABASE_ANON_KEY
-    ) {
-
-        showStatus(
-            'error',
-            'Supabase configuration is missing in env.js.'
-        );
-
-        return;
-
-    }
-
-
-    const cleanName =
-        file.name
-            .replace(/[^\w.\-() ]+/g, '_')
-            .trim();
-
-
-    const storagePath =
-        `${STORAGE_FOLDER}/${cleanName}`;
-
-
-    const existing =
-        videos.some(
-            item =>
-                getStoragePath(item) ===
-                storagePath
-        );
-
-
-    if (existing) {
-
-        const overwrite =
-            window.confirm(
-                `${cleanName} already exists in Supabase.\n\nReplace it?`
-            );
-
-        if (!overwrite) {
-
-            return;
-
-        }
-
-    }
-
-
-    progressWrapper.style.display =
+    connectedAccountCard.style.display =
         'block';
 
-    progressBar.style.width =
-        '0%';
 
-    progressPercent.textContent =
-        '0%';
+    connectedAccount.innerHTML = `
 
-    progressLabel.textContent =
-        'Uploading...';
+        <div
+            style="
+                padding:20px;
+                border:1px solid rgba(255,255,255,.10);
+                border-radius:14px;
+                display:flex;
+                align-items:center;
+                gap:16px;
+            "
+        >
 
+            <div
+                style="
+                    width:52px;
+                    height:52px;
+                    border-radius:50%;
+                    background:#111827;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:24px;
+                    flex-shrink:0;
+                "
+            >
+                ♪
+            </div>
+
+
+            <div>
+
+                <strong>
+                    ${escapeHtml(
+                        displayName
+                    )}
+                </strong>
+
+
+                ${
+                    username
+                        ? `
+                            <p
+                                class="muted"
+                                style="
+                                    margin:4px 0 0;
+                                "
+                            >
+                                @${escapeHtml(
+                                    username
+                                )}
+                            </p>
+                          `
+                        : ''
+                }
+
+
+                ${
+                    accountId
+                        ? `
+                            <p
+                                class="muted"
+                                style="
+                                    margin:4px 0 0;
+                                "
+                            >
+                                Brain Africa account ID:
+                                ${escapeHtml(
+                                    accountId
+                                )}
+                            </p>
+                          `
+                        : ''
+                }
+
+
+                <p
+                    style="
+                        margin:8px 0 0;
+                    "
+                >
+                    ✓ TikTok account connected
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    /*
+     * Update Audit Journey.
+     */
+
+    stepConnected.style.borderColor =
+        'rgba(34,197,94,.7)';
+
+
+    /*
+     * Build Review & Publish URL.
+     */
+
+    const reviewUrl =
+        new URL(
+            'review-publish.html',
+            window.location.href
+        );
+
+
+    if (
+        accountId
+    ) {
+
+        reviewUrl.searchParams.set(
+            'account_id',
+            accountId
+        );
+
+    }
+
+
+    if (
+        openId
+    ) {
+
+        reviewUrl.searchParams.set(
+            'open_id',
+            openId
+        );
+
+    }
+
+
+    reviewUrl.searchParams.set(
+        'tiktok',
+        'connected'
+    );
+
+
+    reviewPublishButton.href =
+        reviewUrl.toString();
+
+
+    /*
+     * Save connection state locally.
+     */
+
+    localStorage.setItem(
+        'brainAfricaTikTokConnected',
+        'true'
+    );
+
+
+    localStorage.setItem(
+        'brainAfricaTikTokAccount',
+        JSON.stringify({
+
+            account_id:
+                accountId,
+
+            open_id:
+                openId,
+
+            account_name:
+                displayName,
+
+            username:
+                username,
+
+            connected_at:
+                new Date().toISOString()
+
+        })
+    );
+
+
+    /*
+     * Remove OAuth parameters from browser URL
+     * after successful processing.
+     *
+     * This prevents the success callback from
+     * being processed again on refresh.
+     */
 
     try {
 
-        await uploadToSupabaseWithProgress(
-            file,
-            storagePath,
-            percent => {
+        const cleanUrl =
+            new URL(
+                window.location.href
+            );
 
-                progressBar.style.width =
-                    `${percent}%`;
 
-                progressPercent.textContent =
-                    `${percent}%`;
+        cleanUrl.searchParams.delete(
+            'tiktok'
+        );
 
-            }
+        cleanUrl.searchParams.delete(
+            'connected'
+        );
+
+        cleanUrl.searchParams.delete(
+            'account_id'
+        );
+
+        cleanUrl.searchParams.delete(
+            'open_id'
+        );
+
+        cleanUrl.searchParams.delete(
+            'display_name'
+        );
+
+        cleanUrl.searchParams.delete(
+            'displayName'
+        );
+
+        cleanUrl.searchParams.delete(
+            'account_name'
+        );
+
+        cleanUrl.searchParams.delete(
+            'accountName'
+        );
+
+        cleanUrl.searchParams.delete(
+            'creator_username'
+        );
+
+        cleanUrl.searchParams.delete(
+            'creatorUsername'
+        );
+
+        cleanUrl.searchParams.delete(
+            'username'
         );
 
 
-        progressBar.style.width =
-            '100%';
-
-        progressPercent.textContent =
-            '100%';
-
-        progressLabel.textContent =
-            'Upload complete';
-
-
-        showStatus(
-            'success',
-            `${cleanName} was uploaded successfully.`
+        window.history.replaceState(
+            {},
+            document.title,
+            cleanUrl.toString()
         );
 
+    } catch {
 
-        const now =
-            new Date().toISOString();
-
-
-        selectedVideo = {
-
-            file_name:
-                cleanName,
-
-            storage_path:
-                storagePath,
-
-            file_type:
-                file.type ||
-                'video/mp4',
-
-            file_size:
-                file.size,
-
-            caption:
-                caption.value.trim(),
-
-            platform:
-                'tiktok',
-
-            selected_at:
-                now,
-
-            uploaded_at:
-                now,
-
-            source:
-                'supabase',
-
-            preview_url:
-                URL.createObjectURL(file)
-
-        };
-
-
-        localStorage.setItem(
-            'brainAfricaTikTokVideo',
-            JSON.stringify(selectedVideo)
-        );
-
-
-        showSelectedPreview(
-            selectedVideo,
-            true
-        );
-
-
-        await loadVideos();
-
-        updateContinueButton();
-
-    } catch (error) {
-
-        console.error(
-            '[TikTok Select] Upload failed:',
-            error
-        );
-
-        progressLabel.textContent =
-            'Upload failed';
-
-        showStatus(
-            'error',
-            `Upload failed: ${error.message}`
-        );
-
-    } finally {
-
-        fileInput.value = '';
+        /*
+         * URL cleanup is optional.
+         * Do nothing if the browser blocks it.
+         */
 
     }
 
-}
 
+    /*
+     * Scroll automatically to the connected account.
+     */
 
-/* =========================================================
-   SUPABASE UPLOAD
-========================================================= */
+    setTimeout(
+        function () {
 
-function uploadToSupabaseWithProgress(
-    file,
-    storagePath,
-    onProgress
-) {
+            connectedAccountCard.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
 
-    return new Promise(
-        function(resolve, reject) {
-
-            const xhr =
-                new XMLHttpRequest();
-
-
-            const encodedPath =
-                storagePath
-                    .split('/')
-                    .map(
-                        encodeURIComponent
-                    )
-                    .join('/');
-
-
-            const url =
-                `${SUPABASE_URL}` +
-                `/storage/v1/object/` +
-                `${SUPABASE_BUCKET}/` +
-                encodedPath;
-
-
-            xhr.open(
-                'POST',
-                url,
-                true
-            );
-
-
-            xhr.setRequestHeader(
-                'apikey',
-                SUPABASE_ANON_KEY
-            );
-
-
-            xhr.setRequestHeader(
-                'Authorization',
-                `Bearer ${SUPABASE_ANON_KEY}`
-            );
-
-
-            xhr.setRequestHeader(
-                'Content-Type',
-                file.type ||
-                'video/mp4'
-            );
-
-
-            xhr.setRequestHeader(
-                'x-upsert',
-                'true'
-            );
-
-
-            xhr.upload.addEventListener(
-                'progress',
-                function(event) {
-
-                    if (
-                        event.lengthComputable
-                    ) {
-
-                        const percent =
-                            Math.round(
-                                (
-                                    event.loaded /
-                                    event.total
-                                ) * 100
-                            );
-
-                        onProgress(percent);
-
-                    }
-
-                }
-            );
-
-
-            xhr.onload =
-                function() {
-
-                    if (
-                        xhr.status >= 200 &&
-                        xhr.status < 300
-                    ) {
-
-                        resolve();
-
-                    } else {
-
-                        let message =
-                            `Supabase HTTP ${xhr.status}`;
-
-                        try {
-
-                            const data =
-                                JSON.parse(
-                                    xhr.responseText
-                                );
-
-                            message =
-                                data.message ||
-                                data.error ||
-                                data.statusCode ||
-                                message;
-
-                        } catch {}
-
-                        reject(
-                            new Error(message)
-                        );
-
-                    }
-
-                };
-
-
-            xhr.onerror =
-                function() {
-
-                    reject(
-                        new Error(
-                            'Network error during Supabase upload.'
-                        )
-                    );
-
-                };
-
-
-            xhr.onabort =
-                function() {
-
-                    reject(
-                        new Error(
-                            'Upload aborted.'
-                        )
-                    );
-
-                };
-
-
-            xhr.send(file);
-
-        }
+        },
+        150
     );
 
 }
 
 
-/* =========================================================
-   EVENTS
-========================================================= */
-
-searchInput.addEventListener(
-    'input',
-    renderVideos
-);
-
-
-refreshButton.addEventListener(
-    'click',
-    loadVideos
-);
-
 
 /* =========================================================
-   INIT
+   STATUS MESSAGE
 ========================================================= */
 
-loadVideos();
+function showStatus(
+    type,
+    message
+) {
 
-updateContinueButton();
+    connectionStatus.style.display =
+        'block';
+
+
+    const isSuccess =
+        type === 'success';
+
+
+    connectionStatus.innerHTML = `
+
+        <div
+            style="
+                padding:14px 16px;
+                border-radius:10px;
+                border:1px solid
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        .10
+                    );
+
+                background:
+                    ${
+                        isSuccess
+                            ? 'rgba(34,197,94,.08)'
+                            : 'rgba(236,29,81,.08)'
+                    };
+
+                ${
+                    isSuccess
+                        ? 'color:#86efac;'
+                        : 'color:#fca5a5;'
+                }
+            "
+        >
+
+            <strong>
+                ${isSuccess ? '✓' : '⚠'}
+            </strong>
+
+            &nbsp;
+
+            ${escapeHtml(
+                message
+            )}
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHtml(
+    value
+) {
+
+    return String(
+        value ?? ''
+    )
+
+        .replace(
+            /&/g,
+            '&amp;'
+        )
+
+        .replace(
+            /</g,
+            '&lt;'
+        )
+
+        .replace(
+            />/g,
+            '&gt;'
+        )
+
+        .replace(
+            /"/g,
+            '&quot;'
+        )
+
+        .replace(
+            /'/g,
+            '&#039;'
+        );
+
+}
+
 
 </script>
 
+
 </body>
+
 </html>
