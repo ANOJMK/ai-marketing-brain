@@ -497,19 +497,22 @@ form.addEventListener('submit', function(event) {
 
     const campaign = {
 
-        name:
-            document.getElementById('campaignName').value.trim(),
+    campaign_id:
+        crypto.randomUUID(),
 
-        objective:
-            document.getElementById('objective').value,
+    name:
+        document.getElementById('campaignName').value.trim(),
 
-        brief:
-            document.getElementById('brief').value.trim(),
+    objective:
+        document.getElementById('objective').value,
 
-        platform:
-            document.getElementById('platform').value
+    brief:
+        document.getElementById('brief').value.trim(),
 
-    };
+    platform:
+        document.getElementById('platform').value
+
+};
 
 
     localStorage.setItem(
