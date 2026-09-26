@@ -2842,6 +2842,9 @@ async function publishToTikTok() {
 
             account_id:
                 account.account_id,
+             campaign_id:
+                campaign?.campaign_id ||
+                null,
 
             file_name:
                 video.file_name,
