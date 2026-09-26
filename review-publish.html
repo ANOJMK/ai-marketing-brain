@@ -2989,7 +2989,9 @@ async function publishToTikTok() {
 
             account_id:
                 account.account_id,
-
+            campaign_id:
+                campaign?.campaign_id ||
+                null,
             account_name:
                 account.account_name ||
                 account.display_name ||
